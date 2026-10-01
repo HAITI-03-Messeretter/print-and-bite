@@ -31,8 +31,7 @@ Apply the kind label together with any triage label (see `docs/agents/triage-lab
 
 ### Working an issue
 
-- **Branch**: `<prefix>/<issue-number>-<short-slug>`, lowercase, words joined by hyphens. Prefixes and examples are in `CONTRIBUTING.md`.
-- **Pull request**: fill in `.github/PULL_REQUEST_TEMPLATE.md` and link the issue with `Closes #<n>`. At least one other developer reviews before merge; merges are squash merges.
+The branch name carries the issue number and the PR links it with `Closes #<n>`; the full flow is in `CONTRIBUTING.md`.
 
 ## Pull requests as a triage surface
 

@@ -4,9 +4,7 @@ Dieses Repository wird gemeinsam im Rahmen des Berufsschulprojekts **Print & Bit
 
 ## Workflow
 
-Änderungen werden grundsätzlich über einen eigenen Branch und einen Pull Request eingebracht.
-
-Direkte Änderungen auf `main` sollen vermieden werden.
+Jede Änderung kommt über einen eigenen Branch und einen Pull Request in `main`.
 
 ## Branch-Namen
 
@@ -33,14 +31,9 @@ Branch-Namen werden kleingeschrieben und Wörter mit Bindestrichen getrennt.
 
 ## Pull Requests
 
-Vor dem Erstellen eines Pull Requests:
+Pull Requests werden mit der Vorlage `.github/PULL_REQUEST_TEMPLATE.md` erstellt. Ihre Checkliste ist vor dem Erstellen vollständig abgehakt.
 
-- Änderungen lokal prüfen
-- unnötige Debug-Ausgaben entfernen
-- relevante Änderungen dokumentieren
-- wenn möglich das zugehörige Issue verknüpfen
-
-Beispiel:
+Ein zugehöriges Issue wird im Pull Request verknüpft:
 
 ```text
 Closes #12
@@ -67,8 +60,20 @@ chore: update repository configuration
 Pull Requests werden per **Squash Merge** in `main` übernommen.
 
 Nach erfolgreichem Merge wird der zugehörige Branch gelöscht.
-EOF
 
-git add CONTRIBUTING.md
-git commit -m "docs: add contributing guidelines"
-git push -u origin docs/contributing
+## Beispiel: vom Issue zum Merge
+
+Für ein Issue #12 "Warenkorb":
+
+```bash
+git switch main
+git pull
+git switch -c feat/12-shopping-cart
+# ... Änderungen ...
+git add .
+git commit -m "feat: add shopping cart"
+git push -u origin feat/12-shopping-cart
+gh pr create --fill
+```
+
+Im Pull Request steht `Closes #12`. Nach dem Review wird per Squash Merge übernommen und der Branch danach gelöscht.
