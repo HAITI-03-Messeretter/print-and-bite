@@ -57,10 +57,11 @@
   // Präsentation: Pfeiltasten wechseln zwischen den Mockups (Links mit rel="prev"/"next" in .ds-mockbar).
   document.addEventListener("keydown", function (event) {
     if (event.altKey || event.ctrlKey || event.metaKey) return;
-    if (event.target.closest("input, textarea, select, [contenteditable]")) return;
+    var target = event.target;
+    if (target.closest && target.closest("input, textarea, select, [contenteditable]")) return;
     var rel = event.key === "ArrowRight" ? "next" : event.key === "ArrowLeft" ? "prev" : null;
     if (!rel) return;
     var link = document.querySelector('.ds-mockbar a[rel="' + rel + '"]');
-    if (link) window.location.href = link.href;
+    if (link) link.click();
   });
 })();

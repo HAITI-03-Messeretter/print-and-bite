@@ -14,6 +14,14 @@ Fünf Varianten der Startseite für das Treffen mit der Schülerfirma am 02.10.2
 | `m4-aprikose-editorial.html` | M4 Aprikose Editorial | wärmer verschoben, ruhiges Magazin-Layout, Sie-Form |
 | `m5-filament-labor.html` | M5 Filament-Labor | bewusster Kontrast: dunkel, Limette, technisches Raster |
 
+### Als eine Datei weitergeben
+
+```bash
+python mockups/tools/einzeldatei-bauen.py
+```
+
+Packt alle Seiten mit Schriften, Bildern und Skripten in `dist/PRINT-BITE-Mockups.html` (ca. 6,6 MB, nicht im Repo). Die Datei per Doppelklick öffnen; Links, Pfeiltasten und Zurück-Taste funktionieren wie im Ordner. Gut zum Hochladen auf das TaskCards-Board.
+
 Die Übersicht enthält außerdem Kontrastwerte der Originalfarben, einen Vergleich, einen Entscheidungsbogen (Ergebnis zum Kopieren) und die offenen Fragen an die Schülerfirma.
 
 ## Aufbau
