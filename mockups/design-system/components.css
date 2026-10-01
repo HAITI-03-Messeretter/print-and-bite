@@ -1,0 +1,552 @@
+/*
+  PRINT&BITE Design-System - Komponenten.
+  Jede Komponente liest nur semantische Tokens (tokens.css). Themes passen das Aussehen
+  über Tokens an; seitenspezifisches Layout gehört ins Theme, nicht hierher.
+*/
+
+/* ---------- Icon (Phosphor, inline-SVG mit fill="currentColor") ---------- */
+
+.ds-icon {
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+  fill: currentColor;
+}
+
+/* ---------- Logo (eingefärbte PNG-Exporte aus tools/logo-einfaerben.py) ---------- */
+
+.ds-logo {
+  display: block;
+  height: auto;
+}
+
+.ds-logo--wordmark {
+  width: clamp(9rem, 7rem + 6vw, 12rem);
+}
+
+/* ---------- Button ---------- */
+
+.ds-btn {
+  --btn-bg: var(--color-primary);
+  --btn-fg: var(--color-on-primary);
+  --btn-border-color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55em;
+  padding: var(--btn-pad-y) var(--btn-pad-x);
+  border: var(--btn-border-w) solid var(--btn-border-color);
+  border-radius: var(--radius-btn);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  box-shadow: var(--shadow-btn);
+  font-family: var(--btn-font);
+  font-size: var(--btn-fs);
+  font-weight: var(--btn-weight);
+  letter-spacing: var(--btn-tracking);
+  text-transform: var(--btn-case);
+  line-height: 1.1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.ds-btn:hover {
+  transform: translateY(var(--btn-lift));
+  box-shadow: var(--shadow-btn-hover);
+}
+
+.ds-btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: var(--shadow-btn-active);
+}
+
+.ds-btn .ds-icon {
+  transition: transform var(--dur) var(--ease);
+}
+
+.ds-btn:hover .ds-icon {
+  transform: translateX(3px);
+}
+
+.ds-btn--secondary {
+  --btn-bg: var(--color-secondary);
+  --btn-fg: var(--color-on-secondary);
+  --btn-border-color: var(--color-on-secondary);
+}
+
+.ds-btn--link {
+  --btn-bg: transparent;
+  --btn-fg: var(--color-link);
+  --btn-border-color: transparent;
+  padding-inline: 0;
+  box-shadow: none;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+}
+
+.ds-btn--link:hover,
+.ds-btn--link:active {
+  box-shadow: none;
+}
+
+.ds-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+}
+
+/* ---------- Badge ---------- */
+
+.ds-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.3em 0.8em;
+  border-radius: var(--radius-btn);
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+  font-family: var(--font-accent);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-strong);
+  line-height: 1.2;
+}
+
+/* ---------- Karte ---------- */
+
+.ds-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-card);
+}
+
+.ds-card__media img {
+  width: 100%;
+  aspect-ratio: var(--card-ratio, 4 / 3);
+  object-fit: cover;
+}
+
+.ds-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--card-pad, var(--space-5));
+}
+
+.ds-card__title {
+  font-size: var(--fs-h3);
+}
+
+/* ---------- Bild ---------- */
+
+.ds-media {
+  overflow: hidden;
+  border-radius: var(--radius-img);
+}
+
+.ds-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Platzhalter für fehlende Fotos ---------- */
+
+.ds-placeholder {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: var(--space-3);
+  min-height: 12rem;
+  padding: var(--space-5);
+  border: 2px dashed color-mix(in srgb, var(--color-text) 45%, transparent);
+  border-radius: var(--radius-img);
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+  text-align: center;
+}
+
+.ds-placeholder .ds-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.ds-placeholder figcaption,
+.ds-placeholder__label {
+  max-width: 24ch;
+  font-family: var(--font-accent);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-strong);
+  line-height: 1.35;
+}
+
+/* ---------- Termin ---------- */
+
+.ds-events {
+  display: grid;
+  gap: var(--space-3);
+  padding: 0;
+  list-style: none;
+}
+
+.ds-event {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.ds-event__date {
+  display: grid;
+  place-items: center;
+  min-width: 4.5rem;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-m);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-family: var(--font-accent);
+  line-height: 1;
+  text-align: center;
+}
+
+.ds-event__day {
+  font-size: 1.75rem;
+  font-weight: var(--fw-strong);
+}
+
+.ds-event__month {
+  margin-top: 0.2em;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-strong);
+  text-transform: uppercase;
+}
+
+.ds-event__title {
+  font-size: var(--fs-h3);
+}
+
+.ds-event__meta {
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+}
+
+/* ---------- Hinweis "Schülerunternehmen" ---------- */
+
+.ds-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-m);
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}
+
+.ds-notice .ds-icon {
+  margin-top: 0.1em;
+}
+
+/* ---------- Formularfeld ---------- */
+
+.ds-field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.ds-field label {
+  font-weight: var(--fw-strong);
+}
+
+.ds-field input,
+.ds-field textarea {
+  width: 100%;
+  padding: 0.8em 1em;
+  border: 2px solid var(--color-text-muted);
+  border-radius: var(--radius-input);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.ds-field input:focus-visible,
+.ds-field textarea:focus-visible {
+  border-color: var(--color-focus);
+  outline-offset: 1px;
+}
+
+.ds-field__help {
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+}
+
+/* ---------- Header + Navigation ---------- */
+
+.ds-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: var(--header-bg, var(--color-bg));
+  color: var(--color-text);
+}
+
+.ds-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  min-height: 4.25rem;
+}
+
+.ds-nav ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-nav a {
+  color: inherit;
+  font-family: var(--nav-font, var(--font-body));
+  font-weight: var(--fw-strong);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ds-nav a:hover,
+.ds-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35em;
+}
+
+.ds-lang {
+  display: inline-flex;
+  gap: 0.35em;
+  font-family: var(--font-accent);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-strong);
+}
+
+.ds-lang a {
+  color: inherit;
+  opacity: 0.75;
+  text-decoration: none;
+}
+
+.ds-lang [aria-current="true"] {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+/* Mobiles Menü: <details class="ds-menu"> ohne JavaScript */
+.ds-menu {
+  display: none;
+  position: relative;
+}
+
+.ds-menu > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.55em 0.9em;
+  border: 2px solid currentColor;
+  border-radius: var(--radius-btn);
+  font-weight: var(--fw-strong);
+  list-style: none;
+  cursor: pointer;
+}
+
+.ds-menu > summary::-webkit-details-marker {
+  display: none;
+}
+
+.ds-menu__panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + var(--space-2));
+  display: grid;
+  gap: var(--space-1);
+  min-width: 14rem;
+  margin: 0;
+  padding: var(--space-3);
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-m);
+  background: var(--color-surface);
+  box-shadow: 0 18px 40px -18px color-mix(in srgb, var(--color-text) 45%, transparent);
+  list-style: none;
+}
+
+.ds-menu__panel a {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-s);
+  color: var(--color-text);
+  font-weight: var(--fw-strong);
+  text-decoration: none;
+}
+
+.ds-menu__panel a:hover {
+  background: var(--color-surface-alt);
+}
+
+@media (max-width: 960px) {
+  .ds-nav {
+    display: none;
+  }
+
+  .ds-menu {
+    display: block;
+  }
+}
+
+/* ---------- Footer ---------- */
+
+.ds-footer {
+  background: var(--footer-bg, var(--color-surface-alt));
+  color: var(--footer-fg, var(--color-text));
+  font-size: var(--fs-small);
+}
+
+.ds-footer a {
+  color: inherit;
+}
+
+.ds-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Mini-Quiz ---------- */
+
+.ds-quiz {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.ds-quiz__question {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-display);
+  line-height: 1.2;
+}
+
+.ds-quiz__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.ds-quiz__option {
+  padding: 0.7em 1.2em;
+  border: 2px solid var(--color-text);
+  border-radius: var(--radius-btn);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-weight: var(--fw-strong);
+  cursor: pointer;
+  transition:
+    transform var(--dur) var(--ease),
+    background-color var(--dur) var(--ease);
+}
+
+.ds-quiz__option:hover {
+  transform: translateY(-2px);
+}
+
+.ds-quiz__option[aria-pressed="true"][data-correct="true"] {
+  background: var(--quiz-correct-bg, var(--color-primary));
+  color: var(--quiz-correct-fg, var(--color-on-primary));
+  border-color: var(--quiz-correct-bg, var(--color-primary));
+}
+
+.ds-quiz__option[aria-pressed="true"][data-correct="false"] {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.ds-quiz__feedback {
+  font-weight: var(--fw-strong);
+}
+
+/* ---------- Scroll-Reveal (nur mit JS, siehe mockup.js) ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+    transition:
+      opacity 0.8s var(--ease),
+      transform 0.8s var(--ease);
+    transition-delay: calc(var(--reveal-index, 0) * 90ms);
+  }
+
+  .js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Mockup-Leiste (Präsentationshilfe, nicht Teil des Designs) ---------- */
+
+.ds-mockbar {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: var(--z-mockbar);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border-radius: 999px;
+  background: rgb(24 22 22 / 0.88);
+  color: #f4f2ef;
+  font: 600 12px/1 system-ui, sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.5);
+  backdrop-filter: blur(8px);
+}
+
+.ds-mockbar a,
+.ds-mockbar span {
+  padding: 7px 10px;
+  border-radius: 999px;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ds-mockbar a:hover {
+  background: rgb(255 255 255 / 0.14);
+}
+
+.ds-mockbar span {
+  opacity: 0.8;
+}
+
+@media print {
+  .ds-mockbar {
+    display: none;
+  }
+}

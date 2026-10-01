@@ -1,0 +1,101 @@
+/*
+  PRINT&BITE Design-System - Token-Vertrag
+
+  Drei Ebenen:
+    1. Palette      Rohfarben eines Themes (--pal-*). Nur im Theme benutzt.
+    2. Semantik     Was eine Farbe/Form bedeutet (--color-*, --font-*, --radius-* ...).
+                    Komponenten lesen AUSSCHLIESSLICH diese Ebene.
+    3. Komponenten  components.css (ds-btn, ds-card, ds-event ...).
+
+  Ein Theme (themes/*.css) setzt Ebene 1 und 2 neu. Wer z. B. alle Buttons eckig
+  haben will, ändert nur --radius-btn - keine Komponente muss angefasst werden.
+
+  Die Werte hier sind neutrale Defaults, damit eine Seite auch ohne Theme lesbar ist.
+*/
+:root {
+  /* ---------- Farben (semantisch) ---------- */
+  --color-bg: #faf9f7;              /* Seitenhintergrund */
+  --color-surface: #ffffff;         /* Karten, Panels */
+  --color-surface-alt: #efece8;     /* abgesetzte Flächen, Platzhalter */
+  --color-text: #1f1c1b;            /* Fließtext, min. 4.5:1 auf bg und surface */
+  --color-text-muted: #57524e;      /* Nebentext, min. 4.5:1 auf bg */
+  --color-heading: var(--color-text);
+  --color-primary: #1f1c1b;         /* Hauptaktion (Primär-Button) */
+  --color-on-primary: #faf9f7;      /* Text auf primary, min. 4.5:1 */
+  --color-secondary: transparent;   /* Zweitaktion */
+  --color-on-secondary: var(--color-text);
+  --color-accent: #c66974;          /* Akzent: Deko, Hervorhebung, nie als Fließtextfarbe */
+  --color-on-accent: #1f1c1b;
+  --color-link: var(--color-text);
+  --color-border: #1f1c1b;
+  --color-focus: #1f1c1b;           /* Fokusring, min. 3:1 zum Hintergrund */
+  --color-logo: #1e1a1a;            /* Logo-Farbe (siehe tools/logo-einfaerben.py) */
+
+  /* ---------- Typografie ---------- */
+  --font-display: system-ui, sans-serif;  /* Überschriften */
+  --font-body: system-ui, sans-serif;     /* Fließtext */
+  --font-accent: var(--font-body);        /* Akzent: Labels, Datum, Zitate */
+  --fw-display: 700;
+  --fw-body: 400;
+  --fw-strong: 700;
+  --fs-display: clamp(2.6rem, 1.7rem + 4vw, 4.75rem);
+  --fs-h2: clamp(2rem, 1.45rem + 2.2vw, 3.25rem);
+  --fs-h3: clamp(1.25rem, 1.1rem + 0.6vw, 1.6rem);
+  --fs-lead: clamp(1.1rem, 1.02rem + 0.35vw, 1.3rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.875rem;
+  --lh-tight: 1.08;
+  --lh-body: 1.6;
+  --tracking-display: -0.01em;
+  --case-display: none;             /* none | uppercase */
+  --measure: 62ch;                  /* max. Zeilenlänge Fließtext */
+
+  /* ---------- Form ---------- */
+  --radius-s: 6px;
+  --radius-m: 12px;
+  --radius-l: 24px;
+  --radius-card: var(--radius-l);
+  --radius-img: var(--radius-l);
+  --radius-btn: 999px;              /* 0 = eckig, 12px = weich, 999px = Pille */
+  --radius-input: var(--radius-m);
+  --border-w: 0px;                  /* Konturstärke von Karten */
+
+  /* ---------- Tiefe ---------- */
+  --shadow-card: none;
+  --shadow-btn: none;
+  --shadow-btn-hover: none;
+  --shadow-btn-active: none;
+
+  /* ---------- Buttons ---------- */
+  --btn-font: var(--font-body);
+  --btn-weight: 700;
+  --btn-fs: 1rem;
+  --btn-case: none;
+  --btn-tracking: 0;
+  --btn-pad-y: 0.9em;
+  --btn-pad-x: 1.55em;
+  --btn-border-w: 2px;
+  --btn-lift: -2px;                 /* Hover-Anhebung */
+
+  /* ---------- Raum ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --section-y: clamp(4rem, 2.8rem + 5vw, 7.5rem);
+  --container: 1240px;
+  --gutter: clamp(1rem, 0.4rem + 2.6vw, 2.5rem);
+
+  /* ---------- Bewegung ---------- */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur: 0.35s;
+  --reveal-distance: 24px;
+
+  /* ---------- Ebenen ---------- */
+  --z-header: 20;
+  --z-mockbar: 40;
+}

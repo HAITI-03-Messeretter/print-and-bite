@@ -1,0 +1,1049 @@
+/*
+  M1 Original - die Vorgaben der Schülerfirma 1:1.
+
+  Farben exakt vom Board (Marzipan, Dull Pink, Dusty Rose, Schrift schwarz),
+  Schriften in den gewählten Rollen (Stay Retro -> Leckerli One, Pacifico, League Spartan),
+  Layout nach dem Wireframe. Einzige bewusste Abweichung vom Board: Text ist immer Off-Black,
+  nie farbig auf farbigem Grund (siehe Expertenmeinung "nicht kontrastreich genug").
+
+  Formregel (Shape Lock):
+    Buttons        Pille (999px), 2px Off-Black-Kontur
+    Karten         28px weich, ohne Schatten, Dull Pink oder Marzipan
+    Wireframe-     3px Off-Black-Strich mit unregelmäßigen, "handgezeichneten" Radien
+    Rahmen         (Logo-Box, Zickzack-Zeilen, Termin-Box, Messe, Lageplan)
+
+  Kontrast (WCAG, nachgerechnet):
+    Off-Black auf Marzipan     12.68:1
+    Off-Black auf Dull Pink     6.79:1
+    Off-Black auf Dusty Rose    4.66:1  (Primär-Button, Nachhaltigkeits-Band)
+    Off-Black auf Mischfläche   9.63:1  (Marzipan 55 % + Dull Pink)
+*/
+
+/* ---------- 1. Palette (einziger Ort mit Hex-Werten) ---------- */
+:root {
+  --pal-marzipan: #f4db9a;
+  --pal-dull-pink: #dd8c96;
+  --pal-dusty-rose: #c66974;
+  --pal-black: #1e1a1a;
+}
+
+/* ---------- 2. Semantische Tokens ---------- */
+:root {
+  --color-bg: var(--pal-marzipan);
+  --color-surface: var(--pal-dull-pink);
+  --color-surface-alt: color-mix(in srgb, var(--pal-marzipan) 55%, var(--pal-dull-pink));
+  --color-text: var(--pal-black);
+  --color-text-muted: var(--pal-black);
+  --color-heading: var(--pal-black);
+  --color-primary: var(--pal-dusty-rose);
+  --color-on-primary: var(--pal-black);
+  --color-secondary: transparent;
+  --color-on-secondary: var(--pal-black);
+  --color-accent: var(--pal-dusty-rose);
+  --color-on-accent: var(--pal-black);
+  --color-link: var(--pal-black);
+  --color-border: var(--pal-black);
+  --color-focus: var(--pal-black);
+  --color-logo: var(--pal-black);
+
+  /* Typografie: Rollen wie auf dem Board */
+  --font-display: "Leckerli One", "Lobster", cursive;
+  --font-body: "Pacifico", cursive;
+  --font-accent: "League Spartan", system-ui, sans-serif;
+  --fw-display: 400;
+  --fw-body: 400;
+  --fw-strong: 700;
+  --fs-display: clamp(2.3rem, 1.45rem + 3.1vw, 3.6rem);
+  --fs-h2: clamp(1.95rem, 1.45rem + 1.9vw, 2.85rem);
+  --fs-h3: clamp(1.35rem, 1.2rem + 0.55vw, 1.7rem);
+  --fs-lead: clamp(1.15rem, 1.06rem + 0.35vw, 1.32rem);
+  --fs-body: 1.175rem;
+  --fs-small: 1rem;
+  --lh-tight: 1.16;
+  --lh-body: 1.85;
+  --tracking-display: 0;
+  --case-display: none;
+  --measure: 36ch;
+
+  /* Form */
+  --radius-s: 10px;
+  --radius-m: 18px;
+  --radius-l: 28px;
+  --radius-card: 28px;
+  --radius-img: 28px;
+  --radius-btn: 999px;
+  --radius-input: 14px;
+  --border-w: 0px;
+
+  /* Tiefe: keine Schatten, nur ein harter Sticker-Versatz beim Hover */
+  --shadow-card: none;
+  --shadow-btn: none;
+  --shadow-btn-hover: 0 4px 0 0 var(--pal-black);
+  --shadow-btn-active: none;
+
+  /* Buttons: League Spartan als Akzent */
+  --btn-font: var(--font-accent);
+  --btn-weight: 700;
+  --btn-fs: 1.02rem;
+  --btn-case: uppercase;
+  --btn-tracking: 0.06em;
+  --btn-pad-y: 0.95em;
+  --btn-pad-x: 1.7em;
+  --btn-border-w: 2px;
+  --btn-lift: -3px;
+
+  /* Raum */
+  --section-y: clamp(3.25rem, 2.2rem + 4vw, 6rem);
+  --container: 1180px;
+
+  /* Komponenten-Hooks */
+  --header-bg: var(--pal-marzipan);
+  --nav-font: var(--font-accent);
+  --footer-bg: var(--pal-dull-pink);
+  --footer-fg: var(--pal-black);
+  --quiz-correct-bg: var(--pal-dusty-rose);
+  --quiz-correct-fg: var(--pal-black);
+
+  /* Theme-eigene Tokens */
+  --m1-stroke: 3px;
+  --m1-band-bg: var(--pal-dusty-rose);
+  --m1-spark-ink: var(--pal-black);
+  --m1-spark-rose: var(--pal-dusty-rose);
+  --m1-sketch-radius: 10px 18px 12px 22px / 18px 10px 22px 12px;
+}
+
+/* ---------- 3. Grundtypografie ---------- */
+
+.theme-m1 {
+  /* Pacifico und Leckerli One haben nur einen Schnitt: kein künstliches Fett/Kursiv */
+  font-synthesis: none;
+}
+
+.theme-m1 h1,
+.theme-m1 h2,
+.theme-m1 h3 {
+  padding-bottom: 0.06em; /* Unterlängen der Script-Schrift nicht abschneiden */
+}
+
+.theme-m1 .m1-label {
+  font-family: var(--font-accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.m1-nowrap {
+  white-space: nowrap;
+}
+
+.theme-m1 .ds-badge {
+  padding: 0.4em 0.95em 0.3em;
+  border: 2px solid var(--color-border);
+  background: var(--color-bg);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- 4. Komponenten-Feinschliff ---------- */
+
+.theme-m1 .ds-btn {
+  --btn-border-color: var(--color-border);
+  padding-block: 1em 0.85em; /* League Spartan sitzt optisch tief */
+}
+
+.theme-m1 .ds-btn .ds-icon {
+  width: 1.1em;
+  height: 1.1em;
+  margin-top: -0.15em;
+}
+
+.theme-m1 .ds-btn--secondary {
+  --btn-fg: var(--color-text);
+}
+
+.theme-m1 .ds-btn--secondary:hover {
+  --btn-bg: color-mix(in srgb, var(--pal-dull-pink) 45%, transparent);
+}
+
+.theme-m1 .ds-btn--link {
+  --btn-border-color: transparent;
+  padding-block: 0.4em 0.25em;
+}
+
+.theme-m1 .ds-btn--link:hover {
+  transform: none;
+}
+
+.theme-m1 .ds-nav ul {
+  gap: clamp(1.1rem, 0.4rem + 1.5vw, 2rem);
+}
+
+.theme-m1 .ds-nav a {
+  font-size: 0.98rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.theme-m1 .ds-lang {
+  align-items: center;
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+}
+
+.theme-m1 .ds-menu > summary {
+  font-family: var(--font-accent);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.6em 1em 0.5em;
+}
+
+.theme-m1 .ds-menu__panel {
+  border: var(--m1-stroke) solid var(--color-border);
+  border-radius: var(--m1-sketch-radius);
+  background: var(--color-bg);
+  box-shadow: none;
+}
+
+.theme-m1 .ds-menu__panel a {
+  font-family: var(--font-accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.theme-m1 .ds-menu__panel a:hover {
+  background: var(--color-surface);
+}
+
+.theme-m1 .ds-notice {
+  border: 2px solid var(--color-border);
+  background: var(--color-surface-alt);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.theme-m1 .ds-notice .ds-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-top: 0.3em;
+}
+
+.theme-m1 .ds-placeholder {
+  border-color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+
+.theme-m1 .ds-placeholder figcaption {
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.theme-m1 .ds-card__title {
+  font-size: clamp(1.4rem, 1.25rem + 0.5vw, 1.75rem);
+}
+
+.theme-m1 .ds-card__body p {
+  font-size: 1.06rem;
+  line-height: 1.8;
+}
+
+.theme-m1 .ds-event__date {
+  min-width: 4.75rem;
+  padding: 0.65rem 0.6rem 0.5rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-m);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.theme-m1 .ds-event__day {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.theme-m1 .ds-event__day--word {
+  font-size: 1.15rem;
+}
+
+.theme-m1 .ds-event__month {
+  letter-spacing: 0.08em;
+}
+
+.theme-m1 .ds-event__title {
+  font-family: var(--font-display);
+  font-size: 1.32rem;
+  line-height: 1.25;
+}
+
+.theme-m1 .ds-event__meta {
+  margin-top: 0.2rem;
+  font-family: var(--font-accent);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.theme-m1 .ds-quiz__question {
+  font-size: clamp(1.3rem, 1.15rem + 0.5vw, 1.6rem);
+  line-height: 1.3;
+}
+
+.theme-m1 .ds-quiz__option {
+  padding: 0.85em 1.1em 0.7em;
+  background: var(--color-bg);
+  font-family: var(--font-accent);
+  font-size: 1rem;
+}
+
+.theme-m1 .ds-quiz__feedback {
+  font-size: 1.05rem;
+}
+
+/* ---------- 5. Sparkles (Phosphor sparkle / star-four, rein dekorativ) ---------- */
+
+.m1-spark {
+  position: absolute;
+  left: calc(50% + var(--dx, 0px) * var(--k, 1));
+  top: calc(var(--y, 0px) * var(--ky, 1));
+  width: calc(var(--s, 2rem) * var(--ks, 1));
+  height: calc(var(--s, 2rem) * var(--ks, 1));
+  rotate: var(--r, 0deg);
+  pointer-events: none;
+}
+
+.m1-spark .ds-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.m1-spark--ink {
+  color: var(--m1-spark-ink);
+}
+
+.m1-spark--rose {
+  color: var(--m1-spark-rose);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .m1-spark--twinkle .ds-icon {
+    animation: m1-twinkle 3.8s var(--ease) infinite alternate;
+    animation-delay: var(--delay, 0s);
+  }
+}
+
+@keyframes m1-twinkle {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+
+  to {
+    transform: scale(0.8) rotate(9deg);
+  }
+}
+
+/* ---------- 6. Header ---------- */
+
+.m1-header {
+  border-bottom: var(--m1-stroke) solid var(--color-border);
+}
+
+.m1-header .ds-header__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  min-height: 4.5rem;
+}
+
+.m1-header__brand {
+  justify-self: start;
+  display: block;
+}
+
+.m1-header__brand .ds-logo--wordmark {
+  width: 9.5rem;
+}
+
+.m1-header__tools {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* Der Schriftzug im Header erscheint erst, wenn die Logo-Box aus dem Bild gescrollt ist
+   (CSS scroll-driven animation, ohne JS). Ohne Unterstützung bleibt er einfach sichtbar. */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .m1-header__brand {
+      animation: m1-brand-in linear both;
+      animation-timeline: scroll(root);
+      animation-range: 260px 400px;
+    }
+  }
+}
+
+@keyframes m1-brand-in {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+}
+
+@media (max-width: 960px) {
+  .m1-header .ds-header__inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .m1-header__brand .ds-logo--wordmark {
+    width: min(8rem, 100%);
+  }
+}
+
+/* ---------- 7. Hero: Logo-Box wie im Wireframe ---------- */
+
+.m1-hero {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  padding: 0 var(--gutter) clamp(2.25rem, 1.5rem + 2.5vw, 3.5rem);
+  overflow: clip;
+  text-align: center;
+}
+
+.m1-hero__sparks {
+  position: absolute;
+  inset: 0;
+}
+
+/* Box "hängt" an der Header-Linie: Kontur links, rechts, unten - oben offen wie in der Skizze */
+.m1-logobox {
+  position: relative;
+  padding: clamp(0.9rem, 0.6rem + 1vw, 1.4rem) clamp(1.4rem, 0.8rem + 2vw, 2.4rem) clamp(1rem, 0.7rem + 1vw, 1.5rem);
+  border: var(--m1-stroke) solid var(--color-border);
+  border-top: 0;
+  border-radius: 0 0 30px 38px / 0 0 34px 24px;
+  background: var(--color-surface);
+}
+
+.m1-logobox__logo {
+  width: clamp(10.5rem, 7.4rem + 9vw, 16rem);
+}
+
+.m1-hero__title {
+  max-width: 17em;
+  margin-top: clamp(1.5rem, 1rem + 1.4vw, 2.1rem);
+}
+
+.m1-hero__lead {
+  max-width: 36rem;
+  text-wrap: balance;
+  margin-top: var(--space-4);
+  line-height: 1.8;
+}
+
+.m1-hero__actions {
+  justify-content: center;
+  margin-top: clamp(1.4rem, 1rem + 1vw, 1.9rem);
+}
+
+.m1-notice {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+/* ---------- 8. Zickzack: Zeile 1 Bite, Zeile 2 Print ---------- */
+
+.m1-zigzag {
+  position: relative;
+  padding-block: var(--section-y) calc(var(--section-y) * 0.55);
+}
+
+.m1-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+}
+
+.m1-row__text h2 {
+  font-size: var(--fs-h2);
+}
+
+.m1-row__text p {
+  max-width: 34ch;
+  margin-top: var(--space-4);
+}
+
+/* Pizzaschnecken-Platzhalter: Rechteck mit unregelmäßig gerundeten Ecken */
+.theme-m1 .m1-shape-snack {
+  min-height: clamp(15rem, 10rem + 12vw, 22rem);
+  border: var(--m1-stroke) solid var(--color-border);
+  border-radius: 18px 64px 18px 72px / 18px 40px 30px 60px;
+  background: var(--color-surface);
+}
+
+.m1-shape-snack .ds-icon {
+  width: clamp(3.5rem, 2.8rem + 2vw, 5rem);
+  height: clamp(3.5rem, 2.8rem + 2vw, 5rem);
+}
+
+/* Offene Text-Rahmen wie die Striche im Wireframe */
+.m1-frame-l {
+  padding: var(--space-4) var(--space-5) var(--space-6) clamp(1.25rem, 0.8rem + 1.4vw, 2.25rem);
+  border-left: var(--m1-stroke) solid var(--color-border);
+  border-bottom: var(--m1-stroke) solid var(--color-border);
+  border-bottom-left-radius: 34px 30px;
+}
+
+.m1-frame-r {
+  justify-self: end;
+  padding: var(--space-6) clamp(1.25rem, 0.8rem + 1.6vw, 2.5rem) var(--space-6) var(--space-2);
+  border-top: var(--m1-stroke) solid var(--color-border);
+  border-right: var(--m1-stroke) solid var(--color-border);
+  border-bottom: var(--m1-stroke) solid var(--color-border);
+  border-radius: 0 44px 28px 0 / 0 36px 32px 0;
+}
+
+/* 3D-Druck-Foto in organischer Blob-Form (8 Radien) */
+.m1-blob {
+  aspect-ratio: 5 / 4;
+  border: var(--m1-stroke) solid var(--color-border);
+  border-radius: 46% 54% 38% 62% / 55% 38% 62% 45%;
+  background: var(--color-surface);
+}
+
+.m1-blob img {
+  object-position: 50% 42%;
+}
+
+.m1-row-gap {
+  position: relative;
+  height: clamp(3rem, 2rem + 4vw, 6rem);
+}
+
+/* ---------- 9. Box "Ort und Datum vom Stand" ---------- */
+
+.m1-termine {
+  padding-top: calc(var(--section-y) * 0.6);
+}
+
+.m1-datebox {
+  position: relative;
+  max-width: 58rem;
+  margin-inline: auto;
+  padding: clamp(2rem, 1.4rem + 2.4vw, 3.5rem) clamp(1.25rem, 0.5rem + 3.4vw, 3.75rem);
+  border: var(--m1-stroke) solid var(--color-border);
+  border-radius: var(--m1-sketch-radius);
+  background: var(--color-surface);
+  text-align: center;
+}
+
+.m1-datebox__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3) var(--space-4);
+}
+
+.m1-next {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+.m1-next__date {
+  font-family: var(--font-accent);
+  font-size: clamp(2.3rem, 1.5rem + 3vw, 3.9rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  padding-top: var(--space-2);
+}
+
+.m1-next__title {
+  font-size: var(--fs-h3);
+}
+
+.m1-next__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2) var(--space-5);
+  margin-top: var(--space-1);
+  font-family: var(--font-accent);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.m1-next__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.m1-more {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 2px dashed color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+
+.m1-events {
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5) var(--space-6);
+  margin-top: var(--space-5);
+  text-align: left;
+}
+
+.m1-datebox__foot {
+  margin-top: var(--space-6);
+}
+
+/* ---------- 10. Produktreihe (Bento, 4 Zellen für 4 Produkte) ---------- */
+
+.m1-sortiment {
+  padding-top: calc(var(--section-y) * 0.5);
+}
+
+.m1-section-head {
+  max-width: 40rem;
+  margin: 0 auto var(--space-7);
+  text-align: center;
+}
+
+.m1-section-head p {
+  margin-top: var(--space-3);
+}
+
+.m1-bento {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  gap: clamp(1rem, 0.6rem + 1.2vw, 1.5rem);
+}
+
+.m1-bento .ds-card {
+  border-radius: var(--radius-card);
+}
+
+.m1-bento__item--tall {
+  grid-row: span 2;
+}
+
+.m1-bento__item--tall .ds-card__media {
+  position: relative;
+  flex: 1;
+  min-height: 20rem;
+}
+
+.m1-bento__item--tall .ds-card__media img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  aspect-ratio: auto;
+  object-position: 50% 30%;
+}
+
+.m1-bento__item--wide {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+}
+
+.m1-bento__item--wide .ds-placeholder {
+  height: calc(100% - 2 * var(--space-4));
+  min-height: 11rem;
+  margin: var(--space-4) 0 var(--space-4) var(--space-4);
+  border-radius: calc(var(--radius-card) - 8px);
+  background: var(--color-bg);
+}
+
+.m1-section-foot {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-6);
+}
+
+/* ---------- 11. Nachhaltigkeit + Quiz als Band ---------- */
+
+.m1-band {
+  position: relative;
+  padding-block: calc(var(--section-y) * 0.85);
+  border-block: var(--m1-stroke) solid var(--color-border);
+  background: var(--m1-band-bg);
+}
+
+.m1-band__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+}
+
+.m1-band__icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: var(--space-4);
+}
+
+.m1-band__text p {
+  max-width: 34ch;
+  margin-top: var(--space-4);
+}
+
+.m1-quizcard {
+  display: grid;
+  gap: var(--space-5);
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  border: var(--m1-stroke) solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-bg);
+}
+
+.m1-quizcard__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.m1-quizcard__head h3 {
+  font-size: var(--fs-h3);
+}
+
+.m1-quizcard .ds-btn--link {
+  justify-self: start;
+}
+
+/* ---------- 12. Messe + Über uns ---------- */
+
+.m1-duo {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  padding-bottom: 0;
+  align-items: stretch;
+  gap: clamp(1rem, 0.6rem + 1.4vw, 1.75rem);
+}
+
+.m1-duo .ds-card__body {
+  gap: var(--space-3);
+  padding: clamp(1.5rem, 1rem + 1.8vw, 2.5rem);
+}
+
+.m1-duo .ds-card__body h2 {
+  font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.3rem);
+}
+
+.m1-duo .ds-btn--link {
+  align-self: start;
+  margin-top: auto;
+}
+
+.m1-duo__card--messe {
+  border: var(--m1-stroke) solid var(--color-border);
+  border-radius: 14px 40px 18px 34px / 30px 16px 36px 14px;
+  background: var(--color-bg);
+}
+
+.m1-duo__icon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: var(--space-2);
+}
+
+.m1-duo__card--team {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+}
+
+.m1-duo__card--team .ds-placeholder {
+  min-height: 16rem;
+  margin: var(--space-4) 0 var(--space-4) var(--space-4);
+  border-radius: calc(var(--radius-card) - 8px);
+  background: var(--color-bg);
+}
+
+/* ---------- 13. Archiv: drei Polaroids ---------- */
+
+.m1-archiv__inner {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.75fr) 2fr;
+  align-items: center;
+  gap: clamp(2rem, 1rem + 3vw, 4rem);
+}
+
+.m1-archiv__text p {
+  max-width: 24ch;
+  margin-top: var(--space-3);
+}
+
+.m1-archiv__text .ds-btn {
+  margin-top: var(--space-5);
+}
+
+.m1-polaroids {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 0.5rem + 1.4vw, 1.75rem);
+  margin: 0;
+  padding: var(--space-4) 0;
+  list-style: none;
+}
+
+.m1-polaroid {
+  padding: 0.7rem 0.7rem 1.6rem;
+  border-radius: var(--radius-m);
+  background: var(--color-surface);
+  rotate: var(--tilt, 0deg);
+  transition: rotate var(--dur) var(--ease), translate var(--dur) var(--ease);
+}
+
+.m1-polaroid:hover {
+  rotate: 0deg;
+  translate: 0 -4px;
+}
+
+.m1-polaroid .ds-placeholder {
+  aspect-ratio: 4 / 5;
+  min-height: 0;
+  padding: var(--space-4);
+  border-radius: calc(var(--radius-m) - 6px);
+  background: var(--color-bg);
+}
+
+/* ---------- 14. Kontakt + Lageplan ---------- */
+
+.m1-kontakt__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: start;
+  gap: clamp(2rem, 1rem + 3vw, 4rem);
+}
+
+.m1-kontakt .ds-card__body {
+  gap: var(--space-4);
+  padding: clamp(1.5rem, 1rem + 2vw, 2.75rem);
+}
+
+.m1-contact {
+  display: grid;
+  gap: var(--space-4);
+  margin: var(--space-2) 0 0;
+}
+
+.m1-contact div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.m1-contact dt {
+  font-family: var(--font-accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.m1-contact dd {
+  margin: 0;
+}
+
+.m1-contact a {
+  text-decoration-thickness: 2px;
+}
+
+.m1-kontakt {
+  padding-top: calc(var(--section-y) * 0.4);
+}
+
+.m1-kontakt .ds-card__body .ds-btn {
+  align-self: flex-start;
+  margin-top: var(--space-3);
+}
+
+.m1-kontakt__map {
+  display: grid;
+  gap: var(--space-4);
+  padding-top: var(--space-5);
+}
+
+.m1-kontakt__map address {
+  font-style: normal;
+}
+
+.m1-kontakt__map .ds-btn--link {
+  justify-self: start;
+}
+
+.m1-shape-map {
+  min-height: clamp(14rem, 10rem + 8vw, 19rem);
+  border-width: var(--m1-stroke);
+  border-radius: 64px 18px 72px 18px / 40px 18px 60px 30px;
+}
+
+.m1-shape-map .ds-icon {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* ---------- 15. Footer ---------- */
+
+.m1-footer {
+  border-top: var(--m1-stroke) solid var(--color-border);
+}
+
+.m1-footer__inner {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: start;
+  gap: var(--space-6);
+  padding-block: var(--space-7) var(--space-8);
+}
+
+.m1-footer__brand p {
+  max-width: 36ch;
+  margin-top: var(--space-4);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.m1-footer .ds-footer__links {
+  justify-content: flex-end;
+  font-family: var(--font-accent);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.m1-footer__copy {
+  grid-column: 1 / -1;
+  padding-top: var(--space-5);
+  border-top: 2px dashed color-mix(in srgb, var(--color-text) 55%, transparent);
+  font-family: var(--font-accent);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* ---------- 16. Responsiv ---------- */
+
+@media (max-width: 1023px) {
+  .m1-bento {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .m1-archiv__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .m1-duo {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .m1-hero {
+    --k: 0.55;
+    --ky: 0.66;
+    --ks: 0.62;
+  }
+
+  .m1-spark--desk {
+    display: none;
+  }
+
+  .m1-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .m1-row--print .m1-blob {
+    order: -1;
+  }
+
+  .m1-frame-r {
+    justify-self: stretch;
+  }
+
+  .m1-events {
+    grid-template-columns: 1fr;
+  }
+
+  .m1-bento {
+    grid-template-columns: 1fr;
+  }
+
+  .m1-bento__item--tall {
+    grid-row: auto;
+  }
+
+  .m1-bento__item--tall .ds-card__media {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .m1-bento__item--wide {
+    grid-column: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .m1-bento__item--wide .ds-placeholder {
+    height: auto;
+    margin: var(--space-4) var(--space-4) 0;
+  }
+
+  .m1-band__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .m1-duo__card--team {
+    grid-template-columns: 1fr;
+  }
+
+  .m1-duo__card--team .ds-placeholder {
+    min-height: 12rem;
+    margin: var(--space-4) var(--space-4) 0;
+  }
+
+  .m1-polaroids {
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-auto-columns: 66%;
+    overflow-x: auto;
+    padding: var(--space-4) var(--space-3) var(--space-5);
+    margin-inline: calc(var(--space-3) * -1);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .m1-polaroid {
+    scroll-snap-align: center;
+  }
+
+  .m1-polaroid .ds-placeholder {
+    aspect-ratio: 1;
+  }
+
+  .m1-kontakt__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .m1-footer__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .m1-footer .ds-footer__links {
+    justify-content: flex-start;
+  }
+}

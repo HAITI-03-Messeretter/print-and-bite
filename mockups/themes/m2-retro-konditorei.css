@@ -1,0 +1,1493 @@
+/*
+  M2 Retro-Konditorei - Theme für PRINT&BITE
+  Botschaft: "Eure Farben, nur lesbar und mit mehr Charakter."
+
+  Gleiche Palette wie die Vorgabe (Marzipan, Dull Pink, Dusty Rose), dazu eine dunkle
+  Ankerfarbe "Himbeer-Schoko" für Headlines, Primär-Buttons und Konturen und Schokobraun
+  für Fließtext. Pink und Rose sind nur Flächen und Deko, nie Textfarbe auf Marzipan.
+
+  Kontrast (WCAG, nachgerechnet):
+    Schoko auf Marzipan-hell 14.06 | auf Marzipan 12.35 | auf Zuckerguss 15.71 | auf Pink 6.61
+    Himbeer auf Marzipan-hell 9.98 | auf Marzipan 8.76 | auf Zuckerguss 11.14 | auf Pink 4.69
+    Kakao (Nebentext) auf Marzipan 8.87 | auf Pink 4.75
+    Button: Marzipan-hell auf Himbeer 9.98 | Himbeer auf Zuckerguss 11.14
+    Fokusring Himbeer: >= 4.69 auf allen hellen Flächen
+
+  Form-Regel (Shape Lock):
+    Interaktiv (Buttons, Quiz-Optionen, Menü): 14px
+    Container (Karten, Rahmen, Bon, Hinweis):   24px
+    Bilder in Rahmen:                            12px
+    Sticker, Badges, Datums-Stempel:             rund
+    Kontur immer 3px Himbeer-Schoko, Schatten immer hart (ohne Unschärfe).
+*/
+
+/* ---------- 1. Palette (einzige Stelle mit Hex-Werten) ---------- */
+:root {
+  --pal-marzipan: #F4DB9A;
+  --pal-marzipan-hell: #FAEAC0;
+  --pal-zuckerguss: #FFF7E2;
+  --pal-dull-pink: #DD8C96;
+  --pal-dusty-rose: #C66974;
+  --pal-himbeer-schoko: #651C31;
+  --pal-schoko: #2E1717;
+  --pal-kakao: #4F2D2A;
+}
+
+/* ---------- 2. Semantische Tokens ---------- */
+:root {
+  --color-bg: var(--pal-marzipan-hell);
+  --color-surface: var(--pal-zuckerguss);
+  --color-surface-alt: var(--pal-marzipan);
+  --color-text: var(--pal-schoko);
+  --color-text-muted: var(--pal-kakao);
+  --color-heading: var(--pal-himbeer-schoko);
+  --color-primary: var(--pal-himbeer-schoko);
+  --color-on-primary: var(--pal-marzipan-hell);
+  --color-secondary: var(--pal-zuckerguss);
+  --color-on-secondary: var(--pal-himbeer-schoko);
+  --color-accent: var(--pal-dull-pink);
+  --color-on-accent: var(--pal-schoko);
+  --color-link: var(--pal-himbeer-schoko);
+  --color-border: var(--pal-himbeer-schoko);
+  --color-focus: var(--pal-himbeer-schoko);
+  --color-logo: var(--pal-himbeer-schoko);
+
+  /* Theme-eigene Rollen (im gemeinsamen Token-Vertrag nicht vorhanden) */
+  --color-hero: var(--pal-marzipan);        /* Hero- und Messe-Fläche */
+  --color-band: var(--pal-dull-pink);       /* pinke Abschnittsflächen: nur Schoko-/Himbeer-Text */
+  --color-deko: var(--pal-dusty-rose);      /* nur Deko (Strahlen, Schatten, Sterne), nie Text */
+  --color-shadow: var(--pal-himbeer-schoko);
+  --font-script: 'Pacifico', 'Brush Script MT', cursive;  /* nur kurze Sticker-Labels */
+
+  /* Typografie */
+  --font-display: 'Shrikhand', Georgia, serif;
+  --font-body: 'League Spartan', system-ui, sans-serif;
+  --font-accent: var(--font-body);
+  --fw-display: 400;                        /* Shrikhand gibt es nur in 400, kein Fake-Bold */
+  --fw-body: 400;
+  --fw-strong: 700;
+  --fs-display: clamp(2.3rem, 1.3rem + 2.6vw, 3.3rem);
+  --fs-h2: clamp(1.95rem, 1.4rem + 1.9vw, 2.9rem);
+  --fs-h3: clamp(1.3rem, 1.18rem + 0.5vw, 1.6rem);
+  --fs-lead: clamp(1.15rem, 1.06rem + 0.35vw, 1.32rem);
+  --fs-body: 1.125rem;
+  --fs-small: 0.98rem;
+  --lh-tight: 1.14;
+  --lh-body: 1.5;
+  --tracking-display: 0;
+  --measure: 56ch;
+
+  /* Form */
+  --radius-s: 8px;
+  --radius-m: 14px;
+  --radius-l: 24px;
+  --radius-card: 24px;
+  --radius-img: 12px;
+  --radius-btn: 14px;
+  --radius-input: 14px;
+  --radius-round: 999px;
+  --border-w: 3px;
+
+  /* Tiefe: harte Versatz-Schatten */
+  --shadow-card: 6px 6px 0 var(--color-shadow);
+  --shadow-btn: 4px 4px 0 var(--color-shadow);
+  --shadow-btn-hover: 7px 7px 0 var(--color-shadow);
+  --shadow-btn-active: 0 0 0 var(--color-shadow);
+  --shadow-btn-primary: 4px 4px 0 var(--color-deko);
+  --shadow-btn-primary-hover: 7px 7px 0 var(--color-deko);
+  --shadow-btn-primary-active: 0 0 0 var(--color-deko);
+
+  /* Buttons */
+  --btn-font: var(--font-body);
+  --btn-weight: 700;
+  --btn-fs: 1.1rem;
+  --btn-case: none;
+  --btn-tracking: 0;
+  --btn-pad-y: 0.8em;
+  --btn-pad-x: 1.35em;
+  --btn-border-w: 3px;
+  --btn-lift: -3px;
+
+  /* Komponenten-Hooks */
+  --header-bg: var(--color-bg);
+  --footer-bg: var(--color-hero);
+  --footer-fg: var(--color-text);
+  --nav-font: var(--font-body);
+  --quiz-correct-bg: var(--color-primary);
+  --quiz-correct-fg: var(--color-on-primary);
+
+  /* Raum + Bewegung */
+  --section-y: clamp(4rem, 2.6rem + 4.6vw, 7rem);
+  --container: 1240px;
+  --reveal-distance: 28px;
+  --scallop: 16px;
+}
+
+/* =====================================================================
+   3. Seitenspezifische Regeln (scoped auf .theme-m2 bzw. Präfix m2-)
+   ===================================================================== */
+
+.theme-m2 main {
+  overflow-x: clip;                         /* gedrehte Bänder dürfen über den Rand ragen */
+}
+
+.theme-m2 h1,
+.theme-m2 h2 {
+  padding-bottom: 0.06em;                   /* Unterlängen von Shrikhand nicht abschneiden */
+}
+
+.theme-m2 .lead {
+  color: var(--color-text);
+}
+
+.theme-m2 p a,
+.theme-m2 address a {
+  color: var(--color-link);
+  font-weight: var(--fw-strong);
+}
+
+/* ---------- Buttons: Sticker mit hartem Schatten ---------- */
+
+.theme-m2 .ds-btn {
+  transition:
+    transform 0.25s var(--ease),
+    box-shadow 0.25s var(--ease),
+    background-color var(--dur) var(--ease);
+}
+
+.theme-m2 .ds-btn:not(.ds-btn--secondary):not(.ds-btn--link) {
+  box-shadow: var(--shadow-btn-primary);
+}
+
+.theme-m2 .ds-btn:hover {
+  transform: translate(var(--btn-lift), var(--btn-lift));
+}
+
+.theme-m2 .ds-btn:not(.ds-btn--secondary):not(.ds-btn--link):hover {
+  box-shadow: var(--shadow-btn-primary-hover);
+}
+
+.theme-m2 .ds-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: var(--shadow-btn-active);
+}
+
+.theme-m2 .ds-btn:not(.ds-btn--secondary):not(.ds-btn--link):active {
+  box-shadow: var(--shadow-btn-primary-active);
+}
+
+.theme-m2 .ds-btn--secondary {
+  --btn-border-color: var(--color-border);
+}
+
+.theme-m2 .ds-btn--link {
+  padding-block: 0.4em;
+  font-size: 1.05rem;
+  text-decoration-thickness: 3px;
+  text-decoration-color: var(--color-deko);
+  text-underline-offset: 0.35em;
+}
+
+.theme-m2 .ds-btn--link:hover {
+  transform: none;
+  text-decoration-color: currentColor;
+}
+
+.theme-m2 .ds-btn--link:active {
+  transform: translateY(1px);
+}
+
+/* ---------- Badges ---------- */
+
+.theme-m2 .ds-badge {
+  align-self: flex-start;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-round);
+  background: var(--color-band);
+  color: var(--color-text);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.theme-m2 .ds-badge .ds-icon {
+  width: 1.05em;
+  height: 1.05em;
+}
+
+/* ---------- Header ---------- */
+
+.theme-m2 .ds-header {
+  border-bottom: var(--border-w) solid var(--color-border);
+}
+
+.theme-m2 .ds-header__inner {
+  min-height: 4.5rem;
+}
+
+.m2-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+}
+
+.m2-brand__badge {
+  display: grid;
+  place-items: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  border: var(--border-w) solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-surface);
+  box-shadow: 3px 3px 0 var(--color-shadow);
+}
+
+.m2-brand__badge img {
+  width: 2.3rem;
+}
+
+.theme-m2 .ds-nav ul {
+  gap: clamp(1rem, 0.2rem + 1.4vw, 1.9rem);
+}
+
+.theme-m2 .ds-nav a {
+  font-size: 1.08rem;
+  font-weight: 600;
+  text-decoration-color: var(--color-deko);
+}
+
+.theme-m2 .ds-nav a:hover {
+  text-decoration-thickness: 3px;
+}
+
+.m2-header__end {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.theme-m2 .ds-lang {
+  font-size: 1rem;
+}
+
+.theme-m2 .ds-menu > summary {
+  border: var(--border-w) solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-heading);
+  box-shadow: 3px 3px 0 var(--color-shadow);
+}
+
+.theme-m2 .ds-menu[open] > summary {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+
+.theme-m2 .ds-menu__panel {
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.theme-m2 .ds-menu__panel a {
+  border-radius: var(--radius-btn);
+}
+
+.theme-m2 .ds-menu__panel a:hover {
+  background: var(--color-band);
+}
+
+/* ---------- Sticker (rund, Pacifico) ---------- */
+
+.m2-sticker {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 8.25rem;
+  aspect-ratio: 1;
+  padding: 1rem;
+  border: var(--border-w) solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-band);
+  color: var(--color-heading);
+  box-shadow: 4px 4px 0 var(--color-shadow);
+  font-family: var(--font-script);
+  font-size: 1.25rem;
+  line-height: 1.2;
+  text-align: center;
+  transform: rotate(-12deg);
+}
+
+.m2-sticker::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 2px dashed var(--color-border);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.m2-sticker--small {
+  width: auto;
+  aspect-ratio: auto;
+  padding: 0.35em 1.1em 0.5em;
+  border-radius: var(--radius-round);
+  font-size: 1.1rem;
+  transform: rotate(-4deg);
+}
+
+.m2-sticker--small::after {
+  inset: 4px;
+  border-radius: var(--radius-round);
+}
+
+.m2-script {
+  font-family: var(--font-script);
+  line-height: 1.3;
+}
+
+/* Deko-Sterne (Phosphor sparkle / star-four) */
+.m2-spark {
+  position: absolute;
+  z-index: 1;
+  color: var(--color-heading);
+  pointer-events: none;
+}
+
+/* ---------- Gewellte Abschnittskante (radial-gradient, keine SVGs) ---------- */
+
+.m2-scallop {
+  position: relative;
+  --scallop-fill: var(--section-fill, var(--color-bg));
+}
+
+.m2-scallop::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: var(--scallop);
+  background:
+    radial-gradient(
+      circle at 50% 100%,
+      var(--scallop-fill) calc(var(--scallop) - 3.5px),
+      var(--color-border) calc(var(--scallop) - 3px) calc(var(--scallop) - 0.5px),
+      transparent var(--scallop)
+    )
+    0 0 / calc(var(--scallop) * 2) var(--scallop) repeat-x;
+  pointer-events: none;
+}
+
+/* =====================================================================
+   Hero
+   ===================================================================== */
+
+.m2-hero {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: min(calc(100dvh - 4.5rem - 3px - 6.5rem), 760px);
+  padding-block: clamp(2.5rem, 1.2rem + 3.4vw, 4.5rem) clamp(2rem, 1rem + 2vw, 3rem);
+  background: var(--color-hero);
+  overflow: hidden;
+}
+
+.m2-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 23rem);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: center;
+}
+
+.m2-hero__copy {
+  position: relative;
+  z-index: 2;
+}
+
+.m2-hero__wordmark {
+  width: clamp(15rem, 9rem + 20vw, 30rem);
+  margin-bottom: clamp(1.25rem, 0.8rem + 1.4vw, 2rem);
+}
+
+.m2-hero h1 {
+  margin-bottom: var(--space-5);
+}
+
+.m2-hero__line {
+  display: block;
+}
+
+.m2-swash {
+  padding-inline: 0.08em;
+  background: linear-gradient(
+    transparent 58%,
+    var(--color-band) 58% 90%,
+    transparent 90%
+  );
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.m2-hero__lead {
+  max-width: 42ch;
+  margin-bottom: var(--space-6);
+}
+
+.m2-hero__visual {
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  margin-block: var(--space-4);
+}
+
+/* 70er-Sonnenstrahlen hinter dem Foto */
+.m2-sun {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 150%;
+  aspect-ratio: 1;
+  border: var(--border-w) solid var(--color-border);
+  border-radius: 50%;
+  background: repeating-conic-gradient(
+    from 0deg,
+    var(--color-band) 0deg 7.5deg,
+    var(--color-bg) 7.5deg 15deg
+  );
+  transform: translate(-50%, -50%);
+}
+
+.m2-frame {
+  position: relative;
+  z-index: 1;
+  padding: 12px;
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: 10px 10px 0 var(--color-shadow);
+}
+
+.m2-frame img {
+  width: 100%;
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-img);
+  object-fit: cover;
+}
+
+.m2-hero__frame {
+  transform: rotate(3deg);
+}
+
+.m2-hero__frame img {
+  aspect-ratio: 4 / 5;
+  object-position: 50% 45%;
+}
+
+.m2-hero__sticker {
+  position: absolute;
+  z-index: 2;
+  top: -1.75rem;
+  left: -2.75rem;
+}
+
+.m2-spark--a {
+  top: -2.2rem;
+  right: -1.5rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+.m2-spark--b {
+  bottom: 2rem;
+  left: -3.25rem;
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-deko);
+}
+
+.m2-spark--c {
+  bottom: -1.75rem;
+  right: 18%;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.m2-spark--d {
+  top: 2.25rem;
+  left: 46%;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--color-deko);
+}
+
+/* ---------- Hinweis Schülerunternehmen ---------- */
+
+.m2-notice-band {
+  position: relative;
+  padding-bottom: clamp(3rem, 2rem + 3vw, 4.5rem);
+  background: var(--color-hero);
+}
+
+.theme-m2 .m2-notice {
+  align-items: center;
+  gap: var(--space-4);
+  max-width: 54rem;
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  font-size: 1.1rem;
+  font-weight: 500;
+  rotate: -0.6deg;
+}
+
+.m2-notice__icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-band);
+  color: var(--color-heading);
+}
+
+.theme-m2 .m2-notice__icon .ds-icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin: 0;
+}
+
+/* =====================================================================
+   Termine: Kassenbon mit perforierter (gezackter) Kante
+   ===================================================================== */
+
+.m2-termine {
+  --section-fill: var(--color-bg);
+  background: var(--color-bg);
+}
+
+.m2-termine__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2.5rem, 1rem + 5vw, 6rem);
+  align-items: center;
+}
+
+.m2-termine__intro {
+  --stack-gap: var(--space-5);
+}
+
+.m2-receipt-area {
+  position: relative;
+  max-width: 36rem;
+  justify-self: center;
+  width: 100%;
+}
+
+/* Kontur + harter Schatten folgen der Zackenform (drop-shadow statt box-shadow) */
+.m2-receipt-wrap {
+  filter:
+    drop-shadow(3px 0 0 var(--color-border))
+    drop-shadow(-3px 0 0 var(--color-border))
+    drop-shadow(0 3px 0 var(--color-border))
+    drop-shadow(0 -3px 0 var(--color-border))
+    drop-shadow(8px 8px 0 var(--color-shadow));
+  transform: rotate(1deg);
+}
+
+.m2-receipt {
+  --zz: 18px;                               /* Breite eines Zackens, Höhe = Hälfte */
+  padding: calc(var(--zz) + var(--space-5)) clamp(1.25rem, 0.6rem + 2.4vw, 2.5rem);
+  background: var(--color-surface);
+  /* Maske: nur Alpha zählt, die Farbe ist egal */
+  -webkit-mask:
+    conic-gradient(from 135deg at top, transparent, var(--color-text) 0.5deg 89.5deg, transparent 90deg) top / var(--zz) 51% repeat-x,
+    conic-gradient(from -45deg at bottom, transparent, var(--color-text) 0.5deg 89.5deg, transparent 90deg) bottom / var(--zz) 51% repeat-x;
+  mask:
+    conic-gradient(from 135deg at top, transparent, var(--color-text) 0.5deg 89.5deg, transparent 90deg) top / var(--zz) 51% repeat-x,
+    conic-gradient(from -45deg at bottom, transparent, var(--color-text) 0.5deg 89.5deg, transparent 90deg) bottom / var(--zz) 51% repeat-x;
+}
+
+.m2-receipt__head {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2);
+  padding-bottom: var(--space-4);
+  border-bottom: var(--border-w) dashed var(--color-border);
+  text-align: center;
+}
+
+.m2-receipt__logo {
+  width: min(13rem, 70%);
+}
+
+.m2-receipt__kicker {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.theme-m2 .m2-receipt__list {
+  gap: 0;
+  margin: 0;
+}
+
+.theme-m2 .m2-receipt__list .ds-event {
+  padding-block: var(--space-4);
+}
+
+.theme-m2 .m2-receipt__list .ds-event + .ds-event {
+  border-top: 2px dashed color-mix(in srgb, var(--color-border) 45%, transparent);
+}
+
+.theme-m2 .ds-event__date {
+  width: 4.6rem;
+  min-width: 0;
+  height: 4.6rem;
+  padding: 0;
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 var(--color-deko);
+  align-content: center;
+  gap: 0.15rem;
+}
+
+.theme-m2 .ds-event__day {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: var(--fw-display);
+  line-height: 1;
+}
+
+.theme-m2 .ds-event__month {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.theme-m2 .m2-date--month .ds-event__day {
+  font-size: 1.05rem;
+}
+
+.theme-m2 .ds-event__title {
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.theme-m2 .ds-event__meta {
+  margin-top: 0.15rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.m2-receipt__foot {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  padding-top: var(--space-5);
+  border-top: var(--border-w) dashed var(--color-border);
+  text-align: center;
+}
+
+.m2-receipt__foot .m2-script {
+  color: var(--color-heading);
+  font-size: 1.15rem;
+}
+
+.m2-barcode {
+  display: block;
+  width: 11rem;
+  height: 2.5rem;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--color-text) 0 2px,
+      transparent 2px 4px,
+      var(--color-text) 4px 7px,
+      transparent 7px 9px,
+      var(--color-text) 9px 10px,
+      transparent 10px 13px
+    );
+}
+
+.m2-stamp {
+  position: absolute;
+  z-index: 2;
+  top: -1.5rem;
+  right: -1.25rem;
+  display: grid;
+  place-items: center;
+  width: 7.5rem;
+  aspect-ratio: 1;
+  padding: 0.9rem;
+  border: var(--border-w) solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-band);
+  box-shadow: 4px 4px 0 var(--color-shadow);
+  color: var(--color-heading);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(14deg);
+  hyphens: manual;
+}
+
+.m2-stamp::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 2px dashed var(--color-border);
+  border-radius: 50%;
+}
+
+/* ---------- Laufband (einziges auf der Seite) ---------- */
+
+.m2-marquee {
+  position: relative;
+  z-index: 2;
+  margin-block: calc(var(--space-5) * -1);
+  margin-inline: -2rem;
+  padding-block: var(--space-4);
+  border-block: var(--border-w) solid var(--color-text);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  overflow: hidden;
+  transform: rotate(-1.2deg);
+}
+
+.m2-marquee__track {
+  display: flex;
+  width: max-content;
+}
+
+.m2-marquee__group {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--space-6);
+  padding-right: var(--space-6);
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 1.05rem + 0.9vw, 1.85rem);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.m2-marquee__group .ds-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-band);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .m2-marquee__track {
+    animation: m2-marquee 42s linear infinite;
+  }
+
+  .m2-marquee:hover .m2-marquee__track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes m2-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =====================================================================
+   Produkte: Bento mit genau 5 Sticker-Karten
+   ===================================================================== */
+
+.m2-produkte {
+  --section-fill: var(--color-band);
+  padding-top: calc(var(--section-y) + var(--space-5));
+  background: var(--color-band);
+}
+
+.m2-section-head {
+  --stack-gap: var(--space-4);
+  max-width: 44rem;
+  margin-bottom: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+}
+
+.m2-produkte .lead {
+  color: var(--color-text);
+}
+
+.m2-bento {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-areas:
+    "flasche anh  anh  pizza"
+    "flasche dose holz pizza";
+  gap: clamp(1.5rem, 0.8rem + 2vw, 2.5rem);
+}
+
+.m2-prod--flasche { grid-area: flasche; rotate: -1.5deg; }
+.m2-prod--anhaenger { grid-area: anh; }
+.m2-prod--pizza { grid-area: pizza; rotate: 1deg; }
+.m2-prod--dose { grid-area: dose; }
+.m2-prod--holz { grid-area: holz; rotate: -1deg; }
+
+.theme-m2 .m2-prod {
+  position: relative;
+  overflow: visible;
+  padding: 10px;
+}
+
+.theme-m2 .m2-prod .ds-card__media {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 11rem;
+  overflow: hidden;
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-img);
+}
+
+.theme-m2 .m2-prod .ds-card__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.m2-prod--flasche .ds-card__media { min-height: 22rem; }
+.m2-prod--flasche .ds-card__media img { object-position: 50% 30%; }
+.m2-prod--anhaenger .ds-card__media { min-height: 14rem; }
+
+/* Dosenschutz: Ausschnitt mit den bunten Exemplaren rechts im Foto (anders als im Hero) */
+.m2-prod--dose .ds-card__media img {
+  object-position: 50% 25%;
+  transform: scale(2.2);
+  transform-origin: 100% 50%;
+}
+
+.theme-m2 .m2-prod .ds-card__body {
+  flex: none;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-3) var(--space-3);
+}
+
+.theme-m2 .m2-prod .ds-card__title {
+  font-size: clamp(1.3rem, 1.15rem + 0.45vw, 1.55rem);
+}
+
+.theme-m2 .m2-prod p {
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.theme-m2 .m2-prod .ds-placeholder {
+  flex: 1 1 auto;
+  min-height: 11rem;
+}
+
+.m2-prod__sticker {
+  position: absolute;
+  z-index: 2;
+  top: -1.75rem;
+  right: -1.25rem;
+  width: 7.25rem;
+  font-size: 1.05rem;
+  transform: rotate(10deg);
+}
+
+/* ---------- Platzhalter: als Platzhalter erkennbar, aber mit Muster ---------- */
+
+.theme-m2 .ds-placeholder {
+  gap: var(--space-3);
+  border: var(--border-w) dashed var(--color-border);
+  border-radius: var(--radius-img);
+  background-color: var(--color-surface-alt);
+  color: var(--color-heading);
+}
+
+.theme-m2 .ds-placeholder .ds-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.theme-m2 .ds-placeholder figcaption {
+  padding: 0.35em 0.9em;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-round);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+.m2-dots {
+  background-image: radial-gradient(var(--color-band) 22%, transparent 23%);
+  background-size: 22px 22px;
+}
+
+.m2-stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0 14px,
+    color-mix(in srgb, var(--color-band) 55%, transparent) 14px 26px
+  );
+}
+
+/* =====================================================================
+   Nachhaltigkeit + Quiz: zentrierter Stapel
+   ===================================================================== */
+
+.m2-eco {
+  --section-fill: var(--color-bg);
+  background: var(--color-bg);
+}
+
+.m2-eco__head {
+  --stack-gap: var(--space-4);
+  display: grid;
+  justify-items: center;
+  max-width: 46rem;
+  margin: 0 auto clamp(2.5rem, 1.5rem + 3vw, 3.5rem);
+  text-align: center;
+}
+
+.m2-eco__head .lead {
+  max-width: 46ch;
+}
+
+.m2-eco__badge {
+  display: grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border: var(--border-w) solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-band);
+  box-shadow: 4px 4px 0 var(--color-shadow);
+  color: var(--color-heading);
+  transform: rotate(-8deg);
+}
+
+.m2-eco__badge .ds-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.m2-quizcard {
+  display: grid;
+  gap: var(--space-5);
+  max-width: 52rem;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 1rem + 2vw, 2.75rem);
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: 8px 8px 0 var(--color-shadow);
+  justify-items: start;
+}
+
+.m2-quizcard__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.m2-quizcard__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.m2-quizcard__title .ds-icon {
+  color: var(--color-heading);
+}
+
+.theme-m2 .ds-quiz {
+  width: 100%;
+}
+
+.theme-m2 .ds-quiz__question {
+  color: var(--color-heading);
+  font-size: clamp(1.45rem, 1.2rem + 1vw, 2rem);
+  line-height: 1.2;
+}
+
+.theme-m2 .ds-quiz__options {
+  gap: var(--space-4);
+}
+
+.theme-m2 .ds-quiz__option {
+  padding: 0.8em 1.3em;
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-btn);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-btn);
+  color: var(--color-heading);
+  font-size: 1.1rem;
+  transition:
+    transform 0.25s var(--ease),
+    box-shadow 0.25s var(--ease),
+    background-color var(--dur) var(--ease);
+}
+
+.theme-m2 .ds-quiz__option:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-btn-hover);
+}
+
+.theme-m2 .ds-quiz__option:active {
+  transform: translate(4px, 4px);
+  box-shadow: var(--shadow-btn-active);
+}
+
+.theme-m2 .ds-quiz__option[aria-pressed="true"] {
+  transform: translate(4px, 4px);
+  box-shadow: var(--shadow-btn-active);
+}
+
+.theme-m2 .ds-quiz__option[aria-pressed="true"][data-correct="false"] {
+  background: var(--color-band);
+  color: var(--color-text);
+  opacity: 1;
+}
+
+.theme-m2 .ds-quiz__feedback {
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+  font-size: 1.1rem;
+}
+
+.theme-m2 [data-answered="correct"] .ds-quiz__feedback {
+  background: var(--color-band);
+}
+
+/* =====================================================================
+   Messe: Poster
+   ===================================================================== */
+
+.m2-messe {
+  --section-fill: var(--color-hero);
+  background: var(--color-hero);
+}
+
+.m2-poster {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.42fr) minmax(0, 1fr);
+  overflow: hidden;
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-band);
+  box-shadow: 10px 10px 0 var(--color-shadow);
+}
+
+.m2-poster__side {
+  display: grid;
+  place-items: center;
+  min-height: 18rem;
+  padding: var(--space-6);
+  border-right: var(--border-w) solid var(--color-border);
+  /* 70er-Streifen */
+  background: repeating-linear-gradient(
+    180deg,
+    var(--color-deko) 0 22px,
+    var(--color-band) 22px 44px,
+    var(--color-bg) 44px 66px
+  );
+}
+
+.m2-poster__badge {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: var(--space-1);
+  width: 10rem;
+  aspect-ratio: 1;
+  border: var(--border-w) solid var(--color-text);
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 6px 6px 0 var(--color-text);
+  color: var(--color-on-primary);
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  line-height: 1.1;
+  text-align: center;
+  transform: rotate(-10deg);
+}
+
+.m2-poster__badge .ds-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.m2-poster__text {
+  --stack-gap: var(--space-4);
+  align-self: center;
+  padding: clamp(2rem, 1rem + 3vw, 3.5rem);
+}
+
+.m2-poster__text p {
+  max-width: 54ch;
+  font-size: 1.15rem;
+}
+
+/* =====================================================================
+   Archiv: Polaroid-Wand
+   ===================================================================== */
+
+.m2-archiv {
+  background: var(--color-bg);
+}
+
+.m2-polaroids {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 1rem + 2.5vw, 3.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.m2-polaroid {
+  display: flex;
+  padding: 12px 12px 14px;
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.m2-polaroid:nth-child(1) { rotate: -2deg; }
+.m2-polaroid:nth-child(2) { translate: 0 1.75rem; rotate: 1.5deg; }
+.m2-polaroid:nth-child(3) { rotate: -1deg; }
+
+.m2-polaroid > figure {
+  flex: 1;
+}
+
+.theme-m2 .m2-polaroid .ds-placeholder {
+  min-height: 100%;
+  aspect-ratio: 4 / 4.6;
+}
+
+.m2-polaroid__photo {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.m2-polaroid__photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3.9;
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-img);
+  object-fit: cover;
+}
+
+.m2-polaroid__photo figcaption {
+  color: var(--color-heading);
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.m2-archiv__actions {
+  margin-top: clamp(3rem, 2rem + 3vw, 4.5rem);
+}
+
+/* =====================================================================
+   Über uns: Platzhalter mit überlappender Karte
+   ===================================================================== */
+
+.m2-about {
+  --section-fill: var(--color-band);
+  background: var(--color-band);
+}
+
+.m2-about__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: center;
+}
+
+.theme-m2 .m2-about__photo {
+  grid-column: 1 / 9;
+  grid-row: 1;
+  min-height: 26rem;
+  border-radius: var(--radius-card);
+  rotate: -1deg;
+}
+
+.theme-m2 .m2-about__card {
+  position: relative;
+  z-index: 1;
+  grid-column: 7 / 13;
+  grid-row: 1;
+  margin-top: 6rem;
+  rotate: 1deg;
+}
+
+.theme-m2 .m2-about__card .ds-card__body {
+  --stack-gap: var(--space-4);
+  padding: clamp(1.75rem, 1rem + 2vw, 2.75rem);
+}
+
+/* =====================================================================
+   Kontakt: Visitenkarte mit Lageplan-Platzhalter
+   ===================================================================== */
+
+.m2-kontakt {
+  --section-fill: var(--color-bg);
+  background: var(--color-bg);
+}
+
+.m2-card-visit {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 1rem + 3vw, 4rem);
+  padding: clamp(1.75rem, 1rem + 3vw, 3.5rem);
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: 10px 10px 0 var(--color-shadow);
+  rotate: -0.5deg;
+}
+
+.m2-card-visit__info {
+  --stack-gap: var(--space-5);
+  align-self: center;
+}
+
+.m2-address {
+  display: grid;
+  gap: var(--space-3);
+  font-size: 1.12rem;
+  font-style: normal;
+}
+
+.m2-address__row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.m2-address__row .ds-icon {
+  margin-top: 0.1em;
+  color: var(--color-heading);
+}
+
+.m2-card-visit__map {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+}
+
+.theme-m2 .m2-map {
+  width: 100%;
+  min-height: 17rem;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--color-band) 55%, transparent) 2px, transparent 2px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-band) 55%, transparent) 2px, transparent 2px);
+  background-size: 34px 34px;
+}
+
+/* =====================================================================
+   Footer
+   ===================================================================== */
+
+.m2-footer {
+  --section-fill: var(--color-hero);
+  padding-top: clamp(3rem, 2rem + 3vw, 4.5rem);
+  padding-bottom: 5rem;                     /* Platz für die Mockup-Leiste */
+  font-size: 1rem;
+}
+
+.m2-footer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-6);
+  align-items: end;
+  padding-bottom: var(--space-6);
+  border-bottom: var(--border-w) dashed var(--color-border);
+}
+
+.m2-footer__brand {
+  --stack-gap: var(--space-4);
+}
+
+.m2-footer__logo {
+  width: clamp(12rem, 10rem + 6vw, 17rem);
+}
+
+.m2-footer__notice {
+  max-width: 48ch;
+}
+
+.theme-m2 .m2-footer__links a {
+  color: var(--color-heading);
+  font-weight: 700;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--color-deko);
+}
+
+.theme-m2 .m2-footer__links a:hover {
+  text-decoration-color: currentColor;
+}
+
+.m2-footer__bottom {
+  padding-top: var(--space-5);
+  color: var(--color-text-muted);
+}
+
+/* =====================================================================
+   Responsive
+   ===================================================================== */
+
+@media (max-width: 1024px) {
+  .m2-bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "flasche pizza"
+      "anh     anh"
+      "dose    holz";
+  }
+
+  .m2-termine__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .m2-termine__intro {
+    max-width: 40rem;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --scallop: 12px;
+  }
+
+  .m2-hero {
+    min-height: 0;
+    padding-top: var(--space-6);
+  }
+
+  .m2-hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-7);
+  }
+
+  .m2-hero__visual {
+    width: min(78%, 20rem);
+    margin-top: var(--space-4);
+  }
+
+  .m2-hero__sticker {
+    width: 6.5rem;
+    font-size: 1rem;
+    left: -1.75rem;
+    top: -1.5rem;
+  }
+
+  .m2-spark--b {
+    left: -1.75rem;
+  }
+
+  .m2-spark--d {
+    display: none;
+  }
+
+  .theme-m2 .m2-notice {
+    align-items: flex-start;
+    font-size: 1.02rem;
+  }
+
+  .m2-stamp {
+    width: 6.25rem;
+    right: -0.25rem;
+    top: -2rem;
+    font-size: 0.8rem;
+  }
+
+  .m2-bento {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "flasche"
+      "pizza"
+      "anh"
+      "dose"
+      "holz";
+  }
+
+  .m2-prod--flasche .ds-card__media {
+    min-height: 20rem;
+  }
+
+  .m2-prod__sticker {
+    right: -0.5rem;
+  }
+
+  .m2-poster {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .m2-poster__side {
+    min-height: 12rem;
+    border-right: 0;
+    border-bottom: var(--border-w) solid var(--color-border);
+  }
+
+  .m2-poster__badge {
+    width: 8.5rem;
+    font-size: 1.25rem;
+  }
+
+  .m2-polaroids {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+
+  .m2-polaroid:nth-child(2) {
+    translate: none;
+  }
+
+  .m2-about__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .theme-m2 .m2-about__photo {
+    grid-column: 1;
+    min-height: 15rem;
+  }
+
+  .theme-m2 .m2-about__card {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: -2.5rem;
+    margin-inline: var(--space-3);
+  }
+
+  .m2-card-visit {
+    grid-template-columns: minmax(0, 1fr);
+    rotate: none;
+  }
+
+  .m2-footer__grid {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+}

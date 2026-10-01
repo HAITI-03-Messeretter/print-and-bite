@@ -1,0 +1,1151 @@
+/*
+  M4 Aprikose Editorial - Theme für das PRINT&BITE Design-System
+
+  Idee: analoge Verschiebung der Board-Palette (Marzipan, Dull Pink, Dusty Rose) Richtung
+  Aprikose und Terrakotta. Text in tiefem Pflaumen-Ton statt Schwarz, damit die Verbindung
+  zur Rosé-Familie bleibt. Ruhige Magazin-Sprache: Playfair Display (greift die
+  kontrastreiche Serifenschrift des Logo-Schriftzugs auf) + Outfit.
+
+  Feste Formregel: Bilder Bogen, UI eckig.
+    - Bilder und Bild-Platzhalter: oben voll rund (--radius-img), unten gerade
+    - Buttons, Felder, Badges, Kästen: 0-2px
+    - Gliederung durch 1px-Linien (--color-rule), keine Karten, keine Schatten
+
+  Aufbau: 1. Palette (einzige Stelle mit Hex-Werten), 2. semantische Tokens,
+  3. Komponenten-Feinschliff, 4. Seitenlayout (Präfix .m4-, Body-Klasse .theme-m4).
+*/
+
+/* ==========================================================================
+   1. Palette
+   Kontrast (WCAG, nachgerechnet):
+     Pflaume auf Aprikosen-Weiß 13.9:1, auf heller Aprikose 11.8:1, auf Aprikose 7.1:1
+     Pflaume hell auf Aprikosen-Weiß 7.1:1, auf heller Aprikose 6.0:1
+     Terrakotta auf Aprikosen-Weiß 5.9:1, auf heller Aprikose 5.0:1
+     Aprikosen-Weiß auf Terrakotta 5.9:1 (Button), auf Terrakotta tief 8.0:1 (Hover)
+   Nicht kombinieren: Terrakotta auf Aprikose (3.0:1), Text in Aprikose.
+   ========================================================================== */
+
+:root {
+  --pal-apricot-white: #fff6ee;    /* Seitenhintergrund, Text auf Terrakotta */
+  --pal-paper: #fffbf7;            /* Eingabefelder, Quiz-Kasten */
+  --pal-apricot-light: #fce1cc;    /* abgesetzte Flächen, Platzhalter, Footer */
+  --pal-apricot: #f2a06f;          /* Deko-Fläche (Bogen, Zitat-Band), nie für Text */
+  --pal-terracotta: #a63f27;       /* einzige Aktionsfarbe: Buttons, Links */
+  --pal-terracotta-deep: #863120;  /* Hover der Aktionsfarbe */
+  --pal-plum: #3b1f2b;             /* Text, Überschriften, Logo, Fokus */
+  --pal-plum-soft: #6e4a58;        /* Nebentext, Feldrahmen */
+}
+
+/* ==========================================================================
+   2. Semantische Tokens
+   ========================================================================== */
+
+:root {
+  /* Farben */
+  --color-bg: var(--pal-apricot-white);
+  --color-surface: var(--pal-paper);
+  --color-surface-alt: var(--pal-apricot-light);
+  --color-text: var(--pal-plum);
+  --color-text-muted: var(--pal-plum-soft);
+  --color-heading: var(--pal-plum);
+  --color-primary: var(--pal-terracotta);
+  --color-primary-strong: var(--pal-terracotta-deep);
+  --color-on-primary: var(--pal-apricot-white);
+  --color-secondary: transparent;
+  --color-on-secondary: var(--pal-plum);
+  --color-accent: var(--pal-apricot);
+  --color-on-accent: var(--pal-plum);
+  --color-link: var(--pal-terracotta);
+  --color-rule: color-mix(in srgb, var(--pal-plum) 20%, transparent);
+  --color-rule-strong: color-mix(in srgb, var(--pal-plum) 55%, transparent);
+  --color-border: var(--color-rule);
+  --color-focus: var(--pal-plum);
+  --color-logo: var(--pal-plum);
+
+  /* Typografie */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Outfit", system-ui, sans-serif;
+  --font-accent: "Outfit", system-ui, sans-serif;
+  --fw-display: 500;
+  --fw-body: 400;
+  --fw-strong: 600;
+  --fs-display: clamp(2.6rem, 1.55rem + 3vw, 4.1rem);
+  --fs-h2: clamp(2.05rem, 1.55rem + 1.6vw, 3.05rem);
+  --fs-h3: clamp(1.4rem, 1.25rem + 0.5vw, 1.75rem);
+  --fs-lead: clamp(1.125rem, 1.05rem + 0.3vw, 1.3rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9rem;
+  --lh-tight: 1.1;                 /* min. 1.1 wegen Kursiv-Unterlängen */
+  --lh-body: 1.65;
+  --tracking-display: -0.012em;
+  --case-display: none;
+  --measure: 58ch;
+
+  /* Form: UI eckig, Bilder Bogen */
+  --radius-s: 2px;
+  --radius-m: 2px;
+  --radius-l: 2px;
+  --radius-card: 0;
+  --radius-img: 999px 999px 0 0;   /* Bogen: oben voll rund, unten gerade */
+  --radius-btn: 2px;
+  --radius-input: 2px;
+  --border-w: 1px;
+
+  /* Tiefe: keine Schatten, Gliederung über Linien */
+  --shadow-card: none;
+  --shadow-btn: none;
+  --shadow-btn-hover: none;
+  --shadow-btn-active: none;
+
+  /* Buttons */
+  --btn-font: var(--font-body);
+  --btn-weight: 500;
+  --btn-fs: 1rem;
+  --btn-case: none;
+  --btn-tracking: 0.01em;
+  --btn-pad-y: 1em;
+  --btn-pad-x: 1.6em;
+  --btn-border-w: 1px;
+  --btn-lift: 0px;                 /* ruhig: Farbwechsel statt Anheben */
+
+  /* Raum */
+  --section-y: clamp(4rem, 2.5rem + 4vw, 6.5rem);
+  --container: 1320px;
+  --grid-gap: clamp(1rem, 0.5rem + 1.4vw, 1.5rem);
+
+  /* Bewegung */
+  --reveal-distance: 16px;
+
+  /* Komponenten-Hooks */
+  --header-bg: var(--color-bg);
+  --footer-bg: var(--color-surface-alt);
+  --footer-fg: var(--color-text);
+  --nav-font: var(--font-body);
+  --quiz-correct-bg: var(--color-primary);
+  --quiz-correct-fg: var(--color-on-primary);
+}
+
+/* ==========================================================================
+   3. Komponenten-Feinschliff (nur Tokens)
+   ========================================================================== */
+
+.theme-m4 h1,
+.theme-m4 h2,
+.theme-m4 h3,
+.theme-m4 h4 {
+  font-variant-numeric: lining-nums;
+}
+
+.theme-m4 h4 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-display);
+  line-height: var(--lh-tight);
+  color: var(--color-heading);
+  margin: 0;
+}
+
+.theme-m4 em {
+  font-style: italic;
+}
+
+/* Kursiv in Display-Größe: Platz für Unterlängen (f, g, p) */
+.theme-m4 h1 em,
+.theme-m4 h2 em {
+  display: inline-block;
+  padding-bottom: 0.08em;
+  font-weight: 400;
+}
+
+/* Button: rechteckig, Terrakotta, Hover vertieft die Farbe */
+.theme-m4 .ds-btn:not(.ds-btn--link):not(.ds-btn--secondary):hover {
+  --btn-bg: var(--color-primary-strong);
+  --btn-border-color: var(--color-primary-strong);
+}
+
+/* Sekundär: unterstrichener Textlink mit Pfeil */
+.theme-m4 .ds-btn--link {
+  font-weight: var(--fw-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.4em;
+}
+
+.theme-m4 .ds-btn--link:hover {
+  text-decoration-thickness: 2px;
+}
+
+.theme-m4 .ds-btn .ds-icon {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* Badge: kleiner eckiger Vermerk, nie Versalien */
+.theme-m4 .ds-badge {
+  padding: 0.35em 0.75em;
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+}
+
+/* Navigation */
+.theme-m4 .ds-header {
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.theme-m4 .ds-header__inner {
+  min-height: 4.5rem;
+}
+
+.theme-m4 .ds-nav ul {
+  gap: clamp(1.1rem, 0.2rem + 1.5vw, 2rem);
+}
+
+.theme-m4 .ds-nav a {
+  font-weight: 500;
+  font-size: 0.98rem;
+}
+
+.theme-m4 .ds-nav a:hover {
+  text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.45em;
+}
+
+.theme-m4 .ds-lang {
+  font-weight: 500;
+}
+
+.theme-m4 .ds-menu > summary {
+  border-width: 1px;
+  font-weight: 500;
+}
+
+.theme-m4 .ds-menu__panel {
+  border-color: var(--color-rule-strong);
+}
+
+/* Platzhalter: gestrichelter Bogen, gut als Platzhalter erkennbar */
+.theme-m4 .ds-placeholder {
+  min-height: 0;
+  border-width: 1.5px;
+  border-color: var(--color-rule-strong);
+  color: var(--color-text);
+}
+
+.theme-m4 .ds-placeholder .ds-icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-text-muted);
+}
+
+.theme-m4 .ds-placeholder figcaption {
+  font-weight: 500;
+}
+
+/* Formular */
+.theme-m4 .ds-field label {
+  font-weight: 500;
+}
+
+.theme-m4 .ds-field input,
+.theme-m4 .ds-field textarea {
+  border-width: 1px;
+  border-color: var(--color-text-muted);
+  transition: border-color var(--dur) var(--ease);
+}
+
+.theme-m4 .ds-field input:hover,
+.theme-m4 .ds-field textarea:hover {
+  border-color: var(--color-text);
+}
+
+.theme-m4 .ds-field textarea {
+  min-height: 8.5rem;
+  resize: vertical;
+}
+
+/* Quiz: Antworten als eckige Zeilen */
+.theme-m4 .ds-quiz__options {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.theme-m4 .ds-quiz__option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  width: 100%;
+  padding: 0.85em 1.1em;
+  border-width: 1px;
+  background: transparent;
+  font-weight: 500;
+  text-align: left;
+}
+
+.theme-m4 .ds-quiz__option:hover {
+  transform: none;
+  background: var(--color-surface-alt);
+}
+
+.theme-m4 .ds-quiz__option:active {
+  transform: scale(0.99);
+}
+
+.theme-m4 .ds-quiz__option[aria-pressed="true"][data-correct="false"] {
+  opacity: 1;
+  color: var(--color-text-muted);
+  border-style: dashed;
+}
+
+.theme-m4 .ds-quiz__feedback {
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   4. Seitenlayout
+   ========================================================================== */
+
+/* ---------- Raster: 12 Spalten ab 961px, darunter eine Spalte ---------- */
+
+.m4-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-7) var(--grid-gap);
+}
+
+@media (min-width: 961px) {
+  .m4-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Kleine Bausteine ---------- */
+
+.m4-eyebrow {
+  margin-bottom: var(--space-3);
+  color: var(--color-text-muted);
+  font-family: var(--font-accent);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.m4-caption {
+  margin-top: var(--space-3);
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}
+
+.m4-arch {
+  overflow: hidden;
+  border-radius: var(--radius-img);
+}
+
+.m4-arch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.m4-section-head {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 44rem;
+  margin-bottom: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+}
+
+.m4-section-head .lead {
+  color: var(--color-text-muted);
+}
+
+/* ---------- Header ---------- */
+
+.m4-brand {
+  display: block;
+  flex: none;
+}
+
+.m4-brand .ds-logo--wordmark {
+  width: clamp(8.5rem, 7rem + 3vw, 10.5rem);
+}
+
+.m4-header__end {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.m4-header__end .ds-lang span {
+  opacity: 0.5;
+}
+
+/* ---------- Hero ---------- */
+
+.m4-hero {
+  padding-top: clamp(2rem, 1rem + 3vw, 3.5rem);
+}
+
+.m4-hero__grid {
+  align-items: center;
+  row-gap: var(--space-6);
+}
+
+.m4-hero__title {
+  max-width: 13em;
+}
+
+.m4-hero__lead {
+  margin-top: var(--space-5);
+  max-width: 34rem;
+  color: var(--color-text-muted);
+}
+
+.m4-hero .ds-actions {
+  margin-top: var(--space-6);
+  gap: var(--space-4) var(--space-6);
+}
+
+.m4-hero__art {
+  position: relative;
+  width: min(100%, 21rem);
+}
+
+.m4-hero__frame {
+  padding: 0.7rem 0.7rem 0;
+  border: 1px solid var(--color-rule-strong);
+  border-radius: var(--radius-img);
+}
+
+.m4-hero__arch {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  aspect-ratio: 5 / 6;
+  padding: 0 11% 9%;
+  border-radius: var(--radius-img);
+  background: var(--color-accent);
+}
+
+.m4-hero__arch img {
+  width: 100%;
+}
+
+.m4-spark {
+  position: absolute;
+  color: var(--color-text);
+}
+
+.m4-spark--a {
+  top: 9%;
+  left: -0.4rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.m4-spark--b {
+  top: 30%;
+  right: -0.9rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+@media (min-width: 961px) {
+  .m4-hero__text {
+    grid-column: 1 / span 8;
+  }
+
+  .m4-hero__art {
+    grid-column: 9 / span 4;
+    justify-self: end;
+    width: 100%;
+    max-width: 25rem;
+  }
+}
+
+/* Hinweis Schülerunternehmen: ruhige Zeile zwischen zwei Linien */
+.m4-notice-wrap {
+  margin-top: clamp(2.5rem, 1.5rem + 2.5vw, 3.5rem);
+}
+
+.theme-m4 .m4-notice {
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-width: 1px 0;
+  border-color: var(--color-rule-strong);
+  border-radius: 0;
+  background: transparent;
+  font-size: 1rem;
+}
+
+.theme-m4 .m4-notice .ds-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0;
+}
+
+/* ---------- Termine: typografische Kalenderliste ---------- */
+
+.m4-termine__head {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: var(--space-4);
+}
+
+.m4-termine__head p {
+  max-width: 24rem;
+  color: var(--color-text-muted);
+}
+
+.m4-termine__head .ds-btn--link {
+  margin-top: var(--space-2);
+}
+
+@media (min-width: 961px) {
+  .m4-termine__head {
+    grid-column: 1 / span 4;
+    position: sticky;
+    top: 7rem;
+    align-self: start;
+  }
+
+  .m4-cal {
+    grid-column: 6 / span 7;
+  }
+}
+
+.theme-m4 .m4-cal {
+  gap: 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.theme-m4 .m4-cal__item {
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--space-2) var(--space-5);
+  padding-block: var(--space-5);
+  border-top: 1px solid var(--color-rule);
+}
+
+.theme-m4 .m4-cal__item:first-child {
+  border-top-color: var(--color-text);
+}
+
+.theme-m4 .m4-cal__date {
+  display: grid;
+  place-items: start;
+  min-width: 0;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--color-text);
+  text-align: left;
+}
+
+.theme-m4 .m4-cal__date .ds-event__day {
+  font-family: var(--font-display);
+  font-size: clamp(2.9rem, 2.3rem + 1.8vw, 4rem);
+  font-weight: 400;
+  line-height: 0.95;
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.theme-m4 .m4-cal__date .ds-event__day em {
+  font-size: 0.82em;
+}
+
+.theme-m4 .m4-cal__date .ds-event__month {
+  margin-top: var(--space-2);
+  font-family: var(--font-accent);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  text-transform: none;
+}
+
+.m4-cal__body {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.theme-m4 .m4-cal__item .ds-event__title {
+  font-size: clamp(1.3rem, 1.15rem + 0.5vw, 1.6rem);
+}
+
+.theme-m4 .m4-cal__item .ds-event__meta {
+  font-size: 1rem;
+}
+
+.m4-cal__time {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .theme-m4 .m4-cal__item {
+    grid-template-columns: 8.5rem minmax(0, 1fr) auto;
+  }
+
+  .m4-cal__time {
+    text-align: right;
+  }
+}
+
+@media (max-width: 639px) {
+  .m4-cal__time {
+    grid-column: 2;
+    color: var(--color-text-muted);
+  }
+}
+
+/* ---------- Produkte: Feature-Story ---------- */
+
+.m4-feature {
+  align-items: center;
+}
+
+.m4-feature__media .m4-arch {
+  aspect-ratio: 4 / 5;
+}
+
+.m4-feature__media img {
+  object-position: 50% 30%;
+}
+
+.m4-feature__title {
+  font-size: clamp(2.2rem, 1.7rem + 1.8vw, 3.2rem);
+}
+
+.m4-feature__text > p {
+  max-width: 34rem;
+  margin-top: var(--space-4);
+  font-size: var(--fs-lead);
+}
+
+.m4-feature__note {
+  color: var(--color-text-muted);
+}
+
+.m4-more {
+  margin-top: var(--space-7);
+  padding: 0;
+  list-style: none;
+}
+
+.m4-more__label {
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-text);
+  font-weight: 500;
+}
+
+.m4-more__item {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-5);
+  padding-block: var(--space-4);
+}
+
+.m4-more__item + .m4-more__item {
+  border-top: 1px solid var(--color-rule);
+}
+
+.m4-more__thumb {
+  aspect-ratio: 4 / 5;
+}
+
+.m4-more__item h4 {
+  font-size: 1.35rem;
+}
+
+.m4-more__item p {
+  margin-top: var(--space-1);
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 961px) {
+  .m4-feature__media {
+    grid-column: 1 / span 6;
+  }
+
+  .m4-feature__text {
+    grid-column: 8 / span 5;
+  }
+}
+
+@media (max-width: 960px) {
+  .m4-feature__media .m4-arch {
+    max-width: 30rem;
+  }
+}
+
+/* Holz und Pizzaschnecken: versetzte Doppelseite */
+.m4-spread {
+  margin-top: clamp(3rem, 2rem + 3vw, 5rem);
+  padding-top: clamp(2.5rem, 1.5rem + 2.5vw, 3.5rem);
+  border-top: 1px solid var(--color-rule);
+}
+
+.m4-spread__item {
+  display: grid;
+  align-content: start;
+  gap: var(--space-4);
+}
+
+.m4-spread__item .ds-placeholder {
+  aspect-ratio: 5 / 4;
+  max-width: 28rem;
+}
+
+.m4-spread__item p {
+  max-width: 28rem;
+  color: var(--color-text-muted);
+}
+
+.m4-spread__item h3 {
+  margin-top: var(--space-2);
+}
+
+.m4-produkte__more {
+  margin-top: clamp(3rem, 2rem + 3vw, 4.5rem);
+}
+
+@media (min-width: 961px) {
+  .m4-spread__item--snack {
+    grid-column: 1 / span 5;
+  }
+
+  .m4-spread__item--wood {
+    grid-column: 8 / span 5;
+    margin-top: clamp(4rem, 2rem + 4vw, 7rem);
+  }
+
+  .m4-spread__item--wood .ds-placeholder {
+    order: -1;
+  }
+
+  .m4-produkte__more {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+/* ---------- Nachhaltigkeit + Quiz-Kasten ---------- */
+
+.m4-nach__text {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: var(--space-5);
+}
+
+.m4-nach__icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--color-text-muted);
+}
+
+.m4-nach__statement {
+  max-width: 24em;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 1.2rem + 0.9vw, 2rem);
+  line-height: 1.35;
+}
+
+.m4-quizbox {
+  display: grid;
+  gap: var(--space-5);
+  padding: clamp(1.5rem, 1rem + 1.5vw, 2.25rem);
+  border: 1px solid var(--color-text);
+  background: var(--color-surface);
+}
+
+.m4-quizbox__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.m4-quizbox__head h3 {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: var(--fw-strong);
+  letter-spacing: 0;
+}
+
+.theme-m4 .m4-quizbox .ds-quiz__question {
+  font-size: clamp(1.35rem, 1.2rem + 0.5vw, 1.6rem);
+  font-weight: var(--fw-display);
+}
+
+@media (min-width: 961px) {
+  .m4-nach__text {
+    grid-column: 1 / span 6;
+    padding-top: var(--space-4);
+  }
+
+  .m4-quizbox {
+    grid-column: 8 / span 5;
+  }
+}
+
+/* ---------- Messe: helles Band mit großer Zahl ---------- */
+
+.m4-messe {
+  background: var(--color-surface-alt);
+}
+
+.m4-messe__grid {
+  align-items: center;
+}
+
+.m4-stat {
+  display: grid;
+  justify-items: start;
+}
+
+.m4-stat__pre {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 1.3rem + 1vw, 2.2rem);
+  font-style: italic;
+  line-height: 1.1;
+}
+
+.m4-stat__num {
+  font-family: var(--font-display);
+  font-size: clamp(7rem, 4rem + 10vw, 12.5rem);
+  font-weight: 400;
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  font-variant-numeric: lining-nums;
+}
+
+.m4-stat__label {
+  max-width: 16rem;
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-text);
+  font-weight: 500;
+}
+
+.m4-messe__text {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-5);
+}
+
+.m4-messe__text p {
+  max-width: 34rem;
+  font-size: var(--fs-lead);
+}
+
+@media (min-width: 961px) {
+  .m4-stat {
+    grid-column: 1 / span 4;
+  }
+
+  .m4-messe__text {
+    grid-column: 6 / span 7;
+  }
+}
+
+/* ---------- Archiv: Bogen-Galerie mit Versatz ---------- */
+
+.m4-archiv__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4) var(--space-6);
+  margin-bottom: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+}
+
+.m4-archiv__head > div {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.m4-archiv__head p {
+  color: var(--color-text-muted);
+}
+
+.m4-gallery {
+  align-items: start;
+}
+
+.m4-gallery__item {
+  margin: 0;
+}
+
+.m4-gallery__item .m4-arch,
+.m4-gallery__item.ds-placeholder {
+  aspect-ratio: 4 / 5;
+}
+
+@media (min-width: 961px) {
+  .m4-gallery__item--a {
+    grid-column: 1 / span 5;
+  }
+
+  .m4-gallery__item--b {
+    grid-column: 7 / span 3;
+    margin-top: clamp(4rem, 2rem + 5vw, 8rem);
+  }
+
+  .m4-gallery__item--c {
+    grid-column: 10 / span 3;
+    margin-top: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+  }
+}
+
+@media (max-width: 960px) {
+  .m4-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5) var(--grid-gap);
+  }
+
+  .m4-gallery__item--a {
+    grid-column: 1 / -1;
+  }
+
+  .m4-gallery__item--a .m4-arch {
+    max-width: 30rem;
+  }
+
+  .m4-gallery__item--c {
+    margin-top: var(--space-7);
+  }
+}
+
+/* ---------- Über uns ---------- */
+
+.m4-about {
+  align-items: center;
+}
+
+.m4-about__media {
+  aspect-ratio: 4 / 5;
+}
+
+.m4-about__text {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-5);
+}
+
+.m4-dropcap {
+  max-width: 34rem;
+  font-size: var(--fs-lead);
+}
+
+.m4-dropcap::first-letter {
+  float: left;
+  margin: 0.08em 0.12em 0 0;
+  font-family: var(--font-display);
+  font-size: 3.6em;
+  font-weight: 400;
+  line-height: 0.8;
+  color: var(--color-heading);
+}
+
+.m4-about__text .ds-actions {
+  margin-top: var(--space-3);
+}
+
+@media (min-width: 961px) {
+  .m4-about__media {
+    grid-column: 1 / span 5;
+  }
+
+  .m4-about__text {
+    grid-column: 7 / span 6;
+  }
+}
+
+@media (max-width: 960px) {
+  .m4-about__media {
+    max-width: 24rem;
+  }
+}
+
+/* ---------- Zitat-Platzhalter: Band in kräftiger Aprikose ---------- */
+
+.m4-quote {
+  padding-block: clamp(4rem, 2.5rem + 5vw, 7rem);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.m4-quote__figure {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-5);
+  max-width: 54rem;
+  margin: 0 auto;
+}
+
+.m4-quote__mark {
+  height: 0.45em;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 4rem + 6vw, 9rem);
+  line-height: 1;
+  color: var(--color-surface-alt);
+}
+
+.m4-quote blockquote {
+  margin: 0;
+}
+
+.m4-quote blockquote p {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 1.3rem + 1.8vw, 2.9rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.2;
+  padding-bottom: 0.08em;
+}
+
+.m4-quote figcaption {
+  font-weight: 500;
+}
+
+/* ---------- Kontakt + Lageplan ---------- */
+
+.m4-kontakt__mail,
+.m4-kontakt__map-col {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: var(--space-5);
+}
+
+.m4-kontakt__intro {
+  max-width: 30rem;
+  font-size: var(--fs-lead);
+  color: var(--color-text-muted);
+}
+
+.m4-contact-list {
+  display: grid;
+  width: 100%;
+  max-width: 32rem;
+  margin: var(--space-4) 0 0;
+  border-top: 1px solid var(--color-text);
+}
+
+.m4-contact-list > div {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.m4-contact-list dt {
+  font-weight: 500;
+}
+
+.m4-contact-list dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.m4-contact-list__note {
+  color: var(--color-text-muted);
+}
+
+.m4-kontakt__map-col h3 {
+  font-size: var(--fs-h3);
+}
+
+.m4-address {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 1.2rem + 0.6vw, 1.75rem);
+  font-style: normal;
+  line-height: 1.35;
+}
+
+.m4-kontakt__map {
+  width: 100%;
+  max-width: 30rem;
+  aspect-ratio: 5 / 4;
+}
+
+@media (min-width: 961px) {
+  .m4-kontakt__mail {
+    grid-column: 1 / span 6;
+  }
+
+  .m4-kontakt__map-col {
+    grid-column: 8 / span 5;
+  }
+}
+
+/* ---------- Footer ---------- */
+
+.m4-footer {
+  padding-block: clamp(3rem, 2rem + 3vw, 4.5rem) var(--space-6);
+}
+
+.m4-footer__grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.m4-footer__brand {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 26rem;
+}
+
+.m4-footer__brand .ds-logo--wordmark {
+  width: 11rem;
+}
+
+.m4-footer__brand p {
+  font-size: 1rem;
+}
+
+.theme-m4 .ds-footer__links a {
+  text-decoration-color: var(--color-rule-strong);
+  text-underline-offset: 0.35em;
+}
+
+.theme-m4 .ds-footer__links a:hover {
+  text-decoration-color: var(--color-primary);
+}
+
+.m4-footer__copy {
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-rule);
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 961px) {
+  .m4-footer__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--grid-gap);
+  }
+
+  .m4-footer__brand {
+    grid-column: 1 / span 6;
+  }
+
+  .m4-footer__nav {
+    grid-column: 8 / span 5;
+    justify-self: end;
+    align-self: end;
+  }
+
+  .m4-footer__copy {
+    grid-column: 1 / -1;
+  }
+}

@@ -1,0 +1,1308 @@
+/*
+  M3 Pistazie & Rose - Theme
+  Idee: Rosé und Marzipan aus dem Board, ergänzt um Pistazie/Waldgrün als Komplementärfarbe.
+  Formensprache "alles weich": Pillen-Buttons, Karten 28px ohne Kontur, Bilder als Blobs.
+
+  Aufbau:
+    1. Palette        Rohfarben (nur hier Hex-Werte)
+    2. Semantik       Token-Vertrag aus design-system/tokens.css + theme-eigene --m3-* Tokens
+    3. Seitenlayout   .theme-m3 / .m3-* Regeln, lesen nur Tokens
+
+  Kontrast (WCAG, nachgerechnet):
+    Waldgrün auf Pistazien-Creme 11.35 | auf Fast-Weiß 11.93 | auf Pistazie 8.39
+    Waldgrün auf Rosé-hell 9.51 | auf Marzipan 8.97 | auf Marzipan-hell 10.46
+    Moos (Nebentext) auf Creme 6.50 | auf Pistazie 4.81 | auf Marzipan 5.14 | auf Rosé-hell 5.45
+    Creme auf Waldgrün (Primär-Button) 11.35 | Fokusring Waldgrün auf Creme 11.35
+*/
+
+/* ---------- 1. Palette ---------- */
+:root {
+  --pal-cream: #f5f8ee;          /* Pistazien-Creme, Seitenhintergrund */
+  --pal-white: #fcfdf8;          /* fast Weiß, Karten */
+  --pal-pistachio: #c9ddb0;      /* Pistazie, Flächen */
+  --pal-pistachio-soft: #dfeacf; /* Pistazie hell, Flächen */
+  --pal-forest: #1f3b2d;         /* Waldgrün: Text, Headlines, Aktion */
+  --pal-moss: #455f50;           /* Moos: Nebentext */
+  --pal-leaf: #6e8f5a;           /* Blattgrün: nur Deko-Icons */
+  --pal-rose: #dd8c96;           /* Dull Pink (Board) */
+  --pal-rose-soft: #f7dde0;      /* Rosé hell, Flächen */
+  --pal-dusty: #c66974;          /* Dusty Rose (Board): nur Deko-Icons */
+  --pal-marzipan: #f4db9a;       /* Marzipan (Board), warme Fläche */
+  --pal-marzipan-soft: #faedc7;  /* Marzipan hell, Flächen */
+}
+
+/* ---------- 2. Semantik ---------- */
+:root {
+  /* Farben */
+  --color-bg: var(--pal-cream);
+  --color-surface: var(--pal-white);
+  --color-surface-alt: var(--pal-pistachio-soft);
+  --color-text: var(--pal-forest);
+  --color-text-muted: var(--pal-moss);
+  --color-heading: var(--pal-forest);
+  --color-primary: var(--pal-forest);
+  --color-on-primary: var(--pal-cream);
+  --color-secondary: var(--pal-white);
+  --color-on-secondary: var(--pal-forest);
+  --color-accent: var(--pal-rose);
+  --color-on-accent: var(--pal-forest);
+  --color-link: var(--pal-forest);
+  --color-border: var(--pal-forest);
+  --color-focus: var(--pal-forest);
+  --color-logo: var(--pal-forest);
+
+  /* Theme-eigene Flächen und Deko (Rosé und Marzipan nur als Fläche, nie als Text) */
+  --m3-tint-green: var(--pal-pistachio);
+  --m3-tint-green-soft: var(--pal-pistachio-soft);
+  --m3-tint-rose: var(--pal-rose);
+  --m3-tint-rose-soft: var(--pal-rose-soft);
+  --m3-tint-marzipan: var(--pal-marzipan);
+  --m3-tint-marzipan-soft: var(--pal-marzipan-soft);
+  --m3-deco-rose: var(--pal-dusty);
+  --m3-deco-leaf: var(--pal-leaf);
+  --m3-dot: color-mix(in srgb, var(--pal-forest) 16%, transparent);
+  --m3-dot-strong: color-mix(in srgb, var(--pal-forest) 22%, transparent);
+  --m3-hairline: color-mix(in srgb, var(--pal-forest) 14%, transparent);
+  --m3-glass: color-mix(in srgb, var(--pal-white) 72%, transparent);
+
+  /* Typografie */
+  --font-display: "Fredoka", ui-rounded, system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, sans-serif;
+  --font-accent: "Figtree", system-ui, sans-serif;
+  --fw-display: 600;
+  --fw-body: 400;
+  --fw-strong: 700;
+  --fs-display: clamp(2.45rem, 1.5rem + 3.1vw, 3.65rem);
+  --fs-h2: clamp(1.9rem, 1.4rem + 1.7vw, 2.75rem);
+  --fs-h3: clamp(1.2rem, 1.1rem + 0.4vw, 1.4rem);
+  --fs-lead: clamp(1.075rem, 1rem + 0.3vw, 1.225rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9rem;
+  --lh-tight: 1.1;
+  --lh-body: 1.6;
+  --tracking-display: -0.005em;
+  --case-display: none;
+  --measure: 60ch;
+  --nav-font: var(--font-body);
+
+  /* Form: Buttons Pille, Karten 28px, Bilder in Karten 20px, freistehende Bilder als Blob */
+  --radius-s: 12px;
+  --radius-m: 18px;
+  --radius-l: 28px;
+  --radius-card: 28px;
+  --radius-img: 20px;
+  --radius-btn: 999px;
+  --radius-input: 16px;
+  --border-w: 0px;
+  --m3-radius-panel: 44px;
+  --m3-blob-a: 58% 42% 50% 50% / 46% 50% 50% 54%;
+  --m3-blob-b: 46% 54% 42% 58% / 54% 44% 56% 46%;
+  --m3-blob-c: 62% 38% 54% 46% / 52% 60% 40% 48%;
+  --m3-blob-d: 38% 62% 56% 44% / 42% 38% 62% 58%;
+
+  /* Tiefe: weich und grün getönt, nie schwarz */
+  --shadow-card:
+    0 1px 2px color-mix(in srgb, var(--pal-forest) 6%, transparent),
+    0 22px 44px -26px color-mix(in srgb, var(--pal-forest) 38%, transparent);
+  --m3-shadow-lift:
+    0 2px 4px color-mix(in srgb, var(--pal-forest) 6%, transparent),
+    0 30px 60px -28px color-mix(in srgb, var(--pal-forest) 45%, transparent);
+  --shadow-btn: 0 10px 22px -14px color-mix(in srgb, var(--pal-forest) 70%, transparent);
+  --shadow-btn-hover: 0 16px 28px -14px color-mix(in srgb, var(--pal-forest) 75%, transparent);
+  --shadow-btn-active: 0 4px 10px -6px color-mix(in srgb, var(--pal-forest) 60%, transparent);
+
+  /* Buttons */
+  --btn-font: var(--font-body);
+  --btn-weight: 700;
+  --btn-fs: 1rem;
+  --btn-case: none;
+  --btn-tracking: 0;
+  --btn-pad-y: 0.95em;
+  --btn-pad-x: 1.6em;
+  --btn-border-w: 2px;
+  --btn-lift: -2px;
+
+  /* Raum */
+  --section-y: clamp(3.75rem, 2.5rem + 4.4vw, 6.75rem);
+  --container: 1240px;
+
+  /* Header, Footer, Quiz */
+  --header-bg: color-mix(in srgb, var(--pal-cream) 88%, transparent);
+  --footer-bg: var(--pal-pistachio);
+  --footer-fg: var(--pal-forest);
+  --quiz-correct-bg: var(--pal-forest);
+  --quiz-correct-fg: var(--pal-cream);
+}
+
+/* ---------- 3. Seitenlayout ---------- */
+
+.theme-m3 h3 {
+  font-weight: 600;
+}
+
+/* Getönte Flächen (Bento, Badges, Karten) */
+.m3-tint--green { background: var(--m3-tint-green); }
+.m3-tint--green-soft { background: var(--m3-tint-green-soft); }
+.m3-tint--rose { background: var(--m3-tint-rose); }
+.m3-tint--rose-soft { background: var(--m3-tint-rose-soft); }
+.m3-tint--marzipan { background: var(--m3-tint-marzipan); }
+.m3-tint--marzipan-soft { background: var(--m3-tint-marzipan-soft); }
+
+/* Deko: Phosphor-Sparkles und Blätter */
+.m3-deco {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  width: 1.6rem;
+  height: 1.6rem;
+  color: var(--m3-deco-rose);
+  pointer-events: none;
+}
+
+.m3-deco .ds-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.m3-deco--leaf {
+  color: var(--m3-deco-leaf);
+}
+
+/* Badge */
+.theme-m3 .ds-badge {
+  padding: 0.38em 0.9em;
+  font-weight: 700;
+}
+
+.m3-badge-note {
+  background: var(--m3-tint-marzipan);
+}
+
+/* Sekundär-Button: heller Grund mit Kontur */
+.theme-m3 .ds-btn--secondary:hover {
+  --btn-bg: var(--m3-tint-green-soft);
+}
+
+.theme-m3 .ds-btn--link {
+  font-weight: 700;
+  text-decoration-color: var(--m3-deco-rose);
+  text-decoration-thickness: 3px;
+}
+
+.theme-m3 .ds-btn--link:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ---------- Header ---------- */
+
+.m3-header {
+  -webkit-backdrop-filter: saturate(1.2) blur(12px);
+  backdrop-filter: saturate(1.2) blur(12px);
+  border-bottom: 1px solid var(--m3-hairline);
+}
+
+.m3-header .ds-header__inner {
+  min-height: 4.5rem;
+}
+
+.m3-brand {
+  display: block;
+  flex: none;
+}
+
+.m3-brand .ds-logo--wordmark {
+  width: clamp(8.75rem, 7.5rem + 3vw, 11rem);
+}
+
+.m3-nav ul {
+  gap: 0.25rem;
+}
+
+.m3-nav a {
+  display: block;
+  padding: 0.5em 0.9em;
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  transition: background-color var(--dur) var(--ease);
+}
+
+.m3-nav a:hover,
+.m3-nav a[aria-current="page"] {
+  background: var(--m3-tint-green-soft);
+  text-decoration: none;
+}
+
+.m3-header__tools {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.m3-lang {
+  align-items: center;
+  padding: 0.45em 0.95em;
+  border-radius: var(--radius-btn);
+  background: var(--color-surface);
+  box-shadow: inset 0 0 0 1.5px var(--m3-hairline);
+}
+
+.m3-lang a {
+  opacity: 1;
+  color: var(--color-text-muted);
+}
+
+.m3-lang [aria-current="true"] {
+  color: var(--color-text);
+  text-decoration-thickness: 2px;
+}
+
+.m3-lang span {
+  color: var(--color-text-muted);
+}
+
+.m3-menu > summary {
+  border-width: 2px;
+  background: var(--color-surface);
+}
+
+.m3-menu .ds-menu__panel {
+  border-radius: var(--radius-m);
+  box-shadow: var(--m3-shadow-lift);
+}
+
+/* ---------- Hero ---------- */
+
+.m3-hero {
+  position: relative;
+  overflow: clip;
+  padding-block: clamp(2rem, 1rem + 3vw, 3.5rem) clamp(1.25rem, 0.75rem + 1.5vw, 2rem);
+}
+
+/* dezentes Punktraster hinter dem Bild */
+.m3-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 58%;
+  background-image: radial-gradient(var(--m3-dot) 1.4px, transparent 1.9px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 55% 45%, var(--color-text) 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 60% 70% at 55% 45%, var(--color-text) 30%, transparent 75%);
+  pointer-events: none;
+}
+
+.m3-hero__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  align-items: center;
+  gap: clamp(2rem, 4.5vw, 4rem);
+}
+
+.m3-hero__text h1 {
+  font-size: var(--fs-display);
+  line-height: 1.08;
+}
+
+.m3-hero__line {
+  display: block;
+}
+
+.m3-mark {
+  padding-inline: 0.06em;
+  border-radius: 0.2em;
+  background: linear-gradient(transparent 58%, var(--m3-tint-marzipan) 58%, var(--m3-tint-marzipan) 92%, transparent 92%);
+}
+
+.m3-hero__lead {
+  margin-top: var(--space-5);
+  max-width: 36ch;
+  color: var(--color-text-muted);
+}
+
+.m3-hero__text .ds-actions {
+  margin-top: var(--space-6);
+}
+
+.m3-hero__visual {
+  position: relative;
+  aspect-ratio: 52 / 56;
+  width: 100%;
+  max-width: 34rem;
+  justify-self: end;
+}
+
+/* Rosé-Blob hinter dem Foto */
+.m3-hero__visual::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  top: 14%;
+  width: 78%;
+  height: 80%;
+  border-radius: var(--m3-blob-c);
+  background: var(--m3-tint-rose-soft);
+}
+
+.m3-hero__photo {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 0;
+  width: 70%;
+  height: 86%;
+  border-radius: var(--m3-blob-a);
+  box-shadow: var(--m3-shadow-lift);
+}
+
+.m3-hero__photo img {
+  object-position: 38% 42%;
+}
+
+/* Logo-Sticker (Drucker-Illustration) links neben dem Foto */
+.m3-sticker {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 3%;
+  display: grid;
+  place-items: center;
+  width: 25%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--m3-tint-marzipan);
+  box-shadow: var(--shadow-card);
+  rotate: -8deg;
+}
+
+.m3-sticker img {
+  width: 62%;
+}
+
+/* Schwebende Badges, neben dem Foto (nicht darauf) */
+.m3-float {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  max-width: 13.5rem;
+  padding: 0.6rem 1.1rem 0.6rem 0.6rem;
+  border-radius: var(--radius-btn);
+  background: var(--color-surface);
+  box-shadow: var(--m3-shadow-lift);
+  color: var(--color-text);
+  font-size: 0.875rem;
+  line-height: 1.25;
+}
+
+.m3-float strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  hyphens: manual;
+}
+
+.m3-float__icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.m3-float__icon--green { background: var(--m3-tint-green); }
+.m3-float__icon--marzipan { background: var(--m3-tint-marzipan); }
+
+.m3-float--a {
+  left: -9%;
+  top: 44%;
+}
+
+.m3-float--b {
+  right: 6%;
+  bottom: 0;
+}
+
+.m3-deco--h1 { left: 22%; top: 34%; width: 1.75rem; height: 1.75rem; }
+.m3-deco--h2 { right: -3%; top: 50%; width: 1.25rem; height: 1.25rem; }
+.m3-deco--h3 { left: 4%; bottom: 8%; width: 1.9rem; height: 1.9rem; rotate: -20deg; }
+
+@keyframes m3-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .m3-float,
+  .m3-sticker {
+    animation: m3-float 6s ease-in-out infinite;
+  }
+
+  .m3-float--b { animation-delay: -2s; }
+  .m3-sticker { animation-delay: -4s; }
+}
+
+/* ---------- Hinweis Schülerunternehmen ---------- */
+
+.m3-notice-wrap {
+  position: relative;
+}
+
+.m3-notice {
+  align-items: center;
+  gap: var(--space-4);
+  padding: 0.75rem 1.75rem 0.75rem 0.75rem;
+  border-radius: var(--radius-btn);
+  background: var(--m3-tint-rose-soft);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.m3-notice__icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.m3-notice .ds-icon {
+  margin: 0;
+}
+
+/* ---------- Abschnittskopf ---------- */
+
+.m3-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4) var(--space-6);
+}
+
+.m3-head__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-4);
+}
+
+.m3-head__text {
+  margin-top: var(--space-3);
+  max-width: 52ch;
+  color: var(--color-text-muted);
+  font-size: var(--fs-lead);
+}
+
+/* ---------- Termine: Timeline ---------- */
+
+.m3-timeline {
+  position: relative;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+
+/* gepunktete Linie durch die Datums-Kreise */
+.m3-timeline::before {
+  content: "";
+  position: absolute;
+  left: 2.4rem;
+  right: 2.4rem;
+  top: 2.375rem;
+  border-top: 3px dotted color-mix(in srgb, var(--color-text) 40%, transparent);
+}
+
+.m3-event {
+  position: relative;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  align-items: stretch;
+  gap: var(--space-4);
+}
+
+.theme-m3 .ds-event__date {
+  width: 4.75rem;
+  height: 4.75rem;
+  min-width: 0;
+  padding: 0;
+  align-content: center;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px var(--color-bg);
+}
+
+.theme-m3 .ds-event__day {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 600;
+}
+
+.theme-m3 .ds-event__month {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+.m3-date--month .ds-event__day {
+  font-size: 1.2rem;
+}
+
+.m3-event__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.m3-event--next .m3-event__card {
+  background: var(--m3-tint-green);
+}
+
+.m3-event__flag {
+  align-self: flex-start;
+  margin-bottom: var(--space-1);
+  padding: 0.25em 0.75em;
+  border-radius: var(--radius-btn);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.theme-m3 .ds-event__title {
+  font-size: 1.2rem;
+  line-height: 1.2;
+  hyphens: manual;
+}
+
+.theme-m3 .ds-event__meta {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45em;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.m3-event--next .ds-event__meta {
+  color: var(--color-text);
+}
+
+.theme-m3 .ds-event__meta .ds-icon {
+  width: 1.05em;
+  height: 1.05em;
+  margin-top: 0.15em;
+}
+
+/* ---------- Produkte: Bento ---------- */
+
+.m3-bento {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+
+.m3-cell {
+  --card-pad: var(--space-5) var(--space-5) var(--space-6);
+  box-shadow: var(--shadow-card);
+}
+
+.m3-cell--a { grid-column: 1 / 6; grid-row: 1 / 3; }
+.m3-cell--b { grid-column: 6 / 10; }
+.m3-cell--c { grid-column: 10 / 13; }
+.m3-cell--d { grid-column: 6 / 9; }
+.m3-cell--e { grid-column: 9 / 13; }
+
+.m3-cell .ds-card__body p {
+  color: var(--color-text);
+}
+
+.m3-cell .ds-badge {
+  align-self: flex-start;
+  margin-bottom: var(--space-1);
+  background: var(--m3-glass);
+}
+
+.m3-cell__media {
+  padding: var(--space-3) var(--space-3) 0;
+}
+
+.m3-cell__media img {
+  border-radius: var(--radius-img);
+}
+
+.m3-cell--a .m3-cell__media {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 20rem;
+  padding: 0;
+}
+
+.m3-cell--a .m3-cell__media img {
+  position: absolute;
+  inset: 0 var(--space-3) var(--space-3);
+  width: calc(100% - 2 * var(--space-3));
+  height: calc(100% - var(--space-3));
+  aspect-ratio: auto;
+  object-position: 50% 30%;
+}
+
+.m3-cell--b .m3-cell__media img {
+  --card-ratio: 16 / 10;
+  object-position: 40% 42%;
+}
+
+.m3-cell--c .m3-cell__media img {
+  --card-ratio: 4 / 3;
+  object-position: 55% 70%;
+}
+
+.m3-cell__placeholder {
+  flex: 1 1 auto;
+  min-height: 11rem;
+  margin: var(--space-3) var(--space-3) 0;
+  border-color: color-mix(in srgb, var(--color-text) 38%, transparent);
+  border-radius: var(--radius-img);
+  background: var(--m3-glass);
+}
+
+/* ---------- Nachhaltigkeit + Quiz ---------- */
+
+.m3-eco {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  padding: clamp(1.5rem, 0.75rem + 4vw, 4.5rem);
+  overflow: hidden;
+  border-radius: var(--m3-radius-panel);
+  background: var(--m3-tint-green);
+}
+
+.m3-eco::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(var(--m3-dot-strong) 1.4px, transparent 1.9px);
+  background-size: 22px 22px;
+  -webkit-mask-image: linear-gradient(115deg, var(--color-text) 0%, transparent 55%);
+  mask-image: linear-gradient(115deg, var(--color-text) 0%, transparent 55%);
+}
+
+.m3-eco::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -8%;
+  bottom: -30%;
+  width: 55%;
+  aspect-ratio: 1;
+  border-radius: var(--m3-blob-d);
+  background: var(--m3-tint-green-soft);
+}
+
+.m3-eco__text {
+  position: relative;
+  display: grid;
+  justify-items: start;
+  gap: var(--space-4);
+}
+
+.m3-eco__text .lead {
+  color: var(--color-text);
+}
+
+.m3-eco__icon {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.m3-eco__icon .ds-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.m3-deco--e1 { left: 44%; top: 10%; width: 2.25rem; height: 2.25rem; rotate: 25deg; }
+.m3-deco--e2 { left: 6%; bottom: 8%; width: 1.5rem; height: 1.5rem; }
+
+.m3-quiz-card {
+  position: relative;
+  --card-pad: clamp(1.5rem, 1rem + 1.8vw, 2.5rem);
+  box-shadow: var(--m3-shadow-lift);
+}
+
+.m3-quiz-card .ds-card__body {
+  gap: var(--space-5);
+}
+
+.m3-quiz-card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+}
+
+.m3-quiz-card__head h3 {
+  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.theme-m3 .ds-quiz__question {
+  font-size: clamp(1.3rem, 1.15rem + 0.6vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.theme-m3 .ds-quiz__option {
+  padding: 0.75em 1.3em;
+  border-color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.theme-m3 .ds-quiz__option:hover {
+  background: var(--m3-tint-green-soft);
+}
+
+.theme-m3 .ds-quiz__option[aria-pressed="true"][data-correct="false"] {
+  opacity: 1;
+  background: var(--m3-tint-rose-soft);
+  border-color: var(--color-text-muted);
+  color: var(--color-text);
+}
+
+.theme-m3 .ds-quiz__feedback {
+  padding: 0.8em 1.1em;
+  border-radius: var(--radius-m);
+  background: var(--m3-tint-green-soft);
+}
+
+.theme-m3 [data-answered="wrong"] .ds-quiz__feedback {
+  background: var(--m3-tint-rose-soft);
+}
+
+/* ---------- Messe: zentrierte Ansage ---------- */
+
+.m3-messe__inner {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+  max-width: 48rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.m3-messe__inner .lead {
+  max-width: 56ch;
+  color: var(--color-text-muted);
+}
+
+.m3-messe__inner .ds-btn {
+  margin-top: var(--space-3);
+}
+
+.m3-messe__icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 6.5rem;
+  height: 6.5rem;
+  margin-bottom: var(--space-2);
+  border-radius: var(--m3-blob-b);
+  background: var(--m3-tint-rose-soft);
+}
+
+.m3-messe__icon::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -0.75rem -1.25rem -0.5rem 1.5rem;
+  border-radius: var(--m3-blob-d);
+  background: var(--m3-tint-marzipan-soft);
+}
+
+.m3-messe__icon .ds-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.m3-deco--m1 { left: 4%; top: 18%; width: 1.75rem; height: 1.75rem; }
+.m3-deco--m2 { right: 6%; top: 4%; width: 2rem; height: 2rem; }
+.m3-deco--m3 { right: 1%; bottom: 14%; width: 1.75rem; height: 1.75rem; }
+
+/* ---------- Archiv: versetzte Bildreihe ---------- */
+
+.m3-archiv__head {
+  max-width: 40rem;
+}
+
+.m3-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 0.9fr);
+  align-items: start;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  margin-top: var(--space-7);
+}
+
+.m3-gallery__item {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.m3-gallery__item figcaption {
+  padding-inline: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+
+.m3-gallery__media {
+  width: 100%;
+  min-height: 0;
+  box-shadow: var(--shadow-card);
+}
+
+.m3-gallery__item--1 .m3-gallery__media {
+  aspect-ratio: 4 / 4.4;
+  border-radius: var(--m3-blob-b);
+}
+
+.m3-gallery__item--1 img {
+  object-position: 50% 35%;
+}
+
+.m3-gallery__item--2 {
+  margin-top: clamp(1.5rem, 5vw, 4.5rem);
+}
+
+.m3-gallery__item--2 .m3-gallery__media {
+  aspect-ratio: 1;
+  border-radius: var(--m3-blob-c);
+  box-shadow: none;
+}
+
+.m3-gallery__item--3 {
+  margin-top: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+.m3-gallery__item--3 .m3-gallery__media {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--m3-blob-d);
+  box-shadow: none;
+}
+
+.m3-gallery .ds-placeholder {
+  border-color: color-mix(in srgb, var(--color-text) 38%, transparent);
+}
+
+.m3-archiv__link {
+  margin-top: var(--space-6);
+}
+
+/* ---------- Über uns ---------- */
+
+.m3-about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5.5rem);
+}
+
+.m3-about__visual {
+  position: relative;
+  isolation: isolate;
+  max-width: 30rem;
+  width: 100%;
+}
+
+/* Pistazien-Blob hinter dem Platzhalter */
+.m3-about__visual::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 8% -6% -6% 10%;
+  border-radius: var(--m3-blob-c);
+  background: var(--m3-tint-green);
+}
+
+.m3-about__photo {
+  aspect-ratio: 1;
+  min-height: 0;
+  border-color: color-mix(in srgb, var(--color-text) 38%, transparent);
+  border-radius: var(--m3-blob-a);
+  background: var(--m3-tint-marzipan-soft);
+}
+
+.m3-deco--a1 { right: -2%; top: -2%; width: 2rem; height: 2rem; }
+.m3-deco--a2 { left: -4%; bottom: 6%; width: 2.1rem; height: 2.1rem; rotate: -35deg; }
+
+.m3-about__text {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-5);
+}
+
+.m3-about__text .lead {
+  color: var(--color-text-muted);
+}
+
+.m3-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.m3-steps .ds-badge {
+  padding: 0.55em 1.05em;
+  font-size: 0.95rem;
+}
+
+/* ---------- Kontakt + Lageplan ---------- */
+
+.m3-kontakt__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: stretch;
+  gap: var(--space-4);
+}
+
+.m3-contact-card {
+  --card-pad: clamp(1.5rem, 1rem + 2.4vw, 3rem);
+}
+
+.m3-contact-card .ds-card__body {
+  gap: var(--space-4);
+  height: 100%;
+}
+
+.m3-contact-card__icon {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--color-surface);
+}
+
+.m3-contact-card__icon .ds-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.m3-contact-card .lead {
+  max-width: 40ch;
+}
+
+.m3-contact-card .ds-actions {
+  margin-top: var(--space-2);
+}
+
+.m3-contact-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, auto));
+  justify-content: start;
+  gap: var(--space-3) var(--space-7);
+  margin: auto 0 0;
+  padding-top: var(--space-5);
+  border-top: 1.5px solid var(--m3-hairline);
+}
+
+.m3-contact-list dt {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.m3-contact-list dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.m3-hint {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.m3-visit {
+  --card-pad: clamp(1.5rem, 1rem + 1.8vw, 2.5rem);
+}
+
+.m3-visit .ds-card__body {
+  gap: var(--space-4);
+  height: 100%;
+}
+
+.m3-visit__address {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5em;
+  font-weight: 600;
+}
+
+.m3-visit__address .ds-icon {
+  margin-top: 0.2em;
+}
+
+.m3-map {
+  flex: 1 1 auto;
+  min-height: 12rem;
+  border-color: color-mix(in srgb, var(--color-text) 38%, transparent);
+  border-radius: var(--radius-img);
+  background-color: var(--m3-glass);
+  background-image: radial-gradient(var(--m3-dot) 1.4px, transparent 1.9px);
+  background-size: 18px 18px;
+}
+
+.m3-visit .ds-btn--link {
+  align-self: flex-start;
+}
+
+/* ---------- Footer ---------- */
+
+.m3-footer {
+  margin-top: var(--section-y);
+  padding-block: clamp(2.5rem, 2rem + 2vw, 3.5rem) 5.5rem;
+  border-radius: var(--m3-radius-panel) var(--m3-radius-panel) 0 0;
+  font-size: 0.95rem;
+}
+
+.m3-footer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-5) var(--space-7);
+}
+
+.m3-footer__brand {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 34rem;
+}
+
+.m3-footer__brand .ds-logo--wordmark {
+  width: 11rem;
+}
+
+.m3-footer .ds-footer__links {
+  justify-content: flex-end;
+  font-weight: 700;
+}
+
+.m3-footer__copy {
+  grid-column: 1 / -1;
+  padding-top: var(--space-4);
+  border-top: 1.5px solid var(--m3-hairline);
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 1100px) {
+  .m3-timeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: var(--space-6);
+  }
+
+  .m3-timeline::before {
+    display: none;
+  }
+
+  .m3-cell--a { grid-column: 1 / 7; grid-row: 1 / 3; }
+  .m3-cell--b { grid-column: 7 / 13; }
+  .m3-cell--c { grid-column: 7 / 13; }
+  .m3-cell--d { grid-column: 1 / 7; }
+  .m3-cell--e { grid-column: 7 / 13; }
+}
+
+/* ---------- Mobil (< 768px): alles einspaltig ---------- */
+
+@media (max-width: 767px) {
+  .m3-hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .m3-hero::before {
+    width: 100%;
+    top: 40%;
+  }
+
+  .m3-hero__visual {
+    justify-self: center;
+    aspect-ratio: auto;
+    max-width: 26rem;
+    padding-top: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .m3-hero__visual::before {
+    left: 2%;
+    top: 10%;
+    width: 80%;
+    height: 62%;
+  }
+
+  .m3-hero__photo {
+    position: relative;
+    justify-self: end;
+    width: 72%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+
+  .m3-sticker {
+    width: 24%;
+    top: 4%;
+  }
+
+  .m3-float {
+    position: relative;
+    inset: auto;
+    max-width: none;
+    justify-self: start;
+  }
+
+  .m3-float--b {
+    justify-self: end;
+  }
+
+  .m3-deco--h1 { left: 6%; top: 46%; }
+  .m3-deco--h2 { right: 2%; top: auto; bottom: 30%; }
+  .m3-deco--h3 { display: none; }
+
+  .m3-notice {
+    align-items: flex-start;
+    padding: var(--space-4);
+    border-radius: var(--radius-card);
+  }
+
+  .m3-timeline {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .m3-timeline::before {
+    display: block;
+    left: 2.375rem;
+    right: auto;
+    top: 1rem;
+    bottom: 1rem;
+    border-top: 0;
+    border-left: 3px dotted color-mix(in srgb, var(--color-text) 40%, transparent);
+  }
+
+  .m3-event {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto;
+    align-items: start;
+  }
+
+  .m3-bento {
+    grid-template-columns: 1fr;
+  }
+
+  .m3-cell--a,
+  .m3-cell--b,
+  .m3-cell--c,
+  .m3-cell--d,
+  .m3-cell--e {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .m3-cell--a .m3-cell__media {
+    min-height: 22rem;
+  }
+
+  .m3-eco {
+    grid-template-columns: 1fr;
+    border-radius: var(--radius-card);
+  }
+
+  .m3-deco--e1 { left: auto; right: 8%; top: 4%; }
+
+  .m3-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .m3-gallery__item--1 {
+    grid-column: 1 / -1;
+  }
+
+  .m3-gallery__item--1 .m3-gallery__media {
+    aspect-ratio: 4 / 3.4;
+  }
+
+  .m3-gallery__item--2,
+  .m3-gallery__item--3 {
+    margin-top: 0;
+  }
+
+  .m3-gallery__item--3 {
+    margin-top: var(--space-6);
+  }
+
+  .m3-gallery .ds-placeholder {
+    padding: var(--space-3);
+  }
+
+  .m3-about__grid,
+  .m3-kontakt__grid,
+  .m3-footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .m3-about__visual {
+    max-width: 22rem;
+    justify-self: center;
+  }
+
+  .m3-contact-list {
+    grid-template-columns: 1fr;
+  }
+
+  .m3-footer .ds-footer__links {
+    justify-content: flex-start;
+  }
+}
+
+/* Sehr schmale Telefone (bis 400px): Header enger setzen */
+@media (max-width: 400px) {
+  .theme-m3 .ds-header__inner {
+    gap: var(--space-3);
+  }
+
+  .m3-brand .ds-logo--wordmark {
+    width: 7.25rem;
+  }
+
+  .m3-header__tools {
+    gap: var(--space-2);
+  }
+
+  .m3-lang {
+    padding: 0.4em 0.7em;
+  }
+}

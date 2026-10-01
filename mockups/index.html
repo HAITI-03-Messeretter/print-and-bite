@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Designrichtungen - PRINT&amp;BITE Mockups</title>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="design-system/tokens.css">
+  <link rel="stylesheet" href="design-system/base.css">
+  <link rel="stylesheet" href="design-system/components.css">
+  <link rel="stylesheet" href="themes/uebersicht.css">
+  <script src="design-system/mockup.js" defer></script>
+</head>
+<body class="theme-uebersicht">
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+  <header class="ds-header ov-header">
+    <div class="container ds-header__inner">
+      <a class="ov-brand" href="index.html">
+        <img src="assets/logo/m1-wordmark.png" alt="PRINT&amp;BITE">
+        <span class="visually-hidden">Übersicht der Designrichtungen</span>
+      </a>
+      <nav class="ds-nav" aria-label="Abschnitte">
+        <ul>
+          <li><a href="#ausgangslage">Ausgangslage</a></li>
+          <li><a href="#varianten">Varianten</a></li>
+          <li><a href="#vergleich">Vergleich</a></li>
+          <li><a href="#entscheidung">Entscheidung</a></li>
+          <li><a href="#fragen">Fragen</a></li>
+          <li><a href="#design-system">Design-System</a></li>
+        </ul>
+      </nav>
+      <details class="ds-menu">
+        <summary>Menü</summary>
+        <ul class="ds-menu__panel">
+          <li><a href="#ausgangslage">Ausgangslage</a></li>
+          <li><a href="#varianten">Varianten</a></li>
+          <li><a href="#vergleich">Vergleich</a></li>
+          <li><a href="#entscheidung">Entscheidung</a></li>
+          <li><a href="#fragen">Fragen</a></li>
+          <li><a href="#design-system">Design-System</a></li>
+        </ul>
+      </details>
+      <span class="ov-meta">Treffen 02.10.2026</span>
+    </div>
+  </header>
+
+  <main id="inhalt">
+    <section class="container ov-hero" aria-labelledby="titel">
+      <div>
+        <h1 id="titel">Fünf Richtungen für eure Website.</h1>
+        <p class="lead">Gleiche Inhalte, fünf Designs. Schaut euch alle an, dann entscheiden wir gemeinsam: eine Variante oder eine Mischung.</p>
+        <div class="ds-actions">
+          <a class="ds-btn ds-btn--primary" href="m1-original.html">Mit M1 starten
+            <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
+          </a>
+          <a class="ds-btn ds-btn--link" href="#entscheidung">Zum Entscheidungsbogen</a>
+        </div>
+        <p class="ov-meta" style="margin-top: var(--space-5)">Tipp: In jedem Mockup wechseln die Pfeiltasten ← → zur nächsten Variante.</p>
+      </div>
+      <div class="ov-hero__strip" aria-label="Vorschau aller Varianten">
+        <a href="m1-original.html"><img src="assets/img/vorschau-m1-mobil.jpg" alt="Vorschau M1 Original"></a>
+        <a href="m2-retro-konditorei.html"><img src="assets/img/vorschau-m2-mobil.jpg" alt="Vorschau M2 Retro-Konditorei"></a>
+        <a href="m3-pistazie-rose.html"><img src="assets/img/vorschau-m3-mobil.jpg" alt="Vorschau M3 Pistazie und Rose"></a>
+        <a href="m4-aprikose-editorial.html"><img src="assets/img/vorschau-m4-mobil.jpg" alt="Vorschau M4 Aprikose Editorial"></a>
+        <a href="m5-filament-labor.html"><img src="assets/img/vorschau-m5-mobil.jpg" alt="Vorschau M5 Filament-Labor"></a>
+      </div>
+    </section>
+
+    <section class="section" id="ausgangslage" aria-labelledby="ausgangslage-titel" style="background: var(--color-surface)">
+      <div class="container ov-start">
+        <div class="stack" style="--stack-gap: var(--space-5)">
+          <div class="ov-section-head">
+            <h2 id="ausgangslage-titel">Eure Vorgaben</h2>
+            <p>Wireframe, Farben und Schriften vom Board. M1 setzt sie eins zu eins um, M2 bis M4 entwickeln sie weiter, M5 bricht bewusst damit.</p>
+          </div>
+          <div class="ov-refs">
+            <figure>
+              <img src="assets/img/ref-wireframe.jpg" alt="Handgezeichneter Wireframe: Logo oben, Bild und Text im Wechsel, unten Ort und Datum vom Stand">
+              <figcaption>Wireframe</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/img/ref-farbwahl.jpg" alt="Farbwahl Marzipan, Dull Pink und Dusty Rose">
+              <figcaption>Farbwahl</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="ov-findings">
+          <div class="ov-finding">
+            <h3>Kontrast: Die drei Farben reichen nicht für Text</h3>
+            <p class="muted measure">Für gut lesbaren Text verlangt der Standard WCAG mindestens 4,5:1, für große Überschriften 3:1. Untereinander erreichen eure Farben höchstens 2,7:1. Das deckt sich mit der Expertenmeinung auf dem Board. Schwarze Schrift funktioniert auf allen drei.</p>
+            <table class="ov-contrast">
+              <thead>
+                <tr><th scope="col">Kombination</th><th scope="col">Kontrast</th><th scope="col">Lesbar?</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><span class="ov-pair" style="background:#F4DB9A;color:#DD8C96">Pink auf Marzipan</span></td><td class="ov-ratio">1,87:1</td><td><span class="ov-fail">Nein</span></td></tr>
+                <tr><td><span class="ov-pair" style="background:#F4DB9A;color:#C66974">Rose auf Marzipan</span></td><td class="ov-ratio">2,72:1</td><td><span class="ov-fail">Nein</span></td></tr>
+                <tr><td><span class="ov-pair" style="background:#C66974;color:#FFFFFF">Weiß auf Rose</span></td><td class="ov-ratio">3,70:1</td><td><span class="ov-fail">Nur große Schrift</span></td></tr>
+                <tr><td><span class="ov-pair" style="background:#C66974;color:#1E1A1A">Schwarz auf Rose</span></td><td class="ov-ratio">4,66:1</td><td><span class="ov-pass">Ja</span></td></tr>
+                <tr><td><span class="ov-pair" style="background:#F4DB9A;color:#1E1A1A">Schwarz auf Marzipan</span></td><td class="ov-ratio">12,68:1</td><td><span class="ov-pass">Ja</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="ov-finding">
+            <h3>Schriften: eine Lizenzfrage, eine Lesbarkeitsfrage</h3>
+            <p class="muted measure"><strong>Stay Retro</strong> ist kostenlos nur privat nutzbar, für die Website braucht es eine Webfont-Lizenz (ca. 21 USD je Domain). In den Mockups steht deshalb die freie, sehr ähnliche <span style="font-family:'Leckerli One';font-size:1.15em">Leckerli One</span>. <strong>Pacifico</strong> ist eine Schreibschrift: schön für Überschriften und Akzente, als Fließtext aber anstrengend zu lesen. <strong>League Spartan</strong> ist gut lesbar und frei nutzbar.</p>
+          </div>
+
+          <div class="ov-finding">
+            <h3>Logo: freigestellt</h3>
+            <p class="muted measure">Wie gewünscht ohne grauen Hintergrund. Es lässt sich in jeder Farbe ausgeben und passt damit auf helle und dunkle Seiten.</p>
+            <div class="ov-logos">
+              <div style="background:#F4DB9A"><img src="assets/logo/m1-full.png" alt="Logo auf Marzipan" width="140"></div>
+              <div style="background:#DD8C96"><img src="assets/logo/m1-full.png" alt="Logo auf Dull Pink" width="140"></div>
+              <div style="background:#151716"><img src="assets/logo/m5-full.png" alt="Logo hell auf dunklem Grund" width="140"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="varianten" aria-labelledby="varianten-titel">
+      <div class="ov-section-head">
+        <h2 id="varianten-titel">Die fünf Varianten</h2>
+        <p>Achtet auf Farben, Schriften, die Form von Buttons und Bildern und darauf, wie sich die Seite anfühlt. Fotos von Pizzaschnecken, Holzprodukten und Aktionen fehlen noch und sind als Platzhalter markiert.</p>
+      </div>
+
+      <div class="ov-variants">
+        <!--VARIANTS:start-->
+        <article class="ds-card ov-variant" aria-labelledby="m1-titel">
+          <a class="ov-variant__shot" href="m1-original.html" tabindex="-1" aria-hidden="true">
+            <img src="assets/img/vorschau-m1.jpg" alt="" loading="lazy">
+          </a>
+          <div class="ov-variant__body">
+            <div class="ov-variant__head">
+              <h3 id="m1-titel"><a href="m1-original.html" style="color:inherit;text-decoration:none">M1 Original</a></h3>
+              <span class="ov-variant__code">Text 12,7:1 · Button 4,7:1</span>
+            </div>
+            <p class="ov-variant__idea">Eure Vorgaben eins zu eins: Wireframe, Marzipan, Dull Pink, Dusty Rose und die gewählten Schriften.</p>
+            <ul class="ov-swatches" aria-label="Farben">
+                <li><span style="background:#F4DB9A"></span>Marzipan<br>#F4DB9A</li>
+                <li><span style="background:#DD8C96"></span>Dull Pink<br>#DD8C96</li>
+                <li><span style="background:#C66974"></span>Dusty Rose<br>#C66974</li>
+                <li><span style="background:#1E1A1A"></span>Schwarz<br>#1E1A1A</li>
+            </ul>
+            <div class="ov-type">
+              <span class="ov-type__display" style="font-family:'Leckerli One';font-weight:400">Gedruckt in Lüneburg.</span>
+              <span class="ov-type__body" style="font-family:'Pacifico'">Pizzaschnecken, frisch gebacken am Verkaufstag.</span>
+              <small>Leckerli One · Pacifico · Akzent: League Spartan</small>
+            </div>
+            <div class="ov-specimen" style="background:#F4DB9A;color:#1E1A1A;--color-primary:#C66974;--color-on-primary:#1E1A1A;--color-secondary:transparent;--color-on-secondary:#1E1A1A;--radius-btn:999px;--btn-font:'League Spartan';--btn-case:uppercase;--btn-tracking:.06em;--btn-fs:.95rem;--shadow-btn-hover:0 4px 0 0 #1E1A1A">
+              <a class="ds-btn ds-btn--primary" href="m1-original.html#termine" style="">Nächste Termine <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+              <a class="ds-btn ds-btn--secondary" href="m1-original.html#produkte" style="">Unsere Produkte</a>
+            </div>
+            <ul class="ov-tags" aria-label="Wirkung"><li class="ds-badge">verspielt</li><li class="ds-badge">süß</li><li class="ds-badge">handgemacht</li></ul>
+            <p class="ov-fit">Passt, wenn ihr genau eure Wahl sehen wollt. Achtung: Pacifico als Fließtext liest sich schwer.</p>
+            <a class="ds-btn ds-btn--link" href="m1-original.html">M1 Original ansehen</a>
+          </div>
+        </article>
+        <article class="ds-card ov-variant" aria-labelledby="m2-titel">
+          <a class="ov-variant__shot" href="m2-retro-konditorei.html" tabindex="-1" aria-hidden="true">
+            <img src="assets/img/vorschau-m2.jpg" alt="" loading="lazy">
+          </a>
+          <div class="ov-variant__body">
+            <div class="ov-variant__head">
+              <h3 id="m2-titel"><a href="m2-retro-konditorei.html" style="color:inherit;text-decoration:none">M2 Retro-Konditorei</a></h3>
+              <span class="ov-variant__code">Text 14,1:1 · Button 10,0:1</span>
+            </div>
+            <p class="ov-variant__idea">Eure Farben, nur lesbar und mit mehr Charakter: ein dunkles Himbeer-Schoko als Anker, Sticker-Look wie in einer 70er-Konditorei.</p>
+            <ul class="ov-swatches" aria-label="Farben">
+                <li><span style="background:#FAEAC0"></span>Marzipan hell<br>#FAEAC0</li>
+                <li><span style="background:#F4DB9A"></span>Marzipan<br>#F4DB9A</li>
+                <li><span style="background:#DD8C96"></span>Dull Pink<br>#DD8C96</li>
+                <li><span style="background:#C66974"></span>Dusty Rose<br>#C66974</li>
+                <li><span style="background:#651C31"></span>Himbeer-Schoko<br>#651C31</li>
+                <li><span style="background:#2E1717"></span>Schoko<br>#2E1717</li>
+            </ul>
+            <div class="ov-type">
+              <span class="ov-type__display" style="font-family:'Shrikhand';font-weight:400">Gedruckt in Lüneburg.</span>
+              <span class="ov-type__body" style="font-family:'League Spartan'">Pizzaschnecken, frisch gebacken am Verkaufstag.</span>
+              <small>Shrikhand · League Spartan · Akzent: Pacifico (nur Sticker)</small>
+            </div>
+            <div class="ov-specimen" style="background:#FAEAC0;color:#2E1717;--color-primary:#651C31;--color-on-primary:#FAEAC0;--color-secondary:#FFF7E2;--color-on-secondary:#651C31;--radius-btn:14px;--btn-border-w:3px;--btn-font:'League Spartan';--btn-fs:1.05rem;--btn-pad-y:.8em;--btn-pad-x:1.35em;--btn-lift:-3px">
+              <a class="ds-btn ds-btn--primary" href="m2-retro-konditorei.html#termine" style="--shadow-btn:4px 4px 0 #C66974;--shadow-btn-hover:7px 7px 0 #C66974">Nächste Termine <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+              <a class="ds-btn ds-btn--secondary" href="m2-retro-konditorei.html#produkte" style="--shadow-btn:4px 4px 0 #651C31;--shadow-btn-hover:7px 7px 0 #651C31">Unsere Produkte</a>
+            </div>
+            <ul class="ov-tags" aria-label="Wirkung"><li class="ds-badge">70er</li><li class="ds-badge">laut</li><li class="ds-badge">fröhlich</li></ul>
+            <p class="ov-fit">Passt, wenn eure Farben bleiben sollen, die Seite aber gut lesbar und unverwechselbar werden soll.</p>
+            <a class="ds-btn ds-btn--link" href="m2-retro-konditorei.html">M2 Retro-Konditorei ansehen</a>
+          </div>
+        </article>
+        <article class="ds-card ov-variant" aria-labelledby="m3-titel">
+          <a class="ov-variant__shot" href="m3-pistazie-rose.html" tabindex="-1" aria-hidden="true">
+            <img src="assets/img/vorschau-m3.jpg" alt="" loading="lazy">
+          </a>
+          <div class="ov-variant__body">
+            <div class="ov-variant__head">
+              <h3 id="m3-titel"><a href="m3-pistazie-rose.html" style="color:inherit;text-decoration:none">M3 Pistazie & Rose</a></h3>
+              <span class="ov-variant__code">Text 11,4:1 · Button 11,4:1</span>
+            </div>
+            <p class="ov-variant__idea">Rosé und Marzipan bleiben, dazu kommt Pistaziengrün als Gegenfarbe. Weich, freundlich und passend zum Thema Nachhaltigkeit.</p>
+            <ul class="ov-swatches" aria-label="Farben">
+                <li><span style="background:#F5F8EE"></span>Pistazien-Creme<br>#F5F8EE</li>
+                <li><span style="background:#C9DDB0"></span>Pistazie<br>#C9DDB0</li>
+                <li><span style="background:#F7DDE0"></span>Rosé hell<br>#F7DDE0</li>
+                <li><span style="background:#DD8C96"></span>Dull Pink<br>#DD8C96</li>
+                <li><span style="background:#F4DB9A"></span>Marzipan<br>#F4DB9A</li>
+                <li><span style="background:#1F3B2D"></span>Waldgrün<br>#1F3B2D</li>
+            </ul>
+            <div class="ov-type">
+              <span class="ov-type__display" style="font-family:'Fredoka';font-weight:600">Gedruckt in Lüneburg.</span>
+              <span class="ov-type__body" style="font-family:'Figtree'">Pizzaschnecken, frisch gebacken am Verkaufstag.</span>
+              <small>Fredoka · Figtree · Akzent: Figtree</small>
+            </div>
+            <div class="ov-specimen" style="background:#F5F8EE;color:#1F3B2D;--color-primary:#1F3B2D;--color-on-primary:#F5F8EE;--color-secondary:#FCFDF8;--color-on-secondary:#1F3B2D;--radius-btn:999px;--btn-font:'Figtree';--shadow-btn:0 10px 22px -14px rgb(31 59 45 / .7);--shadow-btn-hover:0 16px 28px -14px rgb(31 59 45 / .75)">
+              <a class="ds-btn ds-btn--primary" href="m3-pistazie-rose.html#termine" style="">Nächste Termine <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+              <a class="ds-btn ds-btn--secondary" href="m3-pistazie-rose.html#produkte" style="">Unsere Produkte</a>
+            </div>
+            <ul class="ov-tags" aria-label="Wirkung"><li class="ds-badge">frisch</li><li class="ds-badge">freundlich</li><li class="ds-badge">nachhaltig</li></ul>
+            <p class="ov-fit">Passt, wenn Nachhaltigkeit sichtbar sein soll und die Seite einladend und ruhig wirken soll.</p>
+            <a class="ds-btn ds-btn--link" href="m3-pistazie-rose.html">M3 Pistazie & Rose ansehen</a>
+          </div>
+        </article>
+        <article class="ds-card ov-variant" aria-labelledby="m4-titel">
+          <a class="ov-variant__shot" href="m4-aprikose-editorial.html" tabindex="-1" aria-hidden="true">
+            <img src="assets/img/vorschau-m4.jpg" alt="" loading="lazy">
+          </a>
+          <div class="ov-variant__body">
+            <div class="ov-variant__head">
+              <h3 id="m4-titel"><a href="m4-aprikose-editorial.html" style="color:inherit;text-decoration:none">M4 Aprikose Editorial</a></h3>
+              <span class="ov-variant__code">Text 13,9:1 · Button 5,9:1</span>
+            </div>
+            <p class="ov-variant__idea">Die Palette wandert Richtung Aprikose und Terrakotta. Ruhiges Magazin-Layout mit der Serifenschrift aus eurem Logo und Sie-Ansprache.</p>
+            <ul class="ov-swatches" aria-label="Farben">
+                <li><span style="background:#FFF6EE"></span>Aprikosen-Weiß<br>#FFF6EE</li>
+                <li><span style="background:#FCE1CC"></span>Aprikose hell<br>#FCE1CC</li>
+                <li><span style="background:#F2A06F"></span>Aprikose<br>#F2A06F</li>
+                <li><span style="background:#A63F27"></span>Terrakotta<br>#A63F27</li>
+                <li><span style="background:#3B1F2B"></span>Pflaume<br>#3B1F2B</li>
+            </ul>
+            <div class="ov-type">
+              <span class="ov-type__display" style="font-family:'Playfair Display';font-weight:500">Gedruckt in Lüneburg.</span>
+              <span class="ov-type__body" style="font-family:'Outfit'">Pizzaschnecken, frisch gebacken am Verkaufstag.</span>
+              <small>Playfair Display · Outfit · Akzent: Outfit</small>
+            </div>
+            <div class="ov-specimen" style="background:#FFF6EE;color:#3B1F2B;--color-primary:#A63F27;--color-on-primary:#FFF6EE;--color-link:#A63F27;--radius-btn:2px;--btn-border-w:1px;--btn-font:'Outfit';--btn-weight:500;--btn-lift:0px">
+              <a class="ds-btn ds-btn--primary" href="m4-aprikose-editorial.html#termine" style="">Nächste Termine <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+              <a class="ds-btn ds-btn--link" href="m4-aprikose-editorial.html#produkte">Unsere Produkte</a>
+            </div>
+            <ul class="ov-tags" aria-label="Wirkung"><li class="ds-badge">ruhig</li><li class="ds-badge">erwachsen</li><li class="ds-badge">Magazin</li><li class="ds-badge">Sie-Form</li></ul>
+            <p class="ov-fit">Passt, wenn ihr auch Eltern, Betriebe und die Messe-Jury überzeugen wollt.</p>
+            <a class="ds-btn ds-btn--link" href="m4-aprikose-editorial.html">M4 Aprikose Editorial ansehen</a>
+          </div>
+        </article>
+        <article class="ds-card ov-variant ov-variant--wide" aria-labelledby="m5-titel">
+          <a class="ov-variant__shot" href="m5-filament-labor.html" tabindex="-1" aria-hidden="true">
+            <img src="assets/img/vorschau-m5.jpg" alt="" loading="lazy">
+          </a>
+          <div class="ov-variant__body">
+            <div class="ov-variant__head">
+              <h3 id="m5-titel"><a href="m5-filament-labor.html" style="color:inherit;text-decoration:none">M5 Filament-Labor</a></h3>
+              <span class="ov-variant__code">Text 15,5:1 · Button 13,1:1</span>
+            </div>
+            <p class="ov-variant__idea">Der bewusste Kontrast: dunkles Graphit und das Limettengrün eurer Flaschenkappe, breite Schrift, technisches Raster. Bricht mit Wireframe und Vorgaben.</p>
+            <ul class="ov-swatches" aria-label="Farben">
+                <li><span style="background:#151716"></span>Graphit<br>#151716</li>
+                <li><span style="background:#1C1F1D"></span>Fläche<br>#1C1F1D</li>
+                <li><span style="background:#2F3430"></span>Linie<br>#2F3430</li>
+                <li><span style="background:#ECEFE8"></span>Kreide<br>#ECEFE8</li>
+                <li><span style="background:#A7AEA6"></span>Asche<br>#A7AEA6</li>
+                <li><span style="background:#A3EC6A"></span>Filament-Limette<br>#A3EC6A</li>
+            </ul>
+            <div class="ov-type">
+              <span class="ov-type__display" style="font-family:'Archivo';font-stretch:125%;text-transform:uppercase;font-weight:900">Gedruckt in Lüneburg.</span>
+              <span class="ov-type__body" style="font-family:'Archivo'">Pizzaschnecken, frisch gebacken am Verkaufstag.</span>
+              <small>Archivo breit · Archivo · Akzent: JetBrains Mono</small>
+            </div>
+            <div class="ov-specimen" style="background:#151716;color:#ECEFE8;--color-primary:#A3EC6A;--color-on-primary:#111311;--color-secondary:transparent;--color-on-secondary:#ECEFE8;--radius-btn:0;--btn-border-w:1px;--btn-font:'JetBrains Mono';--btn-case:uppercase;--btn-tracking:.08em;--btn-fs:.85rem;--btn-lift:0px;--shadow-btn-hover:4px 4px 0 0 #ECEFE8">
+              <a class="ds-btn ds-btn--primary" href="m5-filament-labor.html#termine" style="">Nächste Termine <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+              <a class="ds-btn ds-btn--secondary" href="m5-filament-labor.html#produkte" style="">Unsere Produkte</a>
+            </div>
+            <ul class="ov-tags" aria-label="Wirkung"><li class="ds-badge">technisch</li><li class="ds-badge">modern</li><li class="ds-badge">selbstbewusst</li></ul>
+            <p class="ov-fit">Passt, wenn ihr euch klar von typischen Schülerfirmen-Seiten abheben wollt.</p>
+            <a class="ds-btn ds-btn--link" href="m5-filament-labor.html">M5 Filament-Labor ansehen</a>
+          </div>
+        </article>
+        <!--VARIANTS:end-->
+      </div>
+    </section>
+
+    <section class="section" id="vergleich" aria-labelledby="vergleich-titel" style="background: var(--color-surface)">
+      <div class="container">
+        <div class="ov-section-head">
+          <h2 id="vergleich-titel">Auf einen Blick</h2>
+        </div>
+        <div class="ov-table-wrap">
+          <!--TABLE:start-->
+          <table class="ov-table">
+            <thead>
+              <tr><th scope="col"><span class="visually-hidden">Merkmal</span></th><th scope="col"><a href="m1-original.html">M1 Original</a></th><th scope="col"><a href="m2-retro-konditorei.html">M2 Retro-Konditorei</a></th><th scope="col"><a href="m3-pistazie-rose.html">M3 Pistazie & Rose</a></th><th scope="col"><a href="m4-aprikose-editorial.html">M4 Aprikose Editorial</a></th><th scope="col"><a href="m5-filament-labor.html">M5 Filament-Labor</a></th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Farben</th><td>Marzipan, Dull Pink, Dusty Rose, Schwarz</td><td>eure drei Farben plus Himbeer-Schoko und Schoko</td><td>Rosé, Marzipan, Pistazie, Waldgrün</td><td>Aprikose, Terrakotta, Pflaume</td><td>Graphit, Kreide, Filament-Limette</td></tr>
+              <tr><th scope="row">Schriften</th><td>Leckerli One, Pacifico, League Spartan</td><td>Shrikhand, League Spartan, Pacifico als Akzent</td><td>Fredoka, Figtree</td><td>Playfair Display, Outfit</td><td>Archivo (breit), JetBrains Mono</td></tr>
+              <tr><th scope="row">Buttons</th><td>Pille, Versalien</td><td>abgerundet, dicke Kontur, harter Schatten</td><td>weiche Pille mit Schatten</td><td>eckig, ruhig, dazu Textlinks</td><td>eckig, Mono-Versalien</td></tr>
+              <tr><th scope="row">Bilder</th><td>Blob- und Wireframe-Formen</td><td>gedrehte Sticker-Rahmen, Sonnenstrahlen</td><td>organische Blob-Formen</td><td>Bogen (oben rund)</td><td>technischer Rahmen, Schichtlinien</td></tr>
+              <tr><th scope="row">Layout</th><td>wie Wireframe: zentriert, Bild und Text im Wechsel</td><td>Split-Hero, Termine als Kassenbon, Sticker-Raster</td><td>Split-Hero, Termin-Zeitstrahl, Bento mit farbigen Kacheln</td><td>Magazin: Kalenderliste, Produkt-Porträt, feine Linien</td><td>Termin-Laufband, Bento, Raster</td></tr>
+              <tr><th scope="row">Ansprache</th><td>du/ihr, locker</td><td>du/ihr, frech</td><td>du/ihr, warm</td><td>Sie, sachlich</td><td>du, knapp</td></tr>
+              <tr><th scope="row">Nähe zu euren Vorgaben</th><td>sehr hoch</td><td>hoch</td><td>mittel</td><td>mittel</td><td>bewusst gering</td></tr>
+              <tr><th scope="row">Kontrast Text</th><td>12,7:1</td><td>14,1:1</td><td>11,4:1</td><td>13,9:1</td><td>15,5:1</td></tr>
+            </tbody>
+          </table>
+          <!--TABLE:end-->
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="entscheidung" aria-labelledby="entscheidung-titel">
+      <div class="ov-section-head">
+        <h2 id="entscheidung-titel">Entscheidungsbogen</h2>
+        <p>Mischen ist ausdrücklich erlaubt: zum Beispiel die Farben aus einer Variante und die Buttons aus einer anderen. Das Design-System macht solche Kombinationen einfach.</p>
+      </div>
+
+      <div class="ov-decide">
+        <form class="ov-form" id="bogen" aria-label="Auswahl pro Bereich">
+          <!--DIMENSIONS:start-->
+          <fieldset class="ov-dim">
+            <legend>Gesamt-Favorit</legend>
+            <div class="ov-choices">
+              <label class="ov-choice"><input type="radio" name="gesamt" value="m1"><span>M1</span></label>
+              <label class="ov-choice"><input type="radio" name="gesamt" value="m2"><span>M2</span></label>
+              <label class="ov-choice"><input type="radio" name="gesamt" value="m3"><span>M3</span></label>
+              <label class="ov-choice"><input type="radio" name="gesamt" value="m4"><span>M4</span></label>
+              <label class="ov-choice"><input type="radio" name="gesamt" value="m5"><span>M5</span></label>
+              <label class="ov-choice"><input type="radio" name="gesamt" value="offen"><span>offen</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="ov-dim">
+            <legend>Farben</legend>
+            <div class="ov-choices">
+              <label class="ov-choice"><input type="radio" name="farben" value="m1"><span>M1</span></label>
+              <label class="ov-choice"><input type="radio" name="farben" value="m2"><span>M2</span></label>
+              <label class="ov-choice"><input type="radio" name="farben" value="m3"><span>M3</span></label>
+              <label class="ov-choice"><input type="radio" name="farben" value="m4"><span>M4</span></label>
+              <label class="ov-choice"><input type="radio" name="farben" value="m5"><span>M5</span></label>
+              <label class="ov-choice"><input type="radio" name="farben" value="offen"><span>offen</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="ov-dim">
+            <legend>Schriften</legend>
+            <div class="ov-choices">
+              <label class="ov-choice"><input type="radio" name="schriften" value="m1"><span>M1</span></label>
+              <label class="ov-choice"><input type="radio" name="schriften" value="m2"><span>M2</span></label>
+              <label class="ov-choice"><input type="radio" name="schriften" value="m3"><span>M3</span></label>
+              <label class="ov-choice"><input type="radio" name="schriften" value="m4"><span>M4</span></label>
+              <label class="ov-choice"><input type="radio" name="schriften" value="m5"><span>M5</span></label>
+              <label class="ov-choice"><input type="radio" name="schriften" value="offen"><span>offen</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="ov-dim">
+            <legend>Buttons und Formen</legend>
+            <div class="ov-choices">
+              <label class="ov-choice"><input type="radio" name="formen" value="m1"><span>M1</span></label>
+              <label class="ov-choice"><input type="radio" name="formen" value="m2"><span>M2</span></label>
+              <label class="ov-choice"><input type="radio" name="formen" value="m3"><span>M3</span></label>
+              <label class="ov-choice"><input type="radio" name="formen" value="m4"><span>M4</span></label>
+              <label class="ov-choice"><input type="radio" name="formen" value="m5"><span>M5</span></label>
+              <label class="ov-choice"><input type="radio" name="formen" value="offen"><span>offen</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="ov-dim">
+            <legend>Bildformen</legend>
+            <div class="ov-choices">
+              <label class="ov-choice"><input type="radio" name="bilder" value="m1"><span>M1</span></label>
+              <label class="ov-choice"><input type="radio" name="bilder" value="m2"><span>M2</span></label>
+              <label class="ov-choice"><input type="radio" name="bilder" value="m3"><span>M3</span></label>
+              <label class="ov-choice"><input type="radio" name="bilder" value="m4"><span>M4</span></label>
+              <label class="ov-choice"><input type="radio" name="bilder" value="m5"><span>M5</span></label>
+              <label class="ov-choice"><input type="radio" name="bilder" value="offen"><span>offen</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="ov-dim">
+            <legend>Layout</legend>
+            <div class="ov-choices">
+              <label class="ov-choice"><input type="radio" name="layout" value="m1"><span>M1</span></label>
+              <label class="ov-choice"><input type="radio" name="layout" value="m2"><span>M2</span></label>
+              <label class="ov-choice"><input type="radio" name="layout" value="m3"><span>M3</span></label>
+              <label class="ov-choice"><input type="radio" name="layout" value="m4"><span>M4</span></label>
+              <label class="ov-choice"><input type="radio" name="layout" value="m5"><span>M5</span></label>
+              <label class="ov-choice"><input type="radio" name="layout" value="offen"><span>offen</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="ov-dim">
+            <legend>Tonalität</legend>
+            <div class="ov-choices">
+              <label class="ov-choice"><input type="radio" name="ton" value="m1"><span>M1</span></label>
+              <label class="ov-choice"><input type="radio" name="ton" value="m2"><span>M2</span></label>
+              <label class="ov-choice"><input type="radio" name="ton" value="m3"><span>M3</span></label>
+              <label class="ov-choice"><input type="radio" name="ton" value="m4"><span>M4</span></label>
+              <label class="ov-choice"><input type="radio" name="ton" value="m5"><span>M5</span></label>
+              <label class="ov-choice"><input type="radio" name="ton" value="offen"><span>offen</span></label>
+            </div>
+          </fieldset>
+          <!--DIMENSIONS:end-->
+          <div class="ds-field">
+            <label for="notizen">Notizen</label>
+            <textarea id="notizen" name="notizen" rows="4" aria-describedby="notizen-hilfe"></textarea>
+            <p class="ds-field__help" id="notizen-hilfe">Was gefällt, was stört, was fehlt?</p>
+          </div>
+        </form>
+
+        <aside class="ov-result" aria-labelledby="ergebnis-titel">
+          <h3 id="ergebnis-titel">Ergebnis</h3>
+          <pre id="ergebnis" aria-live="polite"></pre>
+          <button class="ds-btn" type="button" id="kopieren">Ergebnis kopieren</button>
+          <p class="ov-result__hint">Die Auswahl bleibt in diesem Browser gespeichert. Das IT-Team trägt sie danach ins Ticket ein.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="fragen" aria-labelledby="fragen-titel" style="background: var(--color-surface)">
+      <div class="container">
+        <div class="ov-section-head">
+          <h2 id="fragen-titel">Fragen an euch</h2>
+          <p>Damit wir nach dem Treffen weiterbauen können. Abhaken, was geklärt ist.</p>
+        </div>
+        <div class="ov-questions" id="fragenliste">
+          <div>
+            <h3>Angebot</h3>
+            <ul>
+              <li><label><input type="checkbox" name="q-snacks"> Gehören Pizzaschnecken und andere Snacks fest zu eurem Angebot?</label></li>
+              <li><label><input type="checkbox" name="q-holz"> Welche Holzprodukte gibt es mit der BBS II, und dürfen wir sie zeigen?</label></li>
+              <li><label><input type="checkbox" name="q-3d"> Welche 3D-Produkte sollen auf die Seite, und wie heißen sie bei euch?</label></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Zielgruppen und Ton</h3>
+            <ul>
+              <li><label><input type="checkbox" name="q-ziel"> Wen wollt ihr vor allem erreichen: Mitschüler, Lehrkräfte, Eltern, Messebesucher, Betriebe?</label></li>
+              <li><label><input type="checkbox" name="q-ton"> Sprechen wir die Leute mit „du“ oder mit „Sie“ an?</label></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Seitenstruktur</h3>
+            <ul>
+              <li><label><input type="checkbox" name="q-nav"> Passt die Navigation: Produkte, Termine, Nachhaltigkeit, Messe, Über uns, Kontakt?</label></li>
+              <li><label><input type="checkbox" name="q-archiv"> Soll das Archiv eine eigene Seite sein oder unter den Terminen liegen?</label></li>
+              <li><label><input type="checkbox" name="q-quiz"> Wie soll das Wasser-Plastik-Quiz aussehen, und wer liefert die Fragen?</label></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Inhalte und Pflege</h3>
+            <ul>
+              <li><label><input type="checkbox" name="q-fotos"> Wer liefert Fotos von Pizzaschnecken, Holzprodukten, Team und Aktionen, und bis wann?</label></li>
+              <li><label><input type="checkbox" name="q-termine"> Wer trägt später neue Verkaufstermine ein?</label></li>
+              <li><label><input type="checkbox" name="q-logo"> Kommt aus Arbeitspaket 1 noch ein neues Logo oder neue Farben?</label></li>
+              <li><label><input type="checkbox" name="q-mail"> Gibt es eine eigene E-Mail-Adresse für Anfragen, und wer beantwortet sie?</label></li>
+              <li><label><input type="checkbox" name="q-personen"> Fotos ohne erkennbare Personen: Ist das für euch in Ordnung, oder holen wir Einwilligungen ein?</label></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="design-system" aria-labelledby="ds-titel">
+      <div class="ov-ds">
+        <div>
+          <div class="ov-section-head">
+            <h2 id="ds-titel">Ein Design-System für alle fünf</h2>
+            <p>Alle Varianten benutzen dieselben Bausteine. Was sie unterscheidet, steht in wenigen Design-Tokens. Darum lässt sich eure Wahl später leicht anpassen.</p>
+          </div>
+          <ul class="ov-layers">
+            <li>
+              <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M174,47.75a254.19,254.19,0,0,0-41.45-38.3,8,8,0,0,0-9.18,0A254.19,254.19,0,0,0,82,47.75C54.51,79.32,40,112.6,40,144a88,88,0,0,0,176,0C216,112.6,201.49,79.32,174,47.75ZM128,216a72.08,72.08,0,0,1-72-72c0-57.23,55.47-105,72-118,16.53,13,72,60.75,72,118A72.08,72.08,0,0,1,128,216Zm55.89-62.66a57.6,57.6,0,0,1-46.56,46.55A8.75,8.75,0,0,1,136,200a8,8,0,0,1-1.32-15.89c16.57-2.79,30.63-16.85,33.44-33.45a8,8,0,0,1,15.78,2.68Z"/></svg>
+              <div><strong>Palette</strong><p class="muted">Die Rohfarben einer Variante, zum Beispiel Marzipan und Dusty Rose.</p></div>
+            </li>
+            <li>
+              <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"/></svg>
+              <div><strong>Bedeutung</strong><p class="muted">Was eine Farbe oder Form tut: Hintergrund, Text, Hauptaktion, Rundung der Buttons.</p></div>
+            </li>
+            <li>
+              <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M223.68,66.15,135.68,18h0a15.88,15.88,0,0,0-15.36,0l-88,48.17a16,16,0,0,0-8.32,14v95.64a16,16,0,0,0,8.32,14l88,48.17a15.88,15.88,0,0,0,15.36,0l88-48.17a16,16,0,0,0,8.32-14V80.18A16,16,0,0,0,223.68,66.15ZM128,32h0l80.34,44L128,120,47.66,76ZM40,90l80,43.78v85.79L40,175.82Zm96,129.57V133.82L216,90v85.78Z"/></svg>
+              <div><strong>Bausteine</strong><p class="muted">Button, Karte, Termin, Quiz, Navigation. Sie lesen nur die Bedeutungs-Ebene.</p></div>
+            </li>
+          </ul>
+        </div>
+        <pre class="ov-code" aria-label="Beispiel für Design-Tokens"><code>/* themes/m2-retro-konditorei.css */
+:root {
+  --pal-marzipan: #F4DB9A;
+  --pal-himbeer:  <em>#6A1F33</em>;
+
+  --color-bg:        var(--pal-marzipan);
+  --color-primary:   var(--pal-himbeer);
+  --font-display:    "Shrikhand";
+  --font-body:       "League Spartan";
+
+  /* Buttons eckig statt rund? Eine Zeile: */
+  --radius-btn:      <em>0</em>;
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ds-footer ov-footer">
+    <div class="container">
+      <span>Entwurf des IT-Teams Messeretter für PRINT&amp;BITE, ein Schülerunternehmen der BBS I Lüneburg</span>
+      <span>Stand 01.10.2026</span>
+    </div>
+  </footer>
+
+  <nav class="ds-mockbar" aria-label="Mockup-Navigation">
+    <a href="m5-filament-labor.html" rel="prev">‹ M5</a>
+    <span>Übersicht</span>
+    <a href="m1-original.html" rel="next">M1 ›</a>
+  </nav>
+
+  <script>
+    (function () {
+      var VARIANTS = [
+        { id: "m1", name: "M1 Original" },
+        { id: "m2", name: "M2 Retro-Konditorei" },
+        { id: "m3", name: "M3 Pistazie & Rose" },
+        { id: "m4", name: "M4 Aprikose Editorial" },
+        { id: "m5", name: "M5 Filament-Labor" }
+      ];
+      var KEY = "pb-entscheidungsbogen";
+      var form = document.getElementById("bogen");
+      var out = document.getElementById("ergebnis");
+      var questions = document.getElementById("fragenliste");
+
+      function load() {
+        try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
+      }
+      function save(state) {
+        try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* privates Fenster: ohne Speichern weiter */ }
+      }
+
+      function render() {
+        var lines = ["Entscheidung Designrichtung PRINT&BITE (Treffen 02.10.2026)", ""];
+        form.querySelectorAll("fieldset").forEach(function (set) {
+          var checked = set.querySelector("input:checked");
+          var label = set.querySelector("legend").textContent.trim();
+          var value = checked ? (VARIANTS.filter(function (v) { return v.id === checked.value; })[0] || { name: "offen" }).name : "noch offen";
+          lines.push(label + ": " + value);
+        });
+        var notes = form.notizen.value.trim();
+        if (notes) lines.push("", "Notizen: " + notes);
+        var done = [];
+        questions.querySelectorAll("input:checked").forEach(function (input) {
+          done.push("- " + input.parentElement.textContent.trim());
+        });
+        if (done.length) lines.push("", "Geklärt:", done.join("\n"));
+        out.textContent = lines.join("\n");
+      }
+
+      function collect() {
+        var state = { notizen: form.notizen.value, fragen: {} };
+        form.querySelectorAll("input:checked").forEach(function (input) { state[input.name] = input.value; });
+        questions.querySelectorAll("input").forEach(function (input) { state.fragen[input.name] = input.checked; });
+        save(state);
+        render();
+      }
+
+      var state = load();
+      Object.keys(state).forEach(function (name) {
+        if (name === "notizen") { form.notizen.value = state.notizen || ""; return; }
+        if (name === "fragen") return;
+        var input = form.querySelector('input[name="' + name + '"][value="' + state[name] + '"]');
+        if (input) input.checked = true;
+      });
+      Object.keys(state.fragen || {}).forEach(function (name) {
+        var input = questions.querySelector('input[name="' + name + '"]');
+        if (input) input.checked = !!state.fragen[name];
+      });
+
+      form.addEventListener("change", collect);
+      form.addEventListener("input", collect);
+      questions.addEventListener("change", collect);
+      render();
+
+      document.getElementById("kopieren").addEventListener("click", function () {
+        var button = this;
+        function done() { button.textContent = "Kopiert"; setTimeout(function () { button.textContent = "Ergebnis kopieren"; }, 1800); }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(out.textContent).then(done, fallback);
+        } else {
+          fallback();
+        }
+        function fallback() {
+          var range = document.createRange();
+          range.selectNodeContents(out);
+          var selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          try { document.execCommand("copy"); done(); } catch (e) { button.textContent = "Text markiert, mit Strg+C kopieren"; }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
