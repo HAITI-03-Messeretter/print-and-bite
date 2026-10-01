@@ -24,10 +24,13 @@ Beispiele:
 feat/12-shopping-cart
 fix/18-price-calculation
 docs/21-readme
+refactor/24-order-service
 chore/5-github-setup
 ```
 
 Branch-Namen werden kleingeschrieben und Wörter mit Bindestrichen getrennt.
+
+Branches sollen grundsätzlich vom aktuellen Stand von `main` erstellt werden.
 
 ## Pull Requests
 
@@ -39,11 +42,30 @@ Ein zugehöriges Issue wird im Pull Request verknüpft:
 Closes #12
 ```
 
-Pull Requests werden von mindestens einem anderen Entwickler geprüft, bevor sie in `main` übernommen werden.
+Pull Requests sollen eine verständliche Beschreibung der vorgenommenen Änderungen enthalten.
+
+## Reviews
+
+Jeder Pull Request muss vor dem Merge von mindestens einem anderen Entwickler geprüft werden.
+
+Dabei gelten folgende Regeln:
+
+- Der Autor eines Pull Requests darf die eigene Änderung nicht selbst freigeben.
+- Offene Review-Kommentare und Änderungswünsche müssen vor dem Merge geklärt werden.
+- Änderungen, die nach einem Review vorgenommen werden, sollen erneut geprüft werden, wenn sie den bereits geprüften Code wesentlich verändern.
+- Erst nach erfolgreichem Review darf der Pull Request in `main` übernommen werden.
 
 ## Commits
 
 Commit-Nachrichten sollen kurz und verständlich beschreiben, was geändert wurde.
+
+Folgende Präfixe werden empfohlen:
+
+- `feat:` – neue Funktion
+- `fix:` – Fehlerbehebung
+- `docs:` – Dokumentation
+- `refactor:` – Überarbeitung bestehenden Codes
+- `chore:` – Wartung oder Konfiguration
 
 Beispiele:
 
@@ -60,20 +82,3 @@ chore: update repository configuration
 Pull Requests werden per **Squash Merge** in `main` übernommen.
 
 Nach erfolgreichem Merge wird der zugehörige Branch gelöscht.
-
-## Beispiel: vom Issue zum Merge
-
-Für ein Issue #12 "Warenkorb":
-
-```bash
-git switch main
-git pull
-git switch -c feat/12-shopping-cart
-# ... Änderungen ...
-git add .
-git commit -m "feat: add shopping cart"
-git push -u origin feat/12-shopping-cart
-gh pr create --fill
-```
-
-Im Pull Request steht `Closes #12`. Nach dem Review wird per Squash Merge übernommen und der Branch danach gelöscht.
