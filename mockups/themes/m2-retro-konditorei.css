@@ -863,12 +863,11 @@
 .m2-prod--flasche .ds-card__media { min-height: 22rem; }
 .m2-prod--flasche .ds-card__media img { object-position: 50% 30%; }
 .m2-prod--anhaenger .ds-card__media { min-height: 14rem; }
+.m2-prod--anhaenger .ds-card__media img { object-position: 50% 80%; }
 
-/* Dosenschutz: Ausschnitt mit den bunten Exemplaren rechts im Foto (anders als im Hero) */
+/* Dosenschutz: Ausschnitt auf den Aufsatz, die Karte ist flacher als das Foto */
 .m2-prod--dose .ds-card__media img {
-  object-position: 50% 25%;
-  transform: scale(2.2);
-  transform-origin: 100% 50%;
+  object-position: 50% 30%;
 }
 
 .theme-m2 .m2-prod .ds-card__body {

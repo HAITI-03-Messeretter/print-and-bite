@@ -658,7 +658,7 @@
 
 .m3-cell--b .m3-cell__media img {
   --card-ratio: 16 / 10;
-  object-position: 40% 42%;
+  object-position: 50% 30%;
 }
 
 .m3-cell--c .m3-cell__media img {

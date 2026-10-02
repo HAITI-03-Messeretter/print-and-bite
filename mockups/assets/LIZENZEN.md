@@ -26,4 +26,4 @@ Für die echte Website gelten die Hinweise aus [Schriftlizenzen klären](https:/
 
 ## Fotos und Logo (`img/`, `logo/`)
 
-Die Produktfotos (`produkt-*.jpg`) sind Beispielfotos des IT-Teams Messeretter und werden für die fertige Website durch Fotos der Schülerfirma ersetzt. Logo, Wireframe und Farbwahl stammen von der Schülerfirma PRINT&BITE. Alles darf nur für dieses Projekt verwendet werden.
+Produktfotos (`produkt-*.jpg`), Logo, Wireframe und Farbwahl stammen von der Schülerfirma PRINT&BITE. Alles darf nur für dieses Projekt verwendet werden.
