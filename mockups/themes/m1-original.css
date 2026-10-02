@@ -660,12 +660,10 @@
   align-items: center;
 }
 
-.m1-bento__item--wide .ds-placeholder {
-  height: calc(100% - 2 * var(--space-4));
-  min-height: 11rem;
+.m1-bento__item--wide .ds-card__media {
   margin: var(--space-4) 0 var(--space-4) var(--space-4);
+  overflow: hidden;
   border-radius: calc(var(--radius-card) - 8px);
-  background: var(--color-bg);
 }
 
 .m1-section-foot {
@@ -998,8 +996,7 @@
     grid-template-columns: 1fr;
   }
 
-  .m1-bento__item--wide .ds-placeholder {
-    height: auto;
+  .m1-bento__item--wide .ds-card__media {
     margin: var(--space-4) var(--space-4) 0;
   }
 

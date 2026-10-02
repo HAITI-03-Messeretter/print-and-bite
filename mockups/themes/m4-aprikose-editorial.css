@@ -695,7 +695,8 @@
   gap: var(--space-4);
 }
 
-.m4-spread__item .ds-placeholder {
+.m4-spread__item .ds-placeholder,
+.m4-spread__media {
   aspect-ratio: 5 / 4;
   max-width: 28rem;
 }
@@ -723,7 +724,7 @@
     margin-top: clamp(4rem, 2rem + 4vw, 7rem);
   }
 
-  .m4-spread__item--wood .ds-placeholder {
+  .m4-spread__item--wood .m4-spread__media {
     order: -1;
   }
 
