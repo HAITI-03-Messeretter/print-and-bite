@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>M5 Filament-Labor - PRINT&amp;BITE Mockup</title>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="design-system/tokens.css">
+  <link rel="stylesheet" href="design-system/base.css">
+  <link rel="stylesheet" href="design-system/components.css">
+  <link rel="stylesheet" href="themes/m5-filament-labor.css">
+  <script src="design-system/mockup.js" defer></script>
+</head>
+<body class="theme-m5">
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+  <header class="ds-header m5-header">
+    <div class="container ds-header__inner">
+      <a class="m5-brand" href="#top">
+        <img class="ds-logo ds-logo--wordmark" src="assets/logo/m5-wordmark.png" alt="PRINT&amp;BITE" width="1530" height="181">
+      </a>
+
+      <nav class="ds-nav" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="#produkte">Produkte</a></li>
+          <li><a href="#termine">Termine</a></li>
+          <li><a href="#nachhaltigkeit">Nachhaltigkeit</a></li>
+          <li><a href="#messe">Messe</a></li>
+          <li><a href="#ueber-uns">Über uns</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="m5-header__tools">
+        <div class="ds-lang" role="group" aria-label="Sprache">
+          <a href="#" lang="de" aria-current="true">DE</a>
+          <span aria-hidden="true">|</span>
+          <a href="#" lang="en">EN</a>
+        </div>
+
+        <details class="ds-menu">
+          <summary>
+            <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"/></svg>
+            Menü
+          </summary>
+          <ul class="ds-menu__panel">
+            <li><a href="#produkte">Produkte</a></li>
+            <li><a href="#termine">Termine</a></li>
+            <li><a href="#nachhaltigkeit">Nachhaltigkeit</a></li>
+            <li><a href="#messe">Messe</a></li>
+            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main id="inhalt">
+    <!-- Hero: Logo-Schriftzug, breite Headline, Produktfoto im Laborrahmen -->
+    <section id="top" class="m5-hero" aria-labelledby="hero-title">
+      <div class="container m5-hero__grid">
+        <div class="m5-hero__brand" data-reveal>
+          <img class="m5-hero__wordmark" src="assets/logo/m5-wordmark.png" alt="PRINT&amp;BITE" width="1530" height="181">
+          <img class="m5-hero__subtitle" src="assets/logo/m5-subtitle.png" alt="ein Schülerunternehmen der BBS 1 Lüneburg" width="1513" height="93">
+        </div>
+
+        <h1 id="hero-title" class="m5-hero__title" data-reveal style="--reveal-index:1">
+          <span>Gedruckt<span class="m5-hero__dot">.</span></span>
+          <span>Gebacken<span class="m5-hero__dot">.</span></span>
+        </h1>
+
+        <p class="lead m5-hero__lead" data-reveal style="--reveal-index:2">3D-gedruckte Alltagshelfer, Holzprodukte und Pizzaschnecken. Du findest uns am Stand in der BBS I Lüneburg.</p>
+
+        <div class="ds-actions m5-hero__actions" data-reveal style="--reveal-index:3">
+          <a class="ds-btn" href="#termine">
+            Nächste Termine
+            <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg>
+          </a>
+          <a class="ds-btn ds-btn--secondary" href="#produkte">Unsere Produkte</a>
+        </div>
+
+        <figure class="m5-frame m5-hero__visual" data-reveal style="--reveal-index:2">
+          <div class="ds-media m5-frame__media">
+            <img src="assets/img/produkt-flaschenschutz.jpg" alt="Grüner 3D-gedruckter Flaschenschutz auf einer grünen Glasflasche, mit Schlüsselring und Karabiner" width="1200" height="1600">
+          </div>
+          <figcaption class="m5-frame__caption">
+            <span>Flaschenschutz</span>
+            <span>3D-Druck</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Laufband: Termine auf einen Blick. Die vollständige Liste steht im Abschnitt #termine. -->
+    <div class="m5-ticker" role="region" aria-label="Nächste Termine im Überblick">
+      <a class="m5-ticker__label" href="#termine">
+        <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,28H188V24a12,12,0,0,0-24,0v4H92V24a12,12,0,0,0-24,0v4H48A20,20,0,0,0,28,48V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V48A20,20,0,0,0,208,28ZM68,52a12,12,0,0,0,24,0h72a12,12,0,0,0,24,0h16V76H52V52ZM52,204V100H204V204Z"/></svg>
+        <span class="m5-ticker__label-text">Nächste Termine</span>
+      </a>
+      <div class="m5-ticker__viewport">
+        <div class="m5-ticker__track">
+          <ul class="m5-ticker__list" role="list">
+            <li><svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg><b>Di 03.11.2026</b><span>09:30-10:00 Uhr</span><span>Pausenhalle BBS I</span></li>
+            <li><svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg><b>Do 26.11.2026</b><span>09:30-10:00 Uhr</span><span>Pausenhalle BBS I</span></li>
+            <li><svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg><b>Fr 11.12.2026</b><span>11:00-14:00 Uhr</span><span>Weihnachtsverkauf, Foyer BBS I</span></li>
+            <li><svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg><b>März 2027</b><span>Wirtschaft-Live-Messe</span><span>Ort folgt</span></li>
+            <li><svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg><b>Juni 2027</b><span>Summer-Sale</span><span>Schulhof BBS I</span></li>
+          </ul>
+          <ul class="m5-ticker__list" role="list" aria-hidden="true">
+            <li><svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg><b>Di 03.11.2026</b><span>09:30-10:00 Uhr</span><span>Pausenhalle BBS I</span></li>
+            <li><svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg><b>Do 26.11.2026</b><span>09:30-10:00 Uhr</span><span>Pausenhalle BBS I</span></li>
+            <li><svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg><b>Fr 11.12.2026</b><span>11:00-14:00 Uhr</span><span>Weihnachtsverkauf, Foyer BBS I</span></li>
+            <li><svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg><b>März 2027</b><span>Wirtschaft-Live-Messe</span><span>Ort folgt</span></li>
+            <li><svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg><b>Juni 2027</b><span>Summer-Sale</span><span>Schulhof BBS I</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hinweis Schülerunternehmen -->
+    <div class="container m5-notice-wrap">
+      <p class="ds-notice m5-notice">
+        <span class="m5-notice__icon">
+          <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M108,84a16,16,0,1,1,16,16A16,16,0,0,1,108,84Zm128,44A108,108,0,1,1,128,20,108.12,108.12,0,0,1,236,128Zm-24,0a84,84,0,1,0-84,84A84.09,84.09,0,0,0,212,128Zm-72,36.68V132a20,20,0,0,0-20-20,12,12,0,0,0-4,23.32V168a20,20,0,0,0,20,20,12,12,0,0,0,4-23.32Z"/></svg>
+        </span>
+        <span class="m5-notice__text"><strong>PRINT&amp;BITE ist eine Schülerfirma der Berufsbildenden Schulen I Lüneburg</strong> - ein pädagogisches Schulprojekt.</span>
+      </p>
+    </div>
+
+    <!-- Termine -->
+    <section id="termine" class="section m5-dates" aria-labelledby="termine-title">
+      <div class="container">
+        <div class="m5-head" data-reveal>
+          <h2 id="termine-title">Nächste Termine</h2>
+          <span class="ds-badge">Beispieltermine</span>
+          <a class="ds-btn ds-btn--link m5-head__link" href="#">
+            Alle Termine
+            <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg>
+          </a>
+        </div>
+
+        <ol class="ds-events m5-dates__list" role="list" data-reveal style="--reveal-index:1">
+          <li class="ds-event m5-date m5-date--next">
+            <p class="m5-date__flag">Als Nächstes</p>
+            <time class="ds-event__date" datetime="2026-11-03">
+              <span class="ds-event__day">03.11.</span>
+              <span class="ds-event__month">Dienstag 2026</span>
+            </time>
+            <div class="m5-date__body">
+              <h3 class="ds-event__title">Verkauf in der großen Pause</h3>
+              <p class="ds-event__meta">
+                <span><svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm68-84a12,12,0,0,1-12,12H128a12,12,0,0,1-12-12V72a12,12,0,0,1,24,0v44h44A12,12,0,0,1,196,128Z"/></svg>09:30-10:00 Uhr</span>
+                <span><svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,60a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,60Zm0,64a20,20,0,1,1,20-20A20,20,0,0,1,128,124Zm0-112a92.1,92.1,0,0,0-92,92c0,77.36,81.64,135.4,85.12,137.83a12,12,0,0,0,13.76,0,259,259,0,0,0,42.18-39C205.15,170.57,220,136.37,220,104A92.1,92.1,0,0,0,128,12Zm31.3,174.71A249.35,249.35,0,0,1,128,216.89a249.35,249.35,0,0,1-31.3-30.18C80,167.37,60,137.31,60,104a68,68,0,0,1,136,0C196,137.31,176,167.37,159.3,186.71Z"/></svg>Pausenhalle BBS I</span>
+              </p>
+            </div>
+          </li>
+          <li class="ds-event m5-date">
+            <time class="ds-event__date" datetime="2026-11-26">
+              <span class="ds-event__day">26.11.</span>
+              <span class="ds-event__month">Do 2026</span>
+            </time>
+            <div class="m5-date__body">
+              <h3 class="ds-event__title">Verkauf in der großen Pause</h3>
+              <p class="ds-event__meta"><span>09:30-10:00 Uhr</span><span>Pausenhalle BBS I</span></p>
+            </div>
+          </li>
+          <li class="ds-event m5-date">
+            <time class="ds-event__date" datetime="2026-12-11">
+              <span class="ds-event__day">11.12.</span>
+              <span class="ds-event__month">Fr 2026</span>
+            </time>
+            <div class="m5-date__body">
+              <h3 class="ds-event__title">Weihnachtsverkauf</h3>
+              <p class="ds-event__meta"><span>11:00-14:00 Uhr</span><span>Foyer BBS I</span></p>
+            </div>
+          </li>
+          <li class="ds-event m5-date">
+            <time class="ds-event__date" datetime="2027-03">
+              <span class="ds-event__day">März</span>
+              <span class="ds-event__month">2027</span>
+            </time>
+            <div class="m5-date__body">
+              <h3 class="ds-event__title">Wirtschaft-Live-Messe</h3>
+              <p class="ds-event__meta"><span>Ort folgt</span></p>
+            </div>
+          </li>
+          <li class="ds-event m5-date">
+            <time class="ds-event__date" datetime="2027-06">
+              <span class="ds-event__day">Juni</span>
+              <span class="ds-event__month">2027</span>
+            </time>
+            <div class="m5-date__body">
+              <h3 class="ds-event__title">Summer-Sale</h3>
+              <p class="ds-event__meta"><span>Schulhof BBS I</span></p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Produkte: Bento mit genau 5 Zellen -->
+    <section id="produkte" class="section m5-products" aria-labelledby="produkte-title">
+      <div class="container">
+        <div class="m5-head" data-reveal>
+          <h2 id="produkte-title">Das gibt's am Stand</h2>
+          <a class="ds-btn ds-btn--link m5-head__link" href="#">
+            Unsere Produkte
+            <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg>
+          </a>
+        </div>
+
+        <ul class="m5-bento" role="list" data-reveal style="--reveal-index:1">
+          <li class="ds-card m5-cell m5-cell--dose">
+            <div class="ds-card__media">
+              <img src="assets/img/produkt-dosenschutz.jpg" alt="3D-gedruckter Dosenschutz in Rosa auf einer Getränkedose" width="1200" height="1600" loading="lazy">
+            </div>
+            <div class="ds-card__body">
+              <p class="m5-tag">3D-Druck</p>
+              <h3 class="ds-card__title">Dosenschutz</h3>
+              <p>Aufsatz für Getränkedosen. Schützt die Trinköffnung, in vielen Farben.</p>
+            </div>
+          </li>
+          <li class="ds-card m5-cell m5-cell--wide m5-cell--anhaenger">
+            <div class="ds-card__media">
+              <img src="assets/img/produkt-anhaenger-detail.jpg" alt="Herz im Bausteinlook aus zwei Hälften, jede Hälfte mit eigenem Karabiner und Schlüsselring" width="1200" height="845" loading="lazy">
+            </div>
+            <div class="ds-card__body">
+              <p class="m5-tag">3D-Druck</p>
+              <h3 class="ds-card__title">Baustein-Anhänger</h3>
+              <p>Schlüsselanhänger im Bausteinlook, zum Beispiel geteilte Herzen zum Verschenken.</p>
+            </div>
+          </li>
+          <li class="ds-card m5-cell m5-cell--flasche">
+            <div class="ds-card__media">
+              <img src="assets/img/produkt-flaschenschutz.jpg" alt="Grüner Flaschenschutz als Deckel auf einer Glasflasche" width="1200" height="1600" loading="lazy">
+            </div>
+            <div class="ds-card__body">
+              <p class="m5-tag">3D-Druck</p>
+              <h3 class="ds-card__title">Flaschenschutz</h3>
+              <p>Deckel für Glasflaschen. Hält Wespen und andere Insekten aus deinem Getränk, mit Karabiner für den Schlüsselbund.</p>
+            </div>
+          </li>
+          <li class="ds-card m5-cell m5-cell--snack">
+            <figure class="ds-placeholder">
+              <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M243.43,62.05a19.93,19.93,0,0,0-9.06-12.38,205.51,205.51,0,0,0-212.74,0,20,20,0,0,0-6.7,27.48h0l96,157.26a20,20,0,0,0,34.2,0l96-157.26A19.82,19.82,0,0,0,243.43,62.05ZM128,44a180.93,180.93,0,0,1,90.45,24.14L210,82A164.15,164.15,0,0,0,46,82L37.55,68.14A180.93,180.93,0,0,1,128,44ZM83.88,144.06l-20.74-34A20,20,0,0,1,92,128,20.12,20.12,0,0,1,83.88,144.06ZM128,216.36,96.44,164.65A44,44,0,0,0,91.8,88.72a140.45,140.45,0,0,1,105.71,13.74l-8.95,14.66a44,44,0,0,0-45.75,75ZM148,156a20,20,0,0,1,28-18.32l-20.64,33.83A20,20,0,0,1,148,156Z"/></svg>
+              <figcaption>Foto folgt: Pizzaschnecken</figcaption>
+            </figure>
+            <div class="ds-card__body">
+              <p class="m5-tag">Snack</p>
+              <h3 class="ds-card__title">Pizzaschnecken</h3>
+              <p>Frisch gebacken am Verkaufstag.</p>
+            </div>
+          </li>
+          <li class="ds-card m5-cell m5-cell--wide m5-cell--holz">
+            <div class="ds-card__media">
+              <img src="assets/img/produkt-holz.jpg" alt="Holzprodukte vor einer weißen Wand: ein Pinguin mit Haken auf einem halbrunden Tisch, Regale, ein Puzzleteil, ein Tablett und eine Kiste" width="1200" height="900" loading="lazy">
+            </div>
+            <div class="ds-card__body">
+              <p class="m5-tag">Holz</p>
+              <h3 class="ds-card__title">Holzprodukte</h3>
+              <p>In Kooperation mit der BBS II.</p>
+            </div>
+          </li>
+        </ul>
+
+        <p class="m5-products__note">Preise gibt's direkt am Stand.</p>
+      </div>
+    </section>
+
+    <!-- Nachhaltigkeit: Prozess als horizontale Folge + Quiz-Karte -->
+    <section id="nachhaltigkeit" class="section m5-cycle" aria-labelledby="cycle-title">
+      <div class="container">
+        <h2 id="cycle-title" data-reveal>Vom Filament zum Stand</h2>
+
+        <ol class="m5-flow" role="list">
+          <li class="m5-flow__item" data-reveal>
+            <div class="m5-flow__rail">
+              <svg class="ds-icon m5-flow__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M100,208a12,12,0,0,1-12,12H40a28,28,0,0,1-24.23-42l29.45-50.88-4.76,1.27a12,12,0,1,1-6.2-23.18l32.77-8.77a12,12,0,0,1,14.69,8.48l8.79,32.77a12,12,0,1,1-23.17,6.22L66.08,139l-29.5,51A4,4,0,0,0,40,196H88A12,12,0,0,1,100,208ZM128,36a3.87,3.87,0,0,1,3.46,2l29.45,50.87-4.75-1.27A12,12,0,1,0,150,110.78l32.77,8.79a12,12,0,0,0,14.69-8.48L206.2,78.3A12,12,0,1,0,183,72.08l-1.31,4.86L152.23,26a28,28,0,0,0-48.46,0L80.61,66a12,12,0,1,0,20.77,12l23.16-40A3.87,3.87,0,0,1,128,36ZM240.19,178l-23.14-40a12,12,0,1,0-20.77,12l23.14,40a4,4,0,0,1-3.46,6H157l3.51-3.51a12,12,0,1,0-17-17l-24,24a12,12,0,0,0,0,17l24,24a12,12,0,1,0,17-17L157,220h59a28,28,0,0,0,24.23-42Z"/></svg>
+              <span class="m5-flow__line" aria-hidden="true"></span>
+              <svg class="ds-icon m5-flow__arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg>
+            </div>
+            <h3 class="m5-flow__title">Recycling&shy;filament</h3>
+            <p>Wir drucken mit Recyclingfilament der RecyclingFabrik aus Braunschweig. So bekommt Kunststoff ein zweites Leben.</p>
+          </li>
+          <li class="m5-flow__item" data-reveal style="--reveal-index:1">
+            <div class="m5-flow__rail">
+              <svg class="ds-icon m5-flow__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M214.67,68H204V40a12,12,0,0,0-12-12H64A12,12,0,0,0,52,40V68H41.33C25.16,68,12,80.56,12,96v80a12,12,0,0,0,12,12H52v28a12,12,0,0,0,12,12H192a12,12,0,0,0,12-12V188h28a12,12,0,0,0,12-12V96C244,80.56,230.84,68,214.67,68ZM76,52H180V68H76ZM180,204H76V172H180Zm40-40H204v-4a12,12,0,0,0-12-12H64a12,12,0,0,0-12,12v4H36V96c0-2.17,2.44-4,5.33-4H214.67c2.89,0,5.33,1.83,5.33,4Zm-16-44a16,16,0,1,1-16-16A16,16,0,0,1,204,120Z"/></svg>
+              <span class="m5-flow__line" aria-hidden="true"></span>
+              <svg class="ds-icon m5-flow__arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg>
+            </div>
+            <h3 class="m5-flow__title">Druck</h3>
+            <p>Schicht für Schicht entstehen daraus Alltagshelfer wie Flaschenschutz und Dosenschutz.</p>
+          </li>
+          <li class="m5-flow__item" data-reveal style="--reveal-index:2">
+            <div class="m5-flow__rail">
+              <svg class="ds-icon m5-flow__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M236,96a12,12,0,0,0-.44-3.3L221.2,42.51A20.08,20.08,0,0,0,202,28H54A20.08,20.08,0,0,0,34.8,42.51L20.46,92.7A12,12,0,0,0,20,96h0v16a43.94,43.94,0,0,0,16,33.92V216a12,12,0,0,0,12,12H208a12,12,0,0,0,12-12V145.92A43.94,43.94,0,0,0,236,112V96ZM57.05,52H199l9.14,32H47.91Zm91,56v4a20,20,0,0,1-40,0v-4ZM53,128.71A20,20,0,0,1,44,112v-4H84v4a20,20,0,0,1-20,20,19.76,19.76,0,0,1-9.07-2.2A11.54,11.54,0,0,0,53,128.71ZM196,204H60V155.81c1.32.12,2.65.19,4,.19a43.86,43.86,0,0,0,32-13.85,43.89,43.89,0,0,0,64,0A43.86,43.86,0,0,0,192,156c1.35,0,2.68-.07,4-.19Zm16-92a20,20,0,0,1-9,16.71,11.66,11.66,0,0,0-1.88,1.09A20,20,0,0,1,172,112v-4h40Z"/></svg>
+            </div>
+            <h3 class="m5-flow__title">Stand</h3>
+            <p>Am Stand bekommst du sie direkt von uns, zusammen mit Holzprodukten und Pizzaschnecken.</p>
+          </li>
+        </ol>
+
+        <article class="m5-quiz" aria-labelledby="quiz-title" data-reveal>
+          <div class="m5-quiz__intro">
+            <span class="ds-badge">Beispielfrage</span>
+            <h3 id="quiz-title" class="m5-quiz__title">Wasser-Plastik-Quiz</h3>
+            <p class="m5-quiz__text">Wie gut kennst du dich mit Plastik im Wasser aus? Tipp eine Antwort an.</p>
+            <a class="ds-btn ds-btn--link" href="#">
+              Zum ganzen Quiz
+              <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg>
+            </a>
+          </div>
+          <div class="ds-quiz" data-quiz data-feedback-correct="Richtig! Schätzungen gehen von bis zu 450 Jahren aus." data-feedback-wrong="Leider nein. Schätzungen gehen von bis zu 450 Jahren aus.">
+            <p class="ds-quiz__question">Wie lange braucht eine Plastikflasche im Meer, bis sie zerfallen ist?</p>
+            <div class="ds-quiz__options">
+              <button type="button" class="ds-quiz__option" data-correct="false">etwa 5 Jahre</button>
+              <button type="button" class="ds-quiz__option" data-correct="false">etwa 50 Jahre</button>
+              <button type="button" class="ds-quiz__option" data-correct="true">bis zu 450 Jahre</button>
+            </div>
+            <p class="ds-quiz__feedback" aria-live="polite" hidden></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Messe + Über uns: kompaktes Paar -->
+    <div class="section m5-duo">
+      <div class="container m5-duo__grid">
+        <section id="messe" class="m5-fair" aria-labelledby="messe-title" data-reveal>
+          <p class="m5-fair__when">
+            <span>März</span>
+            <span>2027</span>
+          </p>
+          <div class="m5-fair__body">
+            <h2 id="messe-title" class="m5-duo__title">Wirtschaft-Live-Messe</h2>
+            <p>Im März sind wir auf der Wirtschaft-Live-Messe: Rund 20 Schülerunternehmen aus ganz Niedersachsen stellen dort aus und treten in Wettbewerben an, vom besten Messestand bis zum besten Imagefilm.</p>
+            <a class="ds-btn ds-btn--link" href="#">
+              Mehr zur Messe
+              <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg>
+            </a>
+          </div>
+        </section>
+
+        <section id="ueber-uns" class="m5-about" aria-labelledby="about-title" data-reveal style="--reveal-index:1">
+          <figure class="ds-placeholder m5-about__photo">
+            <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M214.67,68H204V40a12,12,0,0,0-12-12H64A12,12,0,0,0,52,40V68H41.33C25.16,68,12,80.56,12,96v80a12,12,0,0,0,12,12H52v28a12,12,0,0,0,12,12H192a12,12,0,0,0,12-12V188h28a12,12,0,0,0,12-12V96C244,80.56,230.84,68,214.67,68ZM76,52H180V68H76ZM180,204H76V172H180Zm40-40H204v-4a12,12,0,0,0-12-12H64a12,12,0,0,0-12,12v4H36V96c0-2.17,2.44-4,5.33-4H214.67c2.89,0,5.33,1.83,5.33,4Zm-16-44a16,16,0,1,1-16-16A16,16,0,0,1,204,120Z"/></svg>
+            <figcaption>Foto folgt: Drucker in der Werkstatt</figcaption>
+          </figure>
+          <h2 id="about-title" class="m5-duo__title">Über uns</h2>
+          <p>Wir sind PRINT&amp;BITE, die Schülerfirma der BBS I Lüneburg. Wir planen, drucken, backen und verkaufen selbst und lernen dabei, wie ein Unternehmen funktioniert.</p>
+          <a class="ds-btn ds-btn--link" href="#">
+            Mehr über uns
+            <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg>
+          </a>
+        </section>
+      </div>
+    </div>
+
+    <!-- Archiv: Filmstreifen mit 3 Kacheln -->
+    <section id="archiv" class="section m5-archive" aria-labelledby="archiv-title">
+      <div class="container">
+        <div class="m5-head" data-reveal>
+          <h2 id="archiv-title">Rückblick</h2>
+          <a class="ds-btn ds-btn--link m5-head__link" href="#">
+            Zum Archiv
+            <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg>
+          </a>
+        </div>
+
+        <ul class="m5-strip" role="list" data-reveal style="--reveal-index:1">
+          <li>
+            <figure class="m5-shot">
+              <div class="ds-media m5-shot__media">
+                <img src="assets/img/produkt-anhaenger.jpg" alt="Vier Herz-Anhänger im Bausteinlook in Beige, Rosa, Orange und Rot, jedes Herz aus zwei Hälften mit Schlüsselringen" width="1200" height="1600" loading="lazy">
+              </div>
+              <figcaption>Baustein-Anhänger</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="ds-placeholder">
+              <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M236,96a12,12,0,0,0-.44-3.3L221.2,42.51A20.08,20.08,0,0,0,202,28H54A20.08,20.08,0,0,0,34.8,42.51L20.46,92.7A12,12,0,0,0,20,96h0v16a43.94,43.94,0,0,0,16,33.92V216a12,12,0,0,0,12,12H208a12,12,0,0,0,12-12V145.92A43.94,43.94,0,0,0,236,112V96ZM57.05,52H199l9.14,32H47.91Zm91,56v4a20,20,0,0,1-40,0v-4ZM53,128.71A20,20,0,0,1,44,112v-4H84v4a20,20,0,0,1-20,20,19.76,19.76,0,0,1-9.07-2.2A11.54,11.54,0,0,0,53,128.71ZM196,204H60V155.81c1.32.12,2.65.19,4,.19a43.86,43.86,0,0,0,32-13.85,43.89,43.89,0,0,0,64,0A43.86,43.86,0,0,0,192,156c1.35,0,2.68-.07,4-.19Zm16-92a20,20,0,0,1-9,16.71,11.66,11.66,0,0,0-1.88,1.09A20,20,0,0,1,172,112v-4h40Z"/></svg>
+              <figcaption>Foto folgt: Produkte am Stand</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="ds-placeholder">
+              <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M243.43,62.05a19.93,19.93,0,0,0-9.06-12.38,205.51,205.51,0,0,0-212.74,0,20,20,0,0,0-6.7,27.48h0l96,157.26a20,20,0,0,0,34.2,0l96-157.26A19.82,19.82,0,0,0,243.43,62.05ZM128,44a180.93,180.93,0,0,1,90.45,24.14L210,82A164.15,164.15,0,0,0,46,82L37.55,68.14A180.93,180.93,0,0,1,128,44ZM83.88,144.06l-20.74-34A20,20,0,0,1,92,128,20.12,20.12,0,0,1,83.88,144.06ZM128,216.36,96.44,164.65A44,44,0,0,0,91.8,88.72a140.45,140.45,0,0,1,105.71,13.74l-8.95,14.66a44,44,0,0,0-45.75,75ZM148,156a20,20,0,0,1,28-18.32l-20.64,33.83A20,20,0,0,1,148,156Z"/></svg>
+              <figcaption>Foto folgt: Pizzaschnecken vom Blech</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Kontakt + Lageplan -->
+    <section id="kontakt" class="section m5-contact" aria-labelledby="kontakt-title">
+      <div class="container m5-contact__grid">
+        <div class="m5-contact__info" data-reveal>
+          <h2 id="kontakt-title">Kontakt</h2>
+          <p class="m5-contact__text">Fragen zu Produkten oder Terminen? Schick uns eine E-Mail.</p>
+          <div class="ds-actions">
+            <a class="ds-btn" href="mailto:printandbite@example.org">
+              Schreib uns
+              <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,44H32A12,12,0,0,0,20,56V192a20,20,0,0,0,20,20H216a20,20,0,0,0,20-20V56A12,12,0,0,0,224,44ZM193.15,68,128,127.72,62.85,68ZM44,188V83.28l75.89,69.57a12,12,0,0,0,16.22,0L212,83.28V188Z"/></svg>
+            </a>
+          </div>
+          <dl class="m5-contact__facts">
+            <div>
+              <dt>E-Mail</dt>
+              <dd><a href="mailto:printandbite@example.org">printandbite@example.org</a> <span class="m5-contact__hint">(Beispieladresse)</span></dd>
+            </div>
+            <div>
+              <dt>Telefon</dt>
+              <dd>über das Sekretariat der BBS I</dd>
+            </div>
+            <div>
+              <dt>Adresse</dt>
+              <dd>So findest du uns: <strong>BBS I Lüneburg</strong>, Spillbrunnenweg 1, 21337 Lüneburg</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="m5-contact__map" data-reveal style="--reveal-index:1">
+          <figure class="ds-placeholder m5-map">
+            <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,60a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,60Zm0,64a20,20,0,1,1,20-20A20,20,0,0,1,128,124Zm0-112a92.1,92.1,0,0,0-92,92c0,77.36,81.64,135.4,85.12,137.83a12,12,0,0,0,13.76,0,259,259,0,0,0,42.18-39C205.15,170.57,220,136.37,220,104A92.1,92.1,0,0,0,128,12Zm31.3,174.71A249.35,249.35,0,0,1,128,216.89a249.35,249.35,0,0,1-31.3-30.18C80,167.37,60,137.31,60,104a68,68,0,0,1,136,0C196,137.31,176,167.37,159.3,186.71Z"/></svg>
+            <figcaption>Lageplan folgt</figcaption>
+          </figure>
+          <a class="ds-btn ds-btn--link" href="#">
+            Route planen
+            <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M204,64V168a12,12,0,0,1-24,0V93L72.49,200.49a12,12,0,0,1-17-17L163,76H88a12,12,0,0,1,0-24H192A12,12,0,0,1,204,64Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ds-footer m5-footer">
+    <div class="container m5-footer__grid">
+      <div class="m5-footer__brand">
+        <img class="ds-logo m5-footer__printer" src="assets/logo/m5-printer.png" alt="" width="861" height="948" loading="lazy">
+        <img class="ds-logo ds-logo--wordmark" src="assets/logo/m5-wordmark.png" alt="PRINT&amp;BITE" width="1530" height="181" loading="lazy">
+      </div>
+      <p class="ds-notice m5-footer__notice">
+        <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M108,84a16,16,0,1,1,16,16A16,16,0,0,1,108,84Zm128,44A108,108,0,1,1,128,20,108.12,108.12,0,0,1,236,128Zm-24,0a84,84,0,1,0-84,84A84.09,84.09,0,0,0,212,128Zm-72,36.68V132a20,20,0,0,0-20-20,12,12,0,0,0-4,23.32V168a20,20,0,0,0,20,20,12,12,0,0,0,4-23.32Z"/></svg>
+        <span>PRINT&amp;BITE ist eine Schülerfirma der Berufsbildenden Schulen I Lüneburg - ein pädagogisches Schulprojekt.</span>
+      </p>
+      <ul class="ds-footer__links m5-footer__links" role="list">
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Datenschutz</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#archiv">Archiv</a></li>
+      </ul>
+      <p class="m5-footer__copy">© 2026 PRINT&amp;BITE, Schülerunternehmen der BBS I Lüneburg</p>
+    </div>
+  </footer>
+
+  <nav class="ds-mockbar" aria-label="Mockup-Navigation">
+    <a href="index.html">Übersicht</a>
+    <a href="m4-aprikose-editorial.html" rel="prev">‹ M4</a>
+    <span>M5 Filament-Labor</span>
+    <a href="m1-original.html" rel="next">M1 ›</a>
+  </nav>
+</body>
+</html>

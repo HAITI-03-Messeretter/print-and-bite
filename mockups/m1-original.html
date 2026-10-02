@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>M1 Original - PRINT&amp;BITE Mockup</title>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="design-system/tokens.css">
+  <link rel="stylesheet" href="design-system/base.css">
+  <link rel="stylesheet" href="design-system/components.css">
+  <link rel="stylesheet" href="themes/m1-original.css">
+  <script src="design-system/mockup.js" defer></script>
+</head>
+<body class="theme-m1">
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+  <header class="ds-header m1-header">
+    <div class="container ds-header__inner">
+      <a class="m1-header__brand" href="#inhalt" aria-label="PRINT&amp;BITE, zum Seitenanfang">
+        <img class="ds-logo ds-logo--wordmark" src="assets/logo/m1-wordmark.png" alt="PRINT&amp;BITE" width="1530" height="181">
+      </a>
+
+      <nav class="ds-nav" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="#produkte">Produkte</a></li>
+          <li><a href="#termine">Termine</a></li>
+          <li><a href="#nachhaltigkeit">Nachhaltigkeit</a></li>
+          <li><a href="#messe">Messe</a></li>
+          <li><a href="#ueber-uns">Über uns</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="m1-header__tools">
+        <nav class="ds-lang" aria-label="Sprache">
+          <a href="#" aria-current="true">DE</a>
+          <span aria-hidden="true">|</span>
+          <a href="#" lang="en" hreflang="en">EN</a>
+        </nav>
+        <details class="ds-menu">
+          <summary><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"/></svg> Menü</summary>
+          <ul class="ds-menu__panel">
+            <li><a href="#produkte">Produkte</a></li>
+            <li><a href="#termine">Termine</a></li>
+            <li><a href="#nachhaltigkeit">Nachhaltigkeit</a></li>
+            <li><a href="#messe">Messe</a></li>
+            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main id="inhalt">
+
+    <!-- Hero: Logo-Box wie im Wireframe, Sparkles drumherum -->
+    <section class="m1-hero" aria-labelledby="hero-title">
+      <div class="m1-hero__sparks" aria-hidden="true">
+        <span class="m1-spark m1-spark--ink m1-spark--twinkle" style="--dx:-330px; --y:28px; --s:5.25rem; --r:-8deg"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"/></svg></span>
+        <span class="m1-spark m1-spark--rose" style="--dx:215px; --y:30px; --s:1.9rem"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg></span>
+        <span class="m1-spark m1-spark--ink" style="--dx:262px; --y:86px; --s:1.1rem"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M229.5,113,166.06,89.94,143,26.5a16,16,0,0,0-30,0L89.94,89.94,26.5,113a16,16,0,0,0,0,30l63.44,23.07L113,229.5a16,16,0,0,0,30,0l23.07-63.44L229.5,143a16,16,0,0,0,0-30ZM157.08,152.3a8,8,0,0,0-4.78,4.78L128,223.9l-24.3-66.82a8,8,0,0,0-4.78-4.78L32.1,128l66.82-24.3a8,8,0,0,0,4.78-4.78L128,32.1l24.3,66.82a8,8,0,0,0,4.78,4.78L223.9,128Z"/></svg></span>
+        <span class="m1-spark m1-spark--rose m1-spark--twinkle" style="--dx:226px; --y:196px; --s:3.4rem; --r:12deg; --delay:-1.6s"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"/></svg></span>
+        <span class="m1-spark m1-spark--rose" style="--dx:-262px; --y:232px; --s:1.6rem; --r:18deg"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg></span>
+        <span class="m1-spark m1-spark--ink m1-spark--desk" style="--dx:-640px; --y:96px; --s:2.4rem"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M197.58,129.06,146,110l-19-51.62a15.92,15.92,0,0,0-29.88,0L78,110l-51.62,19a15.92,15.92,0,0,0,0,29.88L78,178l19,51.62a15.92,15.92,0,0,0,29.88,0L146,178l51.62-19a15.92,15.92,0,0,0,0-29.88ZM137,164.22a8,8,0,0,0-4.74,4.74L112,223.85,91.78,169A8,8,0,0,0,87,164.22L32.15,144,87,123.78A8,8,0,0,0,91.78,119L112,64.15,132.22,119a8,8,0,0,0,4.74,4.74L191.85,144ZM144,40a8,8,0,0,1,8-8h16V16a8,8,0,0,1,16,0V32h16a8,8,0,0,1,0,16H184V64a8,8,0,0,1-16,0V48H152A8,8,0,0,1,144,40ZM248,88a8,8,0,0,1-8,8h-8v8a8,8,0,0,1-16,0V96h-8a8,8,0,0,1,0-16h8V72a8,8,0,0,1,16,0v8h8A8,8,0,0,1,248,88Z"/></svg></span>
+        <span class="m1-spark m1-spark--ink m1-spark--desk" style="--dx:-560px; --y:330px; --s:1.4rem"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg></span>
+        <span class="m1-spark m1-spark--ink m1-spark--desk" style="--dx:590px; --y:120px; --s:1.5rem"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M229.5,113,166.06,89.94,143,26.5a16,16,0,0,0-30,0L89.94,89.94,26.5,113a16,16,0,0,0,0,30l63.44,23.07L113,229.5a16,16,0,0,0,30,0l23.07-63.44L229.5,143a16,16,0,0,0,0-30ZM157.08,152.3a8,8,0,0,0-4.78,4.78L128,223.9l-24.3-66.82a8,8,0,0,0-4.78-4.78L32.1,128l66.82-24.3a8,8,0,0,0,4.78-4.78L128,32.1l24.3,66.82a8,8,0,0,0,4.78,4.78L223.9,128Z"/></svg></span>
+        <span class="m1-spark m1-spark--rose m1-spark--desk m1-spark--twinkle" style="--dx:500px; --y:360px; --s:2.6rem; --delay:-2.4s"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"/></svg></span>
+      </div>
+
+      <div class="m1-logobox" data-reveal>
+        <img class="ds-logo m1-logobox__logo" src="assets/logo/m1-full.png" alt="PRINT&amp;BITE, ein Schülerunternehmen der BBS 1 Lüneburg" width="1586" height="1649">
+      </div>
+
+      <h1 id="hero-title" class="m1-hero__title" data-reveal style="--reveal-index:1">Gedruckt in Lüneburg. Gebacken für die Pause.</h1>
+      <p class="lead m1-hero__lead" data-reveal style="--reveal-index:2">Ein Schülerunternehmen der BBS I Lüneburg: 3D-gedruckte Alltagshelfer, Holzprodukte und Pizzaschnecken, direkt an unserem Stand.</p>
+      <div class="ds-actions m1-hero__actions" data-reveal style="--reveal-index:3">
+        <a class="ds-btn" href="#termine">Nächste Termine <svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg></a>
+        <a class="ds-btn ds-btn--secondary" href="#produkte">Unsere Produkte</a>
+      </div>
+    </section>
+
+    <div class="container">
+      <aside class="ds-notice m1-notice" aria-label="Hinweis" data-reveal>
+        <svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M108,84a16,16,0,1,1,16,16A16,16,0,0,1,108,84Zm128,44A108,108,0,1,1,128,20,108.12,108.12,0,0,1,236,128Zm-24,0a84,84,0,1,0-84,84A84.09,84.09,0,0,0,212,128Zm-72,36.68V132a20,20,0,0,0-20-20,12,12,0,0,0-4,23.32V168a20,20,0,0,0,20,20,12,12,0,0,0,4-23.32Z"/></svg>
+        <p>PRINT&amp;BITE ist eine Schülerfirma der Berufsbildenden Schulen I Lüneburg - ein pädagogisches Schulprojekt.</p>
+      </aside>
+    </div>
+
+    <!-- Zickzack nach Wireframe: Zeile 1 Pizzaschnecken links, Zeile 2 3D-Druck rechts -->
+    <div id="produkte" class="container m1-zigzag">
+      <section class="m1-row m1-row--bite" aria-labelledby="bite-title">
+        <figure class="ds-placeholder m1-shape-snack" data-reveal>
+          <svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M239.54,63a15.91,15.91,0,0,0-7.25-9.9,201.49,201.49,0,0,0-208.58,0,16,16,0,0,0-5.37,22l96,157.27a16,16,0,0,0,27.36,0l96-157.27A15.82,15.82,0,0,0,239.54,63ZM63.59,118.5a24,24,0,1,1,24.47,40.09Zm87.92,66.95A24,24,0,0,1,176,145.37Zm32.93-53.93a40,40,0,0,0-41.38,67.77L128,224,96.5,172.43a40,40,0,1,0-41.35-67.76L48.8,94.26a152,152,0,0,1,158.39,0Zm31.1-50.93a168.12,168.12,0,0,0-175.08,0L32,66.77a185.6,185.6,0,0,1,192,0Z"/></svg>
+          <figcaption>Foto folgt: Pizzaschnecken</figcaption>
+        </figure>
+        <div class="m1-row__text m1-frame-l" data-reveal style="--reveal-index:1">
+          <h2 id="bite-title">Bite: Pizzaschnecken</h2>
+          <p>Frisch gebacken am Verkaufstag. Genau das Richtige für die große Pause.</p>
+        </div>
+      </section>
+
+      <div class="m1-row-gap" aria-hidden="true">
+        <span class="m1-spark m1-spark--ink" style="--dx:-34px; --y:22%; --s:1.7rem"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg></span>
+        <span class="m1-spark m1-spark--rose" style="--dx:30px; --y:58%; --s:1rem"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg></span>
+      </div>
+
+      <section class="m1-row m1-row--print" aria-labelledby="print-title">
+        <div class="m1-row__text m1-frame-r" data-reveal>
+          <h2 id="print-title">Print: 3D-Druck</h2>
+          <p>Alltagshelfer aus dem 3D-Drucker: Flaschenschutz, Dosenschutz und Baustein-Anhänger. Dazu Holzprodukte in Kooperation mit der BBS II.</p>
+        </div>
+        <figure class="ds-media m1-blob" data-reveal style="--reveal-index:1">
+          <img src="assets/img/produkt-anhaenger.jpg" alt="Vier Herz-Anhänger im Bausteinlook in Beige, Rosa, Orange und Rot, jedes Herz aus zwei Hälften mit Schlüsselringen" width="1200" height="1600" loading="lazy">
+        </figure>
+        <span class="m1-spark m1-spark--rose m1-spark--desk m1-spark--twinkle" aria-hidden="true" style="--dx:-36px; --y:24%; --s:3rem; --r:-6deg"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"/></svg></span>
+        <span class="m1-spark m1-spark--ink m1-spark--desk" aria-hidden="true" style="--dx:6px; --y:56%; --s:1.6rem"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M197.58,129.06,146,110l-19-51.62a15.92,15.92,0,0,0-29.88,0L78,110l-51.62,19a15.92,15.92,0,0,0,0,29.88L78,178l19,51.62a15.92,15.92,0,0,0,29.88,0L146,178l51.62-19a15.92,15.92,0,0,0,0-29.88ZM137,164.22a8,8,0,0,0-4.74,4.74L112,223.85,91.78,169A8,8,0,0,0,87,164.22L32.15,144,87,123.78A8,8,0,0,0,91.78,119L112,64.15,132.22,119a8,8,0,0,0,4.74,4.74L191.85,144ZM144,40a8,8,0,0,1,8-8h16V16a8,8,0,0,1,16,0V32h16a8,8,0,0,1,0,16H184V64a8,8,0,0,1-16,0V48H152A8,8,0,0,1,144,40ZM248,88a8,8,0,0,1-8,8h-8v8a8,8,0,0,1-16,0V96h-8a8,8,0,0,1,0-16h8V72a8,8,0,0,1,16,0v8h8A8,8,0,0,1,248,88Z"/></svg></span>
+        <span class="m1-spark m1-spark--ink m1-spark--desk" aria-hidden="true" style="--dx:-44px; --y:72%; --s:0.9rem"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg></span>
+      </section>
+    </div>
+
+    <!-- Box "Ort und Datum vom Stand" -->
+    <section id="termine" class="section m1-termine" aria-labelledby="termine-title">
+      <div class="container">
+        <div class="m1-datebox" data-reveal>
+          <span class="m1-spark m1-spark--rose m1-spark--desk" aria-hidden="true" style="--dx:-505px; --y:-34px; --s:3.4rem; --r:-10deg"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"/></svg></span>
+          <span class="m1-spark m1-spark--ink m1-spark--desk" aria-hidden="true" style="--dx:452px; --y:calc(100% - 18px); --s:1.8rem"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,128a15.79,15.79,0,0,1-10.5,15l-63.44,23.07L143,229.5a16,16,0,0,1-30,0L89.94,166.06,26.5,143a16,16,0,0,1,0-30L89.94,89.94,113,26.5a16,16,0,0,1,30,0l23.07,63.44L229.5,113A15.79,15.79,0,0,1,240,128Z"/></svg></span>
+
+          <div class="m1-datebox__head">
+            <h2 id="termine-title">Nächste Termine</h2>
+            <span class="ds-badge">Beispieltermine</span>
+          </div>
+
+          <article class="m1-next" aria-labelledby="next-title">
+            <p class="m1-label">Nächste Verkaufsaktion</p>
+            <p class="m1-next__date"><time datetime="2026-11-03">Di, 03.11.2026</time></p>
+            <h3 id="next-title" class="m1-next__title">Verkauf in der großen Pause</h3>
+            <p class="m1-next__meta">
+              <span><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm68-84a12,12,0,0,1-12,12H128a12,12,0,0,1-12-12V72a12,12,0,0,1,24,0v44h44A12,12,0,0,1,196,128Z"/></svg> 09:30-10:00 Uhr</span>
+              <span><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,60a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,60Zm0,64a20,20,0,1,1,20-20A20,20,0,0,1,128,124Zm0-112a92.1,92.1,0,0,0-92,92c0,77.36,81.64,135.4,85.12,137.83a12,12,0,0,0,13.76,0,259,259,0,0,0,42.18-39C205.15,170.57,220,136.37,220,104A92.1,92.1,0,0,0,128,12Zm31.3,174.71A249.35,249.35,0,0,1,128,216.89a249.35,249.35,0,0,1-31.3-30.18C80,167.37,60,137.31,60,104a68,68,0,0,1,136,0C196,137.31,176,167.37,159.3,186.71Z"/></svg> Pausenhalle BBS I</span>
+            </p>
+          </article>
+
+          <div class="m1-more">
+            <h3 class="m1-label">Weitere Termine</h3>
+            <ul class="ds-events m1-events" role="list">
+              <li class="ds-event">
+                <span class="ds-event__date" aria-hidden="true"><span class="ds-event__day">26</span><span class="ds-event__month">Nov</span></span>
+                <div>
+                  <p class="ds-event__title">Verkauf in der großen Pause</p>
+                  <p class="ds-event__meta"><time datetime="2026-11-26">Do, 26.11.2026</time>, <span class="m1-nowrap">09:30-10:00 Uhr</span><br>Pausenhalle BBS I</p>
+                </div>
+              </li>
+              <li class="ds-event">
+                <span class="ds-event__date" aria-hidden="true"><span class="ds-event__day">11</span><span class="ds-event__month">Dez</span></span>
+                <div>
+                  <p class="ds-event__title">Weihnachtsverkauf</p>
+                  <p class="ds-event__meta"><time datetime="2026-12-11">Fr, 11.12.2026</time>, <span class="m1-nowrap">11:00-14:00 Uhr</span><br>Foyer BBS I</p>
+                </div>
+              </li>
+              <li class="ds-event">
+                <span class="ds-event__date" aria-hidden="true"><span class="ds-event__day ds-event__day--word">März</span><span class="ds-event__month">2027</span></span>
+                <div>
+                  <p class="ds-event__title">Wirtschaft-Live-Messe</p>
+                  <p class="ds-event__meta"><time datetime="2027-03">März 2027</time><br>Ort folgt</p>
+                </div>
+              </li>
+              <li class="ds-event">
+                <span class="ds-event__date" aria-hidden="true"><span class="ds-event__day ds-event__day--word">Juni</span><span class="ds-event__month">2027</span></span>
+                <div>
+                  <p class="ds-event__title">Summer-Sale</p>
+                  <p class="ds-event__meta"><time datetime="2027-06">Juni 2027</time><br>Schulhof BBS I</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <p class="m1-datebox__foot"><a class="ds-btn ds-btn--link" href="#">Alle Termine <svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg></a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produktreihe: 4 Produkte, 4 Zellen -->
+    <section class="section m1-sortiment" aria-labelledby="sortiment-title">
+      <div class="container">
+        <div class="m1-section-head" data-reveal>
+          <h2 id="sortiment-title">Das gibt’s an unserem Stand</h2>
+          <p>Preise erfahrt ihr direkt am Stand.</p>
+        </div>
+
+        <div class="m1-bento">
+          <article class="ds-card m1-bento__item--tall" data-reveal>
+            <div class="ds-card__media">
+              <img src="assets/img/produkt-flaschenschutz.jpg" alt="Grüner 3D-gedruckter Flaschenschutz mit Karabiner auf einer grünen Glasflasche" width="1200" height="1600" loading="lazy">
+            </div>
+            <div class="ds-card__body">
+              <h3 class="ds-card__title">Flaschenschutz</h3>
+              <p>Deckel für Glasflaschen: hält Wespen und andere Insekten aus dem Getränk. Mit Karabiner für den Schlüsselbund.</p>
+            </div>
+          </article>
+
+          <article class="ds-card" data-reveal style="--reveal-index:1">
+            <div class="ds-card__media">
+              <img src="assets/img/produkt-dosenschutz.jpg" alt="Pinker 3D-gedruckter Dosenschutz auf einer Getränkedose" width="1200" height="1600" loading="lazy">
+            </div>
+            <div class="ds-card__body">
+              <h3 class="ds-card__title">Dosenschutz</h3>
+              <p>Aufsatz für Getränkedosen, schützt die Trinköffnung. Gibt’s in vielen Farben.</p>
+            </div>
+          </article>
+
+          <article class="ds-card" data-reveal style="--reveal-index:2">
+            <div class="ds-card__media">
+              <img src="assets/img/produkt-anhaenger-detail.jpg" alt="Herz im Bausteinlook aus zwei Hälften, jede Hälfte mit eigenem Karabiner und Schlüsselring" width="1200" height="845" loading="lazy">
+            </div>
+            <div class="ds-card__body">
+              <h3 class="ds-card__title">Baustein-Anhänger</h3>
+              <p>Schlüsselanhänger im Bausteinlook, zum Beispiel geteilte Herzen zum Verschenken.</p>
+            </div>
+          </article>
+
+          <article class="ds-card m1-bento__item--wide" data-reveal style="--reveal-index:1">
+            <div class="ds-card__media">
+              <img src="assets/img/produkt-holz.jpg" alt="Holzprodukte vor einer weißen Wand: ein Pinguin mit Haken auf einem halbrunden Tisch, Regale, ein Puzzleteil, ein Tablett und eine Kiste" width="1200" height="900" loading="lazy">
+            </div>
+            <div class="ds-card__body">
+              <h3 class="ds-card__title">Holzprodukte</h3>
+              <p>Holzprodukte in Kooperation mit der BBS II.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="m1-section-foot">
+          <a class="ds-btn ds-btn--secondary" href="#">Unsere Produkte <svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nachhaltigkeit + Quiz als Band -->
+    <section id="nachhaltigkeit" class="m1-band" aria-labelledby="nachhaltigkeit-title">
+      <div class="container m1-band__inner">
+        <div class="m1-band__text" data-reveal>
+          <svg class="ds-icon m1-band__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M100,208a12,12,0,0,1-12,12H40a28,28,0,0,1-24.23-42l29.45-50.88-4.76,1.27a12,12,0,1,1-6.2-23.18l32.77-8.77a12,12,0,0,1,14.69,8.48l8.79,32.77a12,12,0,1,1-23.17,6.22L66.08,139l-29.5,51A4,4,0,0,0,40,196H88A12,12,0,0,1,100,208ZM128,36a3.87,3.87,0,0,1,3.46,2l29.45,50.87-4.75-1.27A12,12,0,1,0,150,110.78l32.77,8.79a12,12,0,0,0,14.69-8.48L206.2,78.3A12,12,0,1,0,183,72.08l-1.31,4.86L152.23,26a28,28,0,0,0-48.46,0L80.61,66a12,12,0,1,0,20.77,12l23.16-40A3.87,3.87,0,0,1,128,36ZM240.19,178l-23.14-40a12,12,0,1,0-20.77,12l23.14,40a4,4,0,0,1-3.46,6H157l3.51-3.51a12,12,0,1,0-17-17l-24,24a12,12,0,0,0,0,17l24,24a12,12,0,1,0,17-17L157,220h59a28,28,0,0,0,24.23-42Z"/></svg>
+          <h2 id="nachhaltigkeit-title">Kunststoff mit zweitem Leben</h2>
+          <p>Wir drucken mit Recyclingfilament der RecyclingFabrik aus Braunschweig. So bekommt Kunststoff ein zweites Leben.</p>
+        </div>
+
+        <div class="m1-quizcard" data-reveal style="--reveal-index:1">
+          <div class="m1-quizcard__head">
+            <h3>Wasser-Plastik-Quiz</h3>
+            <span class="ds-badge">Beispielfrage</span>
+          </div>
+          <div class="ds-quiz" data-quiz data-feedback-correct="Richtig! Schätzungen gehen von bis zu 450 Jahren aus." data-feedback-wrong="Leider nein. Schätzungen gehen von bis zu 450 Jahren aus.">
+            <p class="ds-quiz__question">Wie lange braucht eine Plastikflasche im Meer, bis sie zerfallen ist?</p>
+            <div class="ds-quiz__options">
+              <button type="button" class="ds-quiz__option" data-correct="false">etwa 5 Jahre</button>
+              <button type="button" class="ds-quiz__option" data-correct="false">etwa 50 Jahre</button>
+              <button type="button" class="ds-quiz__option" data-correct="true">bis zu 450 Jahre</button>
+            </div>
+            <p class="ds-quiz__feedback" aria-live="polite" hidden></p>
+          </div>
+          <a class="ds-btn ds-btn--link" href="#">Zum ganzen Quiz <svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Messe + Über uns -->
+    <div class="section container m1-duo">
+      <section id="messe" class="ds-card m1-duo__card--messe" aria-labelledby="messe-title" data-reveal>
+        <div class="ds-card__body">
+          <svg class="ds-icon m1-duo__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M232,60H212V48a12,12,0,0,0-12-12H56A12,12,0,0,0,44,48V60H24A20,20,0,0,0,4,80V96a44.05,44.05,0,0,0,44,44h.77A84.18,84.18,0,0,0,116,195.15V212H96a12,12,0,0,0,0,24h64a12,12,0,0,0,0-24H140V195.11c30.94-4.51,56.53-26.2,67-55.11h1a44.05,44.05,0,0,0,44-44V80A20,20,0,0,0,232,60ZM28,96V84H44v28c0,1.21,0,2.41.09,3.61A20,20,0,0,1,28,96Zm160,15.1c0,33.33-26.71,60.65-59.54,60.9A60,60,0,0,1,68,112V60H188ZM228,96a20,20,0,0,1-16.12,19.62c.08-1.5.12-3,.12-4.52V84h16Z"/></svg>
+          <p class="m1-label">März 2027</p>
+          <h2 id="messe-title">Wirtschaft-Live-Messe</h2>
+          <p>Im März sind wir auf der Wirtschaft-Live-Messe: Rund 20 Schülerunternehmen aus ganz Niedersachsen stellen dort aus und treten in Wettbewerben an, vom besten Messestand bis zum besten Imagefilm.</p>
+          <a class="ds-btn ds-btn--link" href="#">Mehr zur Messe <svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg></a>
+        </div>
+      </section>
+
+      <section id="ueber-uns" class="ds-card m1-duo__card--team" aria-labelledby="team-title" data-reveal style="--reveal-index:1">
+        <figure class="ds-placeholder">
+          <svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M214.67,72H200V40a8,8,0,0,0-8-8H64a8,8,0,0,0-8,8V72H41.33C27.36,72,16,82.77,16,96v80a8,8,0,0,0,8,8H56v32a8,8,0,0,0,8,8H192a8,8,0,0,0,8-8V184h32a8,8,0,0,0,8-8V96C240,82.77,228.64,72,214.67,72ZM72,48H184V72H72ZM184,208H72V160H184Zm40-40H200V152a8,8,0,0,0-8-8H64a8,8,0,0,0-8,8v16H32V96c0-4.41,4.19-8,9.33-8H214.67c5.14,0,9.33,3.59,9.33,8Zm-24-52a12,12,0,1,1-12-12A12,12,0,0,1,200,116Z"/></svg>
+          <figcaption>Foto folgt: Drucker in der Werkstatt</figcaption>
+        </figure>
+        <div class="ds-card__body">
+          <h2 id="team-title">Wir über uns</h2>
+          <p>Wir sind PRINT&amp;BITE, die Schülerfirma der BBS I Lüneburg. Wir planen, drucken, backen und verkaufen selbst und lernen dabei, wie ein Unternehmen funktioniert.</p>
+          <a class="ds-btn ds-btn--link" href="#">Mehr über uns <svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg></a>
+        </div>
+      </section>
+    </div>
+
+    <!-- Archiv / Rückblick -->
+    <section id="archiv" class="section m1-archiv" aria-labelledby="archiv-title">
+      <div class="container m1-archiv__inner">
+        <div class="m1-archiv__text" data-reveal>
+          <h2 id="archiv-title">Rückblick</h2>
+          <p>Bilder von unseren vergangenen Verkaufsaktionen.</p>
+          <a class="ds-btn ds-btn--secondary" href="#">Zum Archiv <svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg></a>
+        </div>
+        <ul class="m1-polaroids" role="list">
+          <li class="m1-polaroid" style="--tilt:-2.5deg" data-reveal>
+            <figure class="ds-placeholder">
+              <svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,56H180.28L166.65,35.56A8,8,0,0,0,160,32H96a8,8,0,0,0-6.65,3.56L75.71,56H48A24,24,0,0,0,24,80V192a24,24,0,0,0,24,24H208a24,24,0,0,0,24-24V80A24,24,0,0,0,208,56Zm8,136a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H80a8,8,0,0,0,6.66-3.56L100.28,48h55.43l13.63,20.44A8,8,0,0,0,176,72h32a8,8,0,0,1,8,8ZM128,88a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,88Zm0,72a28,28,0,1,1,28-28A28,28,0,0,1,128,160Z"/></svg>
+              <figcaption>Foto folgt: Auslage mit Anhängern</figcaption>
+            </figure>
+          </li>
+          <li class="m1-polaroid" style="--tilt:1.8deg; --reveal-index:1" data-reveal>
+            <figure class="ds-placeholder">
+              <svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M239.54,63a15.91,15.91,0,0,0-7.25-9.9,201.49,201.49,0,0,0-208.58,0,16,16,0,0,0-5.37,22l96,157.27a16,16,0,0,0,27.36,0l96-157.27A15.82,15.82,0,0,0,239.54,63ZM63.59,118.5a24,24,0,1,1,24.47,40.09Zm87.92,66.95A24,24,0,0,1,176,145.37Zm32.93-53.93a40,40,0,0,0-41.38,67.77L128,224,96.5,172.43a40,40,0,1,0-41.35-67.76L48.8,94.26a152,152,0,0,1,158.39,0Zm31.1-50.93a168.12,168.12,0,0,0-175.08,0L32,66.77a185.6,185.6,0,0,1,192,0Z"/></svg>
+              <figcaption>Foto folgt: Blech mit Pizzaschnecken</figcaption>
+            </figure>
+          </li>
+          <li class="m1-polaroid" style="--tilt:-1deg; --reveal-index:2" data-reveal>
+            <figure class="ds-placeholder">
+              <svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216,40H72A16,16,0,0,0,56,56V72H40A16,16,0,0,0,24,88V200a16,16,0,0,0,16,16H184a16,16,0,0,0,16-16V184h16a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM72,56H216v62.75l-10.07-10.06a16,16,0,0,0-22.63,0l-20,20-44-44a16,16,0,0,0-22.62,0L72,109.37ZM184,200H40V88H56v80a16,16,0,0,0,16,16H184Zm32-32H72V132l36-36,49.66,49.66a8,8,0,0,0,11.31,0L194.63,120,216,141.38V168ZM160,84a12,12,0,1,1,12,12A12,12,0,0,1,160,84Z"/></svg>
+              <figcaption>Foto folgt: Holzprodukte in der Auslage</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Kontakt + Lageplan -->
+    <section id="kontakt" class="section m1-kontakt" aria-labelledby="kontakt-title">
+      <div class="container m1-kontakt__inner">
+        <div class="ds-card" data-reveal>
+          <div class="ds-card__body">
+            <h2 id="kontakt-title">Fragen, Wünsche, Ideen?</h2>
+            <p>Meld dich bei uns, am einfachsten per E-Mail.</p>
+            <dl class="m1-contact">
+              <div>
+                <dt>E-Mail</dt>
+                <dd><a href="mailto:printandbite@example.org">printandbite@example.org</a></dd>
+              </div>
+              <div>
+                <dt>Telefon</dt>
+                <dd>über das Sekretariat der BBS I</dd>
+              </div>
+            </dl>
+            <a class="ds-btn" href="mailto:printandbite@example.org"><svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,44H32A12,12,0,0,0,20,56V192a20,20,0,0,0,20,20H216a20,20,0,0,0,20-20V56A12,12,0,0,0,224,44ZM193.15,68,128,127.72,62.85,68ZM44,188V83.28l75.89,69.57a12,12,0,0,0,16.22,0L212,83.28V188Z"/></svg> Schreib uns</a>
+          </div>
+        </div>
+
+        <div class="m1-kontakt__map" data-reveal style="--reveal-index:1">
+          <h3>So findet ihr uns</h3>
+          <address>BBS I Lüneburg, Spillbrunnenweg 1, 21337 Lüneburg</address>
+          <figure class="ds-placeholder m1-shape-map">
+            <svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,60a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,60Zm0,64a20,20,0,1,1,20-20A20,20,0,0,1,128,124Zm0-112a92.1,92.1,0,0,0-92,92c0,77.36,81.64,135.4,85.12,137.83a12,12,0,0,0,13.76,0,259,259,0,0,0,42.18-39C205.15,170.57,220,136.37,220,104A92.1,92.1,0,0,0,128,12Zm31.3,174.71A249.35,249.35,0,0,1,128,216.89a249.35,249.35,0,0,1-31.3-30.18C80,167.37,60,137.31,60,104a68,68,0,0,1,136,0C196,137.31,176,167.37,159.3,186.71Z"/></svg>
+            <figcaption>Lageplan folgt</figcaption>
+          </figure>
+          <a class="ds-btn ds-btn--link" href="#">Route planen <svg class="ds-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M204,64V168a12,12,0,0,1-24,0V93L72.49,200.49a12,12,0,0,1-17-17L163,76H88a12,12,0,0,1,0-24H192A12,12,0,0,1,204,64Z"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ds-footer m1-footer">
+    <div class="container m1-footer__inner">
+      <div class="m1-footer__brand">
+        <img class="ds-logo ds-logo--wordmark" src="assets/logo/m1-wordmark.png" alt="PRINT&amp;BITE" width="1530" height="181">
+        <p>PRINT&amp;BITE ist eine Schülerfirma der Berufsbildenden Schulen I Lüneburg - ein pädagogisches Schulprojekt.</p>
+      </div>
+      <nav aria-label="Rechtliches und Service">
+        <ul class="ds-footer__links">
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#archiv">Archiv</a></li>
+        </ul>
+      </nav>
+      <p class="m1-footer__copy">© 2026 PRINT&amp;BITE, Schülerunternehmen der BBS I Lüneburg</p>
+    </div>
+  </footer>
+
+  <nav class="ds-mockbar" aria-label="Mockup-Navigation">
+    <a href="index.html">Übersicht</a>
+    <a href="m5-filament-labor.html" rel="prev">‹ M5</a>
+    <span>M1 Original</span>
+    <a href="m2-retro-konditorei.html" rel="next">M2 ›</a>
+  </nav>
+</body>
+</html>
