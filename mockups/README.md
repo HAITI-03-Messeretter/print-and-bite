@@ -62,7 +62,7 @@ python mockups/tools/logo-einfaerben.py m6 "#3b1f2b"
 
 ## Bekannte Einschränkungen
 
-- Fotos von Pizzaschnecken, Holzprodukten, Team, Aktionen und der Lageplan fehlen und sind als Platzhalter markiert.
-- Termine sind Beispiele, Texte sind Entwürfe. Hinweistext, Kontakt per E-Mail-Link und Fotos ohne erkennbare Personen folgen der [Rechts-Recherche](https://github.com/HAITI-03-Messeretter/print-and-bite/issues/7); E-Mail-Adresse ist ein Platzhalter.
+- Fotos von Pizzaschnecken, Holzprodukten, Aktionen und der Lageplan fehlen und sind als Platzhalter markiert.
+- Termine sind Beispiele, Texte sind Entwürfe. Hinweistext, Kontakt per E-Mail-Link und Fotos ohne erkennbare Personen (festgelegt, Ausnahmen klären wir im Einzelfall) folgen der [Rechts-Recherche](https://github.com/HAITI-03-Messeretter/print-and-bite/issues/7); E-Mail-Adresse ist ein Platzhalter.
 - Stay Retro (Lizenz nur privat) ist durch Leckerli One ersetzt, siehe [Schriftlizenzen](https://github.com/HAITI-03-Messeretter/print-and-bite/issues/6).
 - Kein Dark Mode, keine Unterseiten: kommt nach der Entscheidung.
