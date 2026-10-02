@@ -54,6 +54,26 @@
     });
   });
 
+  // Platzhalter-Links (href="#") bleiben stehen und sagen kurz Bescheid, statt nach oben
+  // oder (in der Einzeldatei) zurück zur Übersicht zu springen.
+  var toast = null;
+  var toastTimer = null;
+  document.addEventListener("click", function (event) {
+    var link = event.target.closest && event.target.closest('a[href="#"]');
+    if (!link) return;
+    event.preventDefault();
+    if (!toast) {
+      toast = document.createElement("p");
+      toast.className = "ds-toast";
+      toast.setAttribute("role", "status");
+      document.body.appendChild(toast);
+    }
+    toast.textContent = "Im Entwurf noch ohne Funktion. Auf der fertigen Website führt dieser Link weiter.";
+    toast.classList.add("is-visible");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove("is-visible"); }, 3000);
+  });
+
   // Präsentation: Pfeiltasten wechseln zwischen den Mockups (Links mit rel="prev"/"next" in .ds-mockbar).
   document.addEventListener("keydown", function (event) {
     if (event.altKey || event.ctrlKey || event.metaKey) return;
