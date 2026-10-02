@@ -22,7 +22,7 @@ python mockups/tools/einzeldatei-bauen.py
 
 Packt alle Seiten mit Schriften, Bildern und Skripten in `dist/PRINT-BITE-Mockups.html` (ca. 6,6 MB, nicht im Repo). Die Datei per Doppelklick öffnen; Links, Pfeiltasten und Zurück-Taste funktionieren wie im Ordner. Gut zum Hochladen auf das TaskCards-Board.
 
-Die Übersicht enthält außerdem Kontrastwerte der Originalfarben, einen Vergleich, einen Entscheidungsbogen und die offenen Fragen an die Schülerfirma mit Antwortfeldern. Am Ende der Seite kopiert ein Button Auswahl, Notizen und Antworten zusammen als Text. Das Design-System ist dort bewusst nicht erklärt (nur für das IT-Team relevant), siehe unten.
+Die Übersicht enthält außerdem Kontrastwerte der Originalfarben, einen Vergleich, einen Entscheidungsbogen und die offenen Fragen an die Schülerfirma mit Antwortfeldern plus ein freies Feld für eigene Fragen und Wünsche. Am Ende der Seite kopiert ein Button Auswahl, Notizen und Antworten zusammen als Text. Das Design-System ist dort bewusst nicht erklärt (nur für das IT-Team relevant), siehe unten.
 
 ## Aufbau
 

@@ -417,7 +417,7 @@
       <div class="container">
         <div class="ov-section-head">
           <h2 id="fragen-titel">Fragen an euch</h2>
-          <p>Damit wir nach dem Treffen weiterbauen können. Antworten direkt eintragen und abhaken, was geklärt ist. Am Ende der Seite kopiert ihr alles in einem Rutsch.</p>
+          <p>Damit wir nach dem Treffen weiterbauen können. Antworten direkt eintragen und abhaken, was geklärt ist. Ganz unten ist Platz für eure eigenen Punkte. Am Ende der Seite kopiert ihr alles in einem Rutsch.</p>
         </div>
         <div class="ov-questions" id="fragenliste">
           <div class="ov-qgroup">
@@ -500,6 +500,14 @@
               </li>
             </ol>
           </div>
+          <div class="ov-qgroup">
+            <h3>Eure Punkte</h3>
+            <div class="ov-extra">
+              <label class="ov-q__text" for="weiteres">Was möchtet ihr uns noch mitgeben?</label>
+              <p class="ov-extra__help" id="weiteres-hilfe">Eigene Fragen, Wünsche, Ideen oder Bedenken. Alles, was wir für die Website wissen sollten.</p>
+              <textarea class="ov-extra__field" id="weiteres" name="weiteres" rows="4" aria-describedby="weiteres-hilfe"></textarea>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -547,6 +555,7 @@
       var form = document.getElementById("bogen");
       var out = document.getElementById("ergebnis-text");
       var questions = document.getElementById("fragenliste");
+      var extra = document.getElementById("weiteres");
       var items = Array.prototype.map.call(questions.querySelectorAll(".ov-q"), function (item) {
         return {
           el: item,
@@ -589,11 +598,13 @@
         });
         if (answered.length) lines.push("", "Fragen und Antworten:", answered.join("\n"));
         if (open.length) lines.push("", "Noch ohne Antwort:", open.join("\n"));
+        var more = extra.value.trim();
+        if (more) lines.push("", "Weitere Punkte der Schülerfirma:", more);
         out.textContent = lines.join("\n");
       }
 
       function collect() {
-        var state = { notizen: form.notizen.value, fragen: {}, antworten: {} };
+        var state = { notizen: form.notizen.value, weiteres: extra.value, fragen: {}, antworten: {} };
         form.querySelectorAll("input:checked").forEach(function (input) { state[input.name] = input.value; });
         items.forEach(function (q) {
           state.fragen[q.done.name] = q.done.checked;
@@ -607,6 +618,7 @@
       var state = load();
       Object.keys(state).forEach(function (name) {
         if (name === "notizen") { form.notizen.value = state.notizen || ""; return; }
+        if (name === "weiteres") { extra.value = state.weiteres || ""; return; }
         if (name === "fragen" || name === "antworten") return;
         var input = form.querySelector('input[name="' + name + '"][value="' + state[name] + '"]');
         if (input) input.checked = true;
@@ -617,6 +629,7 @@
         q.el.toggleAttribute("data-done", q.done.checked);
         autosize(q.answer);
       });
+      autosize(extra);
 
       form.addEventListener("change", collect);
       form.addEventListener("input", collect);
@@ -627,6 +640,7 @@
       });
       window.addEventListener("resize", function () {
         items.forEach(function (q) { autosize(q.answer); });
+        autosize(extra);
       });
       render();
 

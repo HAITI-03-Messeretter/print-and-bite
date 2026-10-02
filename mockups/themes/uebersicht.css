@@ -543,6 +543,34 @@
   font-weight: 600;
 }
 
+.ov-extra {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.ov-extra__help {
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+}
+
+.ov-extra__field {
+  width: 100%;
+  margin-top: var(--space-1);
+  padding: 0.7em 0.9em;
+  border: 1px solid var(--color-text-muted);
+  border-radius: 10px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.ov-extra__field:focus-visible {
+  border-color: var(--color-focus);
+  outline-offset: 1px;
+}
+
 /* Ergebnis */
 
 .ov-finish {
