@@ -391,22 +391,16 @@
 
 /* Entscheidungsbogen */
 
-.ov-decide {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
-  gap: var(--space-6);
-  margin-top: var(--space-6);
-  align-items: start;
-}
-
 .ov-form {
   display: grid;
   gap: var(--space-3);
+  max-width: 52rem;
+  margin-top: var(--space-6);
 }
 
 .ov-dim {
   display: grid;
-  grid-template-columns: 9rem minmax(0, 1fr);
+  grid-template-columns: 11rem minmax(0, 1fr);
   align-items: center;
   gap: var(--space-3);
   margin: 0;
@@ -456,51 +450,10 @@
   outline-offset: 2px;
 }
 
-.ov-result {
-  position: sticky;
-  top: 5.5rem;
-  display: grid;
-  gap: var(--space-3);
-  padding: var(--space-5);
-  border-radius: var(--radius-card);
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-}
-
-.ov-result h3 {
-  color: inherit;
-  font-size: 1.3rem;
-}
-
-.ov-result pre {
-  margin: 0;
-  padding: var(--space-4);
-  overflow-x: auto;
-  border-radius: 10px;
-  background: rgb(255 255 255 / 0.08);
-  font-family: var(--font-accent);
-  font-size: 0.8rem;
-  line-height: 1.6;
-  white-space: pre-wrap;
-}
-
-.ov-result .ds-btn {
-  --btn-bg: var(--color-on-primary);
-  --btn-fg: var(--color-primary);
-  --btn-border-color: var(--color-on-primary);
-  justify-self: start;
-}
-
-.ov-result__hint {
-  font-size: var(--fs-small);
-  opacity: 0.85;
-}
-
 /* Fragen */
 
 .ov-questions {
-  display: grid;
-  gap: var(--space-6);
+  max-width: 62rem;
   margin-top: var(--space-6);
 }
 
@@ -509,16 +462,17 @@
   grid-template-columns: 13rem minmax(0, 1fr);
   gap: var(--space-3) var(--space-6);
   align-items: start;
+  padding-block: var(--space-5);
+  border-top: 1px solid var(--color-border);
 }
 
 .ov-qgroup h3 {
-  font-size: 1.25rem;
-  padding-top: var(--space-4);
+  font-size: 1.1rem;
 }
 
 .ov-qlist {
   display: grid;
-  gap: var(--space-3);
+  gap: var(--space-5);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -526,32 +480,33 @@
 
 .ov-q {
   display: grid;
-  gap: var(--space-2);
-  padding: var(--space-4);
-  border: 1px solid var(--color-border);
-  border-radius: 14px;
-  background: var(--color-bg);
-  transition: border-color var(--dur) var(--ease);
-}
-
-.ov-q[data-done] {
-  border-color: var(--color-text);
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-1) var(--space-4);
+  align-items: baseline;
 }
 
 .ov-q__text {
   font-weight: 600;
+  transition: color var(--dur) var(--ease);
+}
+
+.ov-q[data-done] .ov-q__text {
+  color: var(--color-text-muted);
 }
 
 .ov-q__answer {
+  grid-column: 1 / -1;
   width: 100%;
-  padding: 0.6em 0.85em;
-  border: 1px solid var(--color-text-muted);
-  border-radius: 10px;
-  background: var(--color-surface);
+  padding: 0.3em 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-text-muted);
+  border-radius: 0;
+  background: transparent;
   color: var(--color-text);
   font: inherit;
   line-height: 1.5;
-  resize: vertical;
+  resize: none;
+  overflow: hidden;
 }
 
 .ov-q__answer::placeholder {
@@ -560,23 +515,25 @@
 }
 
 .ov-q__answer:focus-visible {
-  border-color: var(--color-focus);
-  outline-offset: 1px;
+  outline: none;
+  border-bottom-color: var(--color-focus);
+  box-shadow: 0 1px 0 var(--color-focus);
 }
 
 .ov-q__done {
+  grid-column: 2;
+  grid-row: 1;
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  justify-self: start;
   font-size: var(--fs-small);
   color: var(--color-text-muted);
   cursor: pointer;
 }
 
 .ov-q__done input {
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1rem;
+  height: 1rem;
   margin: 0;
   accent-color: var(--color-primary);
 }
@@ -586,12 +543,52 @@
   font-weight: 600;
 }
 
-.ov-questions__foot {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-3) var(--space-5);
-  margin-top: var(--space-6);
+/* Ergebnis */
+
+.ov-finish {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.ov-finish h2 {
+  color: inherit;
+}
+
+.ov-finish .ov-section-head p {
+  color: inherit;
+  opacity: 0.85;
+}
+
+.ov-finish .ds-actions {
+  margin-top: var(--space-5);
+}
+
+.ov-finish .ds-btn {
+  --btn-bg: var(--color-on-primary);
+  --btn-fg: var(--color-primary);
+  --btn-border-color: var(--color-on-primary);
+}
+
+.ov-finish__preview {
+  max-width: 46rem;
+  margin-top: var(--space-5);
+}
+
+.ov-finish__preview summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.ov-finish__preview pre {
+  margin: var(--space-3) 0 0;
+  padding: var(--space-4);
+  overflow-x: auto;
+  border-radius: 10px;
+  background: rgb(255 255 255 / 0.08);
+  font-family: var(--font-accent);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
 }
 
 .ov-section-head {
@@ -620,13 +617,8 @@
 @media (max-width: 960px) {
   .ov-hero,
   .ov-start,
-  .ov-decide,
   .ov-variant--wide {
     grid-template-columns: 1fr;
-  }
-
-  .ov-result {
-    position: static;
   }
 }
 
@@ -634,10 +626,6 @@
   .ov-variants,
   .ov-qgroup {
     grid-template-columns: 1fr;
-  }
-
-  .ov-qgroup h3 {
-    padding-top: 0;
   }
 
   .ov-hero__strip {
@@ -663,8 +651,7 @@
 @media print {
   .ds-header,
   .ov-hero__strip,
-  [data-copy],
-  .ov-questions__foot {
+  .ov-finish {
     display: none;
   }
 }

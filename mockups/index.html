@@ -28,6 +28,7 @@
           <li><a href="#vergleich">Vergleich</a></li>
           <li><a href="#entscheidung">Entscheidung</a></li>
           <li><a href="#fragen">Fragen</a></li>
+          <li><a href="#ergebnis">Ergebnis</a></li>
         </ul>
       </nav>
       <details class="ds-menu">
@@ -38,6 +39,7 @@
           <li><a href="#vergleich">Vergleich</a></li>
           <li><a href="#entscheidung">Entscheidung</a></li>
           <li><a href="#fragen">Fragen</a></li>
+          <li><a href="#ergebnis">Ergebnis</a></li>
         </ul>
       </details>
       <span class="ov-meta">Treffen 02.10.2026</span>
@@ -323,108 +325,99 @@
         <p>Mischen ist ausdrücklich erlaubt: zum Beispiel die Farben aus einer Variante und die Buttons aus einer anderen. Solche Kombinationen lassen sich leicht umsetzen.</p>
       </div>
 
-      <div class="ov-decide">
-        <form class="ov-form" id="bogen" aria-label="Auswahl pro Bereich">
-          <!--DIMENSIONS:start-->
-          <fieldset class="ov-dim">
-            <legend>Gesamt-Favorit</legend>
-            <div class="ov-choices">
-              <label class="ov-choice"><input type="radio" name="gesamt" value="m1"><span>M1</span></label>
-              <label class="ov-choice"><input type="radio" name="gesamt" value="m2"><span>M2</span></label>
-              <label class="ov-choice"><input type="radio" name="gesamt" value="m3"><span>M3</span></label>
-              <label class="ov-choice"><input type="radio" name="gesamt" value="m4"><span>M4</span></label>
-              <label class="ov-choice"><input type="radio" name="gesamt" value="m5"><span>M5</span></label>
-              <label class="ov-choice"><input type="radio" name="gesamt" value="offen"><span>offen</span></label>
-            </div>
-          </fieldset>
-          <fieldset class="ov-dim">
-            <legend>Farben</legend>
-            <div class="ov-choices">
-              <label class="ov-choice"><input type="radio" name="farben" value="m1"><span>M1</span></label>
-              <label class="ov-choice"><input type="radio" name="farben" value="m2"><span>M2</span></label>
-              <label class="ov-choice"><input type="radio" name="farben" value="m3"><span>M3</span></label>
-              <label class="ov-choice"><input type="radio" name="farben" value="m4"><span>M4</span></label>
-              <label class="ov-choice"><input type="radio" name="farben" value="m5"><span>M5</span></label>
-              <label class="ov-choice"><input type="radio" name="farben" value="offen"><span>offen</span></label>
-            </div>
-          </fieldset>
-          <fieldset class="ov-dim">
-            <legend>Schriften</legend>
-            <div class="ov-choices">
-              <label class="ov-choice"><input type="radio" name="schriften" value="m1"><span>M1</span></label>
-              <label class="ov-choice"><input type="radio" name="schriften" value="m2"><span>M2</span></label>
-              <label class="ov-choice"><input type="radio" name="schriften" value="m3"><span>M3</span></label>
-              <label class="ov-choice"><input type="radio" name="schriften" value="m4"><span>M4</span></label>
-              <label class="ov-choice"><input type="radio" name="schriften" value="m5"><span>M5</span></label>
-              <label class="ov-choice"><input type="radio" name="schriften" value="offen"><span>offen</span></label>
-            </div>
-          </fieldset>
-          <fieldset class="ov-dim">
-            <legend>Buttons und Formen</legend>
-            <div class="ov-choices">
-              <label class="ov-choice"><input type="radio" name="formen" value="m1"><span>M1</span></label>
-              <label class="ov-choice"><input type="radio" name="formen" value="m2"><span>M2</span></label>
-              <label class="ov-choice"><input type="radio" name="formen" value="m3"><span>M3</span></label>
-              <label class="ov-choice"><input type="radio" name="formen" value="m4"><span>M4</span></label>
-              <label class="ov-choice"><input type="radio" name="formen" value="m5"><span>M5</span></label>
-              <label class="ov-choice"><input type="radio" name="formen" value="offen"><span>offen</span></label>
-            </div>
-          </fieldset>
-          <fieldset class="ov-dim">
-            <legend>Bildformen</legend>
-            <div class="ov-choices">
-              <label class="ov-choice"><input type="radio" name="bilder" value="m1"><span>M1</span></label>
-              <label class="ov-choice"><input type="radio" name="bilder" value="m2"><span>M2</span></label>
-              <label class="ov-choice"><input type="radio" name="bilder" value="m3"><span>M3</span></label>
-              <label class="ov-choice"><input type="radio" name="bilder" value="m4"><span>M4</span></label>
-              <label class="ov-choice"><input type="radio" name="bilder" value="m5"><span>M5</span></label>
-              <label class="ov-choice"><input type="radio" name="bilder" value="offen"><span>offen</span></label>
-            </div>
-          </fieldset>
-          <fieldset class="ov-dim">
-            <legend>Layout</legend>
-            <div class="ov-choices">
-              <label class="ov-choice"><input type="radio" name="layout" value="m1"><span>M1</span></label>
-              <label class="ov-choice"><input type="radio" name="layout" value="m2"><span>M2</span></label>
-              <label class="ov-choice"><input type="radio" name="layout" value="m3"><span>M3</span></label>
-              <label class="ov-choice"><input type="radio" name="layout" value="m4"><span>M4</span></label>
-              <label class="ov-choice"><input type="radio" name="layout" value="m5"><span>M5</span></label>
-              <label class="ov-choice"><input type="radio" name="layout" value="offen"><span>offen</span></label>
-            </div>
-          </fieldset>
-          <fieldset class="ov-dim">
-            <legend>Tonalität</legend>
-            <div class="ov-choices">
-              <label class="ov-choice"><input type="radio" name="ton" value="m1"><span>M1</span></label>
-              <label class="ov-choice"><input type="radio" name="ton" value="m2"><span>M2</span></label>
-              <label class="ov-choice"><input type="radio" name="ton" value="m3"><span>M3</span></label>
-              <label class="ov-choice"><input type="radio" name="ton" value="m4"><span>M4</span></label>
-              <label class="ov-choice"><input type="radio" name="ton" value="m5"><span>M5</span></label>
-              <label class="ov-choice"><input type="radio" name="ton" value="offen"><span>offen</span></label>
-            </div>
-          </fieldset>
-          <!--DIMENSIONS:end-->
-          <div class="ds-field">
-            <label for="notizen">Notizen</label>
-            <textarea id="notizen" name="notizen" rows="4" aria-describedby="notizen-hilfe"></textarea>
-            <p class="ds-field__help" id="notizen-hilfe">Was gefällt, was stört, was fehlt?</p>
+      <form class="ov-form" id="bogen" aria-label="Auswahl pro Bereich">
+        <!--DIMENSIONS:start-->
+        <fieldset class="ov-dim">
+          <legend>Gesamt-Favorit</legend>
+          <div class="ov-choices">
+            <label class="ov-choice"><input type="radio" name="gesamt" value="m1"><span>M1</span></label>
+            <label class="ov-choice"><input type="radio" name="gesamt" value="m2"><span>M2</span></label>
+            <label class="ov-choice"><input type="radio" name="gesamt" value="m3"><span>M3</span></label>
+            <label class="ov-choice"><input type="radio" name="gesamt" value="m4"><span>M4</span></label>
+            <label class="ov-choice"><input type="radio" name="gesamt" value="m5"><span>M5</span></label>
+            <label class="ov-choice"><input type="radio" name="gesamt" value="offen"><span>offen</span></label>
           </div>
-        </form>
-
-        <aside class="ov-result" aria-labelledby="ergebnis-titel">
-          <h3 id="ergebnis-titel">Ergebnis</h3>
-          <pre id="ergebnis" aria-live="polite"></pre>
-          <button class="ds-btn" type="button" data-copy>Ergebnis kopieren</button>
-          <p class="ov-result__hint">Auswahl und Antworten bleiben in diesem Browser gespeichert. Das IT-Team trägt das Ergebnis danach ins Ticket ein.</p>
-        </aside>
-      </div>
+        </fieldset>
+        <fieldset class="ov-dim">
+          <legend>Farben</legend>
+          <div class="ov-choices">
+            <label class="ov-choice"><input type="radio" name="farben" value="m1"><span>M1</span></label>
+            <label class="ov-choice"><input type="radio" name="farben" value="m2"><span>M2</span></label>
+            <label class="ov-choice"><input type="radio" name="farben" value="m3"><span>M3</span></label>
+            <label class="ov-choice"><input type="radio" name="farben" value="m4"><span>M4</span></label>
+            <label class="ov-choice"><input type="radio" name="farben" value="m5"><span>M5</span></label>
+            <label class="ov-choice"><input type="radio" name="farben" value="offen"><span>offen</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="ov-dim">
+          <legend>Schriften</legend>
+          <div class="ov-choices">
+            <label class="ov-choice"><input type="radio" name="schriften" value="m1"><span>M1</span></label>
+            <label class="ov-choice"><input type="radio" name="schriften" value="m2"><span>M2</span></label>
+            <label class="ov-choice"><input type="radio" name="schriften" value="m3"><span>M3</span></label>
+            <label class="ov-choice"><input type="radio" name="schriften" value="m4"><span>M4</span></label>
+            <label class="ov-choice"><input type="radio" name="schriften" value="m5"><span>M5</span></label>
+            <label class="ov-choice"><input type="radio" name="schriften" value="offen"><span>offen</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="ov-dim">
+          <legend>Buttons und Formen</legend>
+          <div class="ov-choices">
+            <label class="ov-choice"><input type="radio" name="formen" value="m1"><span>M1</span></label>
+            <label class="ov-choice"><input type="radio" name="formen" value="m2"><span>M2</span></label>
+            <label class="ov-choice"><input type="radio" name="formen" value="m3"><span>M3</span></label>
+            <label class="ov-choice"><input type="radio" name="formen" value="m4"><span>M4</span></label>
+            <label class="ov-choice"><input type="radio" name="formen" value="m5"><span>M5</span></label>
+            <label class="ov-choice"><input type="radio" name="formen" value="offen"><span>offen</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="ov-dim">
+          <legend>Bildformen</legend>
+          <div class="ov-choices">
+            <label class="ov-choice"><input type="radio" name="bilder" value="m1"><span>M1</span></label>
+            <label class="ov-choice"><input type="radio" name="bilder" value="m2"><span>M2</span></label>
+            <label class="ov-choice"><input type="radio" name="bilder" value="m3"><span>M3</span></label>
+            <label class="ov-choice"><input type="radio" name="bilder" value="m4"><span>M4</span></label>
+            <label class="ov-choice"><input type="radio" name="bilder" value="m5"><span>M5</span></label>
+            <label class="ov-choice"><input type="radio" name="bilder" value="offen"><span>offen</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="ov-dim">
+          <legend>Layout</legend>
+          <div class="ov-choices">
+            <label class="ov-choice"><input type="radio" name="layout" value="m1"><span>M1</span></label>
+            <label class="ov-choice"><input type="radio" name="layout" value="m2"><span>M2</span></label>
+            <label class="ov-choice"><input type="radio" name="layout" value="m3"><span>M3</span></label>
+            <label class="ov-choice"><input type="radio" name="layout" value="m4"><span>M4</span></label>
+            <label class="ov-choice"><input type="radio" name="layout" value="m5"><span>M5</span></label>
+            <label class="ov-choice"><input type="radio" name="layout" value="offen"><span>offen</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="ov-dim">
+          <legend>Tonalität</legend>
+          <div class="ov-choices">
+            <label class="ov-choice"><input type="radio" name="ton" value="m1"><span>M1</span></label>
+            <label class="ov-choice"><input type="radio" name="ton" value="m2"><span>M2</span></label>
+            <label class="ov-choice"><input type="radio" name="ton" value="m3"><span>M3</span></label>
+            <label class="ov-choice"><input type="radio" name="ton" value="m4"><span>M4</span></label>
+            <label class="ov-choice"><input type="radio" name="ton" value="m5"><span>M5</span></label>
+            <label class="ov-choice"><input type="radio" name="ton" value="offen"><span>offen</span></label>
+          </div>
+        </fieldset>
+        <!--DIMENSIONS:end-->
+        <div class="ds-field">
+          <label for="notizen">Notizen</label>
+          <textarea id="notizen" name="notizen" rows="4" aria-describedby="notizen-hilfe"></textarea>
+          <p class="ds-field__help" id="notizen-hilfe">Was gefällt, was stört, was fehlt?</p>
+        </div>
+      </form>
     </section>
 
     <section class="section" id="fragen" aria-labelledby="fragen-titel" style="background: var(--color-surface)">
       <div class="container">
         <div class="ov-section-head">
           <h2 id="fragen-titel">Fragen an euch</h2>
-          <p>Damit wir nach dem Treffen weiterbauen können. Antworten direkt eintragen und abhaken, was geklärt ist. Alles landet im Ergebnis beim Entscheidungsbogen.</p>
+          <p>Damit wir nach dem Treffen weiterbauen können. Antworten direkt eintragen und abhaken, was geklärt ist. Am Ende der Seite kopiert ihr alles in einem Rutsch.</p>
         </div>
         <div class="ov-questions" id="fragenliste">
           <div class="ov-qgroup">
@@ -432,17 +425,17 @@
             <ol class="ov-qlist">
               <li class="ov-q">
                 <label class="ov-q__text" for="a-snacks">Gehören Pizzaschnecken und andere Snacks fest zu eurem Angebot?</label>
-                <textarea class="ov-q__answer" id="a-snacks" name="a-snacks" rows="2" placeholder="Antwort eintragen"></textarea>
+                <textarea class="ov-q__answer" id="a-snacks" name="a-snacks" rows="1" placeholder="Antwort eintragen"></textarea>
                 <label class="ov-q__done"><input type="checkbox" name="q-snacks"> geklärt</label>
               </li>
               <li class="ov-q">
                 <label class="ov-q__text" for="a-holz">Welche Holzprodukte gibt es mit der BBS II, und dürfen wir sie zeigen?</label>
-                <textarea class="ov-q__answer" id="a-holz" name="a-holz" rows="2" placeholder="Antwort eintragen"></textarea>
+                <textarea class="ov-q__answer" id="a-holz" name="a-holz" rows="1" placeholder="Antwort eintragen"></textarea>
                 <label class="ov-q__done"><input type="checkbox" name="q-holz"> geklärt</label>
               </li>
               <li class="ov-q">
                 <label class="ov-q__text" for="a-3d">Welche 3D-Produkte sollen auf die Seite, und wie heißen sie bei euch?</label>
-                <textarea class="ov-q__answer" id="a-3d" name="a-3d" rows="2" placeholder="Antwort eintragen"></textarea>
+                <textarea class="ov-q__answer" id="a-3d" name="a-3d" rows="1" placeholder="Antwort eintragen"></textarea>
                 <label class="ov-q__done"><input type="checkbox" name="q-3d"> geklärt</label>
               </li>
             </ol>
@@ -452,12 +445,12 @@
             <ol class="ov-qlist">
               <li class="ov-q">
                 <label class="ov-q__text" for="a-ziel">Wen wollt ihr vor allem erreichen: Mitschüler, Lehrkräfte, Eltern, Messebesucher, Betriebe?</label>
-                <textarea class="ov-q__answer" id="a-ziel" name="a-ziel" rows="2" placeholder="Antwort eintragen"></textarea>
+                <textarea class="ov-q__answer" id="a-ziel" name="a-ziel" rows="1" placeholder="Antwort eintragen"></textarea>
                 <label class="ov-q__done"><input type="checkbox" name="q-ziel"> geklärt</label>
               </li>
               <li class="ov-q">
                 <label class="ov-q__text" for="a-ton">Sprechen wir die Leute mit „du“ oder mit „Sie“ an?</label>
-                <textarea class="ov-q__answer" id="a-ton" name="a-ton" rows="2" placeholder="Antwort eintragen"></textarea>
+                <textarea class="ov-q__answer" id="a-ton" name="a-ton" rows="1" placeholder="Antwort eintragen"></textarea>
                 <label class="ov-q__done"><input type="checkbox" name="q-ton"> geklärt</label>
               </li>
             </ol>
@@ -467,17 +460,17 @@
             <ol class="ov-qlist">
               <li class="ov-q">
                 <label class="ov-q__text" for="a-nav">Passt die Navigation: Produkte, Termine, Nachhaltigkeit, Messe, Über uns, Kontakt?</label>
-                <textarea class="ov-q__answer" id="a-nav" name="a-nav" rows="2" placeholder="Antwort eintragen"></textarea>
+                <textarea class="ov-q__answer" id="a-nav" name="a-nav" rows="1" placeholder="Antwort eintragen"></textarea>
                 <label class="ov-q__done"><input type="checkbox" name="q-nav"> geklärt</label>
               </li>
               <li class="ov-q">
                 <label class="ov-q__text" for="a-archiv">Soll das Archiv eine eigene Seite sein oder unter den Terminen liegen?</label>
-                <textarea class="ov-q__answer" id="a-archiv" name="a-archiv" rows="2" placeholder="Antwort eintragen"></textarea>
+                <textarea class="ov-q__answer" id="a-archiv" name="a-archiv" rows="1" placeholder="Antwort eintragen"></textarea>
                 <label class="ov-q__done"><input type="checkbox" name="q-archiv"> geklärt</label>
               </li>
               <li class="ov-q">
                 <label class="ov-q__text" for="a-quiz">Wie soll das Wasser-Plastik-Quiz aussehen, und wer liefert die Fragen?</label>
-                <textarea class="ov-q__answer" id="a-quiz" name="a-quiz" rows="2" placeholder="Antwort eintragen"></textarea>
+                <textarea class="ov-q__answer" id="a-quiz" name="a-quiz" rows="1" placeholder="Antwort eintragen"></textarea>
                 <label class="ov-q__done"><input type="checkbox" name="q-quiz"> geklärt</label>
               </li>
             </ol>
@@ -487,36 +480,48 @@
             <ol class="ov-qlist">
               <li class="ov-q">
                 <label class="ov-q__text" for="a-fotos">Wer liefert Fotos von Pizzaschnecken, Holzprodukten, Team und Aktionen, und bis wann?</label>
-                <textarea class="ov-q__answer" id="a-fotos" name="a-fotos" rows="2" placeholder="Antwort eintragen"></textarea>
+                <textarea class="ov-q__answer" id="a-fotos" name="a-fotos" rows="1" placeholder="Antwort eintragen"></textarea>
                 <label class="ov-q__done"><input type="checkbox" name="q-fotos"> geklärt</label>
               </li>
               <li class="ov-q">
                 <label class="ov-q__text" for="a-termine">Wer trägt später neue Verkaufstermine ein?</label>
-                <textarea class="ov-q__answer" id="a-termine" name="a-termine" rows="2" placeholder="Antwort eintragen"></textarea>
+                <textarea class="ov-q__answer" id="a-termine" name="a-termine" rows="1" placeholder="Antwort eintragen"></textarea>
                 <label class="ov-q__done"><input type="checkbox" name="q-termine"> geklärt</label>
               </li>
               <li class="ov-q">
                 <label class="ov-q__text" for="a-logo">Kommt aus Arbeitspaket 1 noch ein neues Logo oder neue Farben?</label>
-                <textarea class="ov-q__answer" id="a-logo" name="a-logo" rows="2" placeholder="Antwort eintragen"></textarea>
+                <textarea class="ov-q__answer" id="a-logo" name="a-logo" rows="1" placeholder="Antwort eintragen"></textarea>
                 <label class="ov-q__done"><input type="checkbox" name="q-logo"> geklärt</label>
               </li>
               <li class="ov-q">
                 <label class="ov-q__text" for="a-mail">Gibt es eine eigene E-Mail-Adresse für Anfragen, und wer beantwortet sie?</label>
-                <textarea class="ov-q__answer" id="a-mail" name="a-mail" rows="2" placeholder="Antwort eintragen"></textarea>
+                <textarea class="ov-q__answer" id="a-mail" name="a-mail" rows="1" placeholder="Antwort eintragen"></textarea>
                 <label class="ov-q__done"><input type="checkbox" name="q-mail"> geklärt</label>
               </li>
               <li class="ov-q">
                 <label class="ov-q__text" for="a-personen">Fotos ohne erkennbare Personen: Ist das für euch in Ordnung, oder holen wir Einwilligungen ein?</label>
-                <textarea class="ov-q__answer" id="a-personen" name="a-personen" rows="2" placeholder="Antwort eintragen"></textarea>
+                <textarea class="ov-q__answer" id="a-personen" name="a-personen" rows="1" placeholder="Antwort eintragen"></textarea>
                 <label class="ov-q__done"><input type="checkbox" name="q-personen"> geklärt</label>
               </li>
             </ol>
           </div>
         </div>
-        <div class="ov-questions__foot">
-          <button class="ds-btn ds-btn--primary" type="button" data-copy>Ergebnis kopieren</button>
-          <p class="ov-meta">Kopiert Entscheidungsbogen, Notizen und Antworten zusammen.</p>
+      </div>
+    </section>
+
+    <section class="section ov-finish" id="ergebnis" aria-labelledby="ergebnis-titel">
+      <div class="container">
+        <div class="ov-section-head">
+          <h2 id="ergebnis-titel">Fertig? Ergebnis kopieren.</h2>
+          <p>Ein Klick kopiert alles, was ihr im Entscheidungsbogen und bei den Fragen eingetragen habt, als Text. Den schickt ihr uns, zum Beispiel über das TaskCards-Board. Eure Eingaben bleiben in diesem Browser gespeichert, ihr könnt also jederzeit weitermachen.</p>
         </div>
+        <div class="ds-actions">
+          <button class="ds-btn" type="button" id="kopieren">Ergebnis kopieren</button>
+        </div>
+        <details class="ov-finish__preview" id="vorschau">
+          <summary>Text vorher ansehen</summary>
+          <pre id="ergebnis-text"></pre>
+        </details>
       </div>
     </section>
   </main>
@@ -545,7 +550,7 @@
       ];
       var KEY = "pb-entscheidungsbogen";
       var form = document.getElementById("bogen");
-      var out = document.getElementById("ergebnis");
+      var out = document.getElementById("ergebnis-text");
       var questions = document.getElementById("fragenliste");
       var items = Array.prototype.map.call(questions.querySelectorAll(".ov-q"), function (item) {
         return {
@@ -559,7 +564,7 @@
       // Antwortfelder wachsen mit dem Text, damit lange Antworten lesbar bleiben.
       function autosize(area) {
         area.style.height = "auto";
-        area.style.height = area.scrollHeight + 2 + "px";
+        area.style.height = area.scrollHeight + area.offsetHeight - area.clientHeight + "px";
       }
 
       function load() {
@@ -630,24 +635,24 @@
       });
       render();
 
-      document.querySelectorAll("[data-copy]").forEach(function (button) {
-        var label = button.textContent;
-        button.addEventListener("click", function () {
-          function done() { button.textContent = "Kopiert"; setTimeout(function () { button.textContent = label; }, 1800); }
-          if (navigator.clipboard && window.isSecureContext) {
-            navigator.clipboard.writeText(out.textContent).then(done, fallback);
-          } else {
-            fallback();
-          }
-          function fallback() {
-            var range = document.createRange();
-            range.selectNodeContents(out);
-            var selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try { document.execCommand("copy"); done(); } catch (e) { button.textContent = "Text markiert, mit Strg+C kopieren"; }
-          }
-        });
+      document.getElementById("kopieren").addEventListener("click", function () {
+        var button = this;
+        function done() { button.textContent = "Kopiert"; setTimeout(function () { button.textContent = "Ergebnis kopieren"; }, 1800); }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(out.textContent).then(done, fallback);
+        } else {
+          fallback();
+        }
+        function fallback() {
+          // Markieren klappt nur bei sichtbarem Text, darum die Vorschau dafür aufklappen.
+          document.getElementById("vorschau").open = true;
+          var range = document.createRange();
+          range.selectNodeContents(out);
+          var selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          try { document.execCommand("copy"); done(); } catch (e) { button.textContent = "Text markiert, mit Strg+C kopieren"; }
+        }
       });
     })();
   </script>
