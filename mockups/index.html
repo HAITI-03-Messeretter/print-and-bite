@@ -28,7 +28,6 @@
           <li><a href="#vergleich">Vergleich</a></li>
           <li><a href="#entscheidung">Entscheidung</a></li>
           <li><a href="#fragen">Fragen</a></li>
-          <li><a href="#design-system">Design-System</a></li>
         </ul>
       </nav>
       <details class="ds-menu">
@@ -39,7 +38,6 @@
           <li><a href="#vergleich">Vergleich</a></li>
           <li><a href="#entscheidung">Entscheidung</a></li>
           <li><a href="#fragen">Fragen</a></li>
-          <li><a href="#design-system">Design-System</a></li>
         </ul>
       </details>
       <span class="ov-meta">Treffen 02.10.2026</span>
@@ -322,7 +320,7 @@
     <section class="section container" id="entscheidung" aria-labelledby="entscheidung-titel">
       <div class="ov-section-head">
         <h2 id="entscheidung-titel">Entscheidungsbogen</h2>
-        <p>Mischen ist ausdrücklich erlaubt: zum Beispiel die Farben aus einer Variante und die Buttons aus einer anderen. Das Design-System macht solche Kombinationen einfach.</p>
+        <p>Mischen ist ausdrücklich erlaubt: zum Beispiel die Farben aus einer Variante und die Buttons aus einer anderen. Solche Kombinationen lassen sich leicht umsetzen.</p>
       </div>
 
       <div class="ov-decide">
@@ -416,8 +414,8 @@
         <aside class="ov-result" aria-labelledby="ergebnis-titel">
           <h3 id="ergebnis-titel">Ergebnis</h3>
           <pre id="ergebnis" aria-live="polite"></pre>
-          <button class="ds-btn" type="button" id="kopieren">Ergebnis kopieren</button>
-          <p class="ov-result__hint">Die Auswahl bleibt in diesem Browser gespeichert. Das IT-Team trägt sie danach ins Ticket ein.</p>
+          <button class="ds-btn" type="button" data-copy>Ergebnis kopieren</button>
+          <p class="ov-result__hint">Auswahl und Antworten bleiben in diesem Browser gespeichert. Das IT-Team trägt das Ergebnis danach ins Ticket ein.</p>
         </aside>
       </div>
     </section>
@@ -426,81 +424,99 @@
       <div class="container">
         <div class="ov-section-head">
           <h2 id="fragen-titel">Fragen an euch</h2>
-          <p>Damit wir nach dem Treffen weiterbauen können. Abhaken, was geklärt ist.</p>
+          <p>Damit wir nach dem Treffen weiterbauen können. Antworten direkt eintragen und abhaken, was geklärt ist. Alles landet im Ergebnis beim Entscheidungsbogen.</p>
         </div>
         <div class="ov-questions" id="fragenliste">
-          <div>
+          <div class="ov-qgroup">
             <h3>Angebot</h3>
-            <ul>
-              <li><label><input type="checkbox" name="q-snacks"> Gehören Pizzaschnecken und andere Snacks fest zu eurem Angebot?</label></li>
-              <li><label><input type="checkbox" name="q-holz"> Welche Holzprodukte gibt es mit der BBS II, und dürfen wir sie zeigen?</label></li>
-              <li><label><input type="checkbox" name="q-3d"> Welche 3D-Produkte sollen auf die Seite, und wie heißen sie bei euch?</label></li>
-            </ul>
+            <ol class="ov-qlist">
+              <li class="ov-q">
+                <label class="ov-q__text" for="a-snacks">Gehören Pizzaschnecken und andere Snacks fest zu eurem Angebot?</label>
+                <textarea class="ov-q__answer" id="a-snacks" name="a-snacks" rows="2" placeholder="Antwort eintragen"></textarea>
+                <label class="ov-q__done"><input type="checkbox" name="q-snacks"> geklärt</label>
+              </li>
+              <li class="ov-q">
+                <label class="ov-q__text" for="a-holz">Welche Holzprodukte gibt es mit der BBS II, und dürfen wir sie zeigen?</label>
+                <textarea class="ov-q__answer" id="a-holz" name="a-holz" rows="2" placeholder="Antwort eintragen"></textarea>
+                <label class="ov-q__done"><input type="checkbox" name="q-holz"> geklärt</label>
+              </li>
+              <li class="ov-q">
+                <label class="ov-q__text" for="a-3d">Welche 3D-Produkte sollen auf die Seite, und wie heißen sie bei euch?</label>
+                <textarea class="ov-q__answer" id="a-3d" name="a-3d" rows="2" placeholder="Antwort eintragen"></textarea>
+                <label class="ov-q__done"><input type="checkbox" name="q-3d"> geklärt</label>
+              </li>
+            </ol>
           </div>
-          <div>
+          <div class="ov-qgroup">
             <h3>Zielgruppen und Ton</h3>
-            <ul>
-              <li><label><input type="checkbox" name="q-ziel"> Wen wollt ihr vor allem erreichen: Mitschüler, Lehrkräfte, Eltern, Messebesucher, Betriebe?</label></li>
-              <li><label><input type="checkbox" name="q-ton"> Sprechen wir die Leute mit „du“ oder mit „Sie“ an?</label></li>
-            </ul>
+            <ol class="ov-qlist">
+              <li class="ov-q">
+                <label class="ov-q__text" for="a-ziel">Wen wollt ihr vor allem erreichen: Mitschüler, Lehrkräfte, Eltern, Messebesucher, Betriebe?</label>
+                <textarea class="ov-q__answer" id="a-ziel" name="a-ziel" rows="2" placeholder="Antwort eintragen"></textarea>
+                <label class="ov-q__done"><input type="checkbox" name="q-ziel"> geklärt</label>
+              </li>
+              <li class="ov-q">
+                <label class="ov-q__text" for="a-ton">Sprechen wir die Leute mit „du“ oder mit „Sie“ an?</label>
+                <textarea class="ov-q__answer" id="a-ton" name="a-ton" rows="2" placeholder="Antwort eintragen"></textarea>
+                <label class="ov-q__done"><input type="checkbox" name="q-ton"> geklärt</label>
+              </li>
+            </ol>
           </div>
-          <div>
+          <div class="ov-qgroup">
             <h3>Seitenstruktur</h3>
-            <ul>
-              <li><label><input type="checkbox" name="q-nav"> Passt die Navigation: Produkte, Termine, Nachhaltigkeit, Messe, Über uns, Kontakt?</label></li>
-              <li><label><input type="checkbox" name="q-archiv"> Soll das Archiv eine eigene Seite sein oder unter den Terminen liegen?</label></li>
-              <li><label><input type="checkbox" name="q-quiz"> Wie soll das Wasser-Plastik-Quiz aussehen, und wer liefert die Fragen?</label></li>
-            </ul>
+            <ol class="ov-qlist">
+              <li class="ov-q">
+                <label class="ov-q__text" for="a-nav">Passt die Navigation: Produkte, Termine, Nachhaltigkeit, Messe, Über uns, Kontakt?</label>
+                <textarea class="ov-q__answer" id="a-nav" name="a-nav" rows="2" placeholder="Antwort eintragen"></textarea>
+                <label class="ov-q__done"><input type="checkbox" name="q-nav"> geklärt</label>
+              </li>
+              <li class="ov-q">
+                <label class="ov-q__text" for="a-archiv">Soll das Archiv eine eigene Seite sein oder unter den Terminen liegen?</label>
+                <textarea class="ov-q__answer" id="a-archiv" name="a-archiv" rows="2" placeholder="Antwort eintragen"></textarea>
+                <label class="ov-q__done"><input type="checkbox" name="q-archiv"> geklärt</label>
+              </li>
+              <li class="ov-q">
+                <label class="ov-q__text" for="a-quiz">Wie soll das Wasser-Plastik-Quiz aussehen, und wer liefert die Fragen?</label>
+                <textarea class="ov-q__answer" id="a-quiz" name="a-quiz" rows="2" placeholder="Antwort eintragen"></textarea>
+                <label class="ov-q__done"><input type="checkbox" name="q-quiz"> geklärt</label>
+              </li>
+            </ol>
           </div>
-          <div>
+          <div class="ov-qgroup">
             <h3>Inhalte und Pflege</h3>
-            <ul>
-              <li><label><input type="checkbox" name="q-fotos"> Wer liefert Fotos von Pizzaschnecken, Holzprodukten, Team und Aktionen, und bis wann?</label></li>
-              <li><label><input type="checkbox" name="q-termine"> Wer trägt später neue Verkaufstermine ein?</label></li>
-              <li><label><input type="checkbox" name="q-logo"> Kommt aus Arbeitspaket 1 noch ein neues Logo oder neue Farben?</label></li>
-              <li><label><input type="checkbox" name="q-mail"> Gibt es eine eigene E-Mail-Adresse für Anfragen, und wer beantwortet sie?</label></li>
-              <li><label><input type="checkbox" name="q-personen"> Fotos ohne erkennbare Personen: Ist das für euch in Ordnung, oder holen wir Einwilligungen ein?</label></li>
-            </ul>
+            <ol class="ov-qlist">
+              <li class="ov-q">
+                <label class="ov-q__text" for="a-fotos">Wer liefert Fotos von Pizzaschnecken, Holzprodukten, Team und Aktionen, und bis wann?</label>
+                <textarea class="ov-q__answer" id="a-fotos" name="a-fotos" rows="2" placeholder="Antwort eintragen"></textarea>
+                <label class="ov-q__done"><input type="checkbox" name="q-fotos"> geklärt</label>
+              </li>
+              <li class="ov-q">
+                <label class="ov-q__text" for="a-termine">Wer trägt später neue Verkaufstermine ein?</label>
+                <textarea class="ov-q__answer" id="a-termine" name="a-termine" rows="2" placeholder="Antwort eintragen"></textarea>
+                <label class="ov-q__done"><input type="checkbox" name="q-termine"> geklärt</label>
+              </li>
+              <li class="ov-q">
+                <label class="ov-q__text" for="a-logo">Kommt aus Arbeitspaket 1 noch ein neues Logo oder neue Farben?</label>
+                <textarea class="ov-q__answer" id="a-logo" name="a-logo" rows="2" placeholder="Antwort eintragen"></textarea>
+                <label class="ov-q__done"><input type="checkbox" name="q-logo"> geklärt</label>
+              </li>
+              <li class="ov-q">
+                <label class="ov-q__text" for="a-mail">Gibt es eine eigene E-Mail-Adresse für Anfragen, und wer beantwortet sie?</label>
+                <textarea class="ov-q__answer" id="a-mail" name="a-mail" rows="2" placeholder="Antwort eintragen"></textarea>
+                <label class="ov-q__done"><input type="checkbox" name="q-mail"> geklärt</label>
+              </li>
+              <li class="ov-q">
+                <label class="ov-q__text" for="a-personen">Fotos ohne erkennbare Personen: Ist das für euch in Ordnung, oder holen wir Einwilligungen ein?</label>
+                <textarea class="ov-q__answer" id="a-personen" name="a-personen" rows="2" placeholder="Antwort eintragen"></textarea>
+                <label class="ov-q__done"><input type="checkbox" name="q-personen"> geklärt</label>
+              </li>
+            </ol>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="section container" id="design-system" aria-labelledby="ds-titel">
-      <div class="ov-ds">
-        <div>
-          <div class="ov-section-head">
-            <h2 id="ds-titel">Ein Design-System für alle fünf</h2>
-            <p>Alle Varianten benutzen dieselben Bausteine. Was sie unterscheidet, steht in wenigen Design-Tokens. Darum lässt sich eure Wahl später leicht anpassen.</p>
-          </div>
-          <ul class="ov-layers">
-            <li>
-              <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M174,47.75a254.19,254.19,0,0,0-41.45-38.3,8,8,0,0,0-9.18,0A254.19,254.19,0,0,0,82,47.75C54.51,79.32,40,112.6,40,144a88,88,0,0,0,176,0C216,112.6,201.49,79.32,174,47.75ZM128,216a72.08,72.08,0,0,1-72-72c0-57.23,55.47-105,72-118,16.53,13,72,60.75,72,118A72.08,72.08,0,0,1,128,216Zm55.89-62.66a57.6,57.6,0,0,1-46.56,46.55A8.75,8.75,0,0,1,136,200a8,8,0,0,1-1.32-15.89c16.57-2.79,30.63-16.85,33.44-33.45a8,8,0,0,1,15.78,2.68Z"/></svg>
-              <div><strong>Palette</strong><p class="muted">Die Rohfarben einer Variante, zum Beispiel Marzipan und Dusty Rose.</p></div>
-            </li>
-            <li>
-              <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"/></svg>
-              <div><strong>Bedeutung</strong><p class="muted">Was eine Farbe oder Form tut: Hintergrund, Text, Hauptaktion, Rundung der Buttons.</p></div>
-            </li>
-            <li>
-              <svg class="ds-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M223.68,66.15,135.68,18h0a15.88,15.88,0,0,0-15.36,0l-88,48.17a16,16,0,0,0-8.32,14v95.64a16,16,0,0,0,8.32,14l88,48.17a15.88,15.88,0,0,0,15.36,0l88-48.17a16,16,0,0,0,8.32-14V80.18A16,16,0,0,0,223.68,66.15ZM128,32h0l80.34,44L128,120,47.66,76ZM40,90l80,43.78v85.79L40,175.82Zm96,129.57V133.82L216,90v85.78Z"/></svg>
-              <div><strong>Bausteine</strong><p class="muted">Button, Karte, Termin, Quiz, Navigation. Sie lesen nur die Bedeutungs-Ebene.</p></div>
-            </li>
-          </ul>
+        <div class="ov-questions__foot">
+          <button class="ds-btn ds-btn--primary" type="button" data-copy>Ergebnis kopieren</button>
+          <p class="ov-meta">Kopiert Entscheidungsbogen, Notizen und Antworten zusammen.</p>
         </div>
-        <pre class="ov-code" aria-label="Beispiel für Design-Tokens"><code>/* themes/m2-retro-konditorei.css */
-:root {
-  --pal-marzipan: #F4DB9A;
-  --pal-himbeer:  <em>#6A1F33</em>;
-
-  --color-bg:        var(--pal-marzipan);
-  --color-primary:   var(--pal-himbeer);
-  --font-display:    "Shrikhand";
-  --font-body:       "League Spartan";
-
-  /* Buttons eckig statt rund? Eine Zeile: */
-  --radius-btn:      <em>0</em>;
-}</code></pre>
       </div>
     </section>
   </main>
@@ -508,7 +524,7 @@
   <footer class="ds-footer ov-footer">
     <div class="container">
       <span>Entwurf des IT-Teams Messeretter für PRINT&amp;BITE, ein Schülerunternehmen der BBS I Lüneburg</span>
-      <span>Stand 01.10.2026</span>
+      <span>Stand 02.10.2026</span>
     </div>
   </footer>
 
@@ -531,6 +547,20 @@
       var form = document.getElementById("bogen");
       var out = document.getElementById("ergebnis");
       var questions = document.getElementById("fragenliste");
+      var items = Array.prototype.map.call(questions.querySelectorAll(".ov-q"), function (item) {
+        return {
+          el: item,
+          text: item.querySelector(".ov-q__text").textContent.trim(),
+          answer: item.querySelector("textarea"),
+          done: item.querySelector('input[type="checkbox"]')
+        };
+      });
+
+      // Antwortfelder wachsen mit dem Text, damit lange Antworten lesbar bleiben.
+      function autosize(area) {
+        area.style.height = "auto";
+        area.style.height = area.scrollHeight + 2 + "px";
+      }
 
       function load() {
         try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
@@ -549,18 +579,27 @@
         });
         var notes = form.notizen.value.trim();
         if (notes) lines.push("", "Notizen: " + notes);
-        var done = [];
-        questions.querySelectorAll("input:checked").forEach(function (input) {
-          done.push("- " + input.parentElement.textContent.trim());
+        var answered = [];
+        var open = [];
+        items.forEach(function (q) {
+          var answer = q.answer.value.trim();
+          if (!answer && !q.done.checked) { open.push("- " + q.text); return; }
+          answered.push("- [" + (q.done.checked ? "geklärt" : "noch offen") + "] " + q.text);
+          if (answer) answered.push("  Antwort: " + answer.replace(/\n/g, "\n  "));
         });
-        if (done.length) lines.push("", "Geklärt:", done.join("\n"));
+        if (answered.length) lines.push("", "Fragen und Antworten:", answered.join("\n"));
+        if (open.length) lines.push("", "Noch ohne Antwort:", open.join("\n"));
         out.textContent = lines.join("\n");
       }
 
       function collect() {
-        var state = { notizen: form.notizen.value, fragen: {} };
+        var state = { notizen: form.notizen.value, fragen: {}, antworten: {} };
         form.querySelectorAll("input:checked").forEach(function (input) { state[input.name] = input.value; });
-        questions.querySelectorAll("input").forEach(function (input) { state.fragen[input.name] = input.checked; });
+        items.forEach(function (q) {
+          state.fragen[q.done.name] = q.done.checked;
+          if (q.answer.value) state.antworten[q.answer.name] = q.answer.value;
+          q.el.toggleAttribute("data-done", q.done.checked);
+        });
         save(state);
         render();
       }
@@ -568,36 +607,47 @@
       var state = load();
       Object.keys(state).forEach(function (name) {
         if (name === "notizen") { form.notizen.value = state.notizen || ""; return; }
-        if (name === "fragen") return;
+        if (name === "fragen" || name === "antworten") return;
         var input = form.querySelector('input[name="' + name + '"][value="' + state[name] + '"]');
         if (input) input.checked = true;
       });
-      Object.keys(state.fragen || {}).forEach(function (name) {
-        var input = questions.querySelector('input[name="' + name + '"]');
-        if (input) input.checked = !!state.fragen[name];
+      items.forEach(function (q) {
+        q.done.checked = !!(state.fragen || {})[q.done.name];
+        q.answer.value = (state.antworten || {})[q.answer.name] || "";
+        q.el.toggleAttribute("data-done", q.done.checked);
+        autosize(q.answer);
       });
 
       form.addEventListener("change", collect);
       form.addEventListener("input", collect);
       questions.addEventListener("change", collect);
+      questions.addEventListener("input", function (event) {
+        if (event.target.matches("textarea")) autosize(event.target);
+        collect();
+      });
+      window.addEventListener("resize", function () {
+        items.forEach(function (q) { autosize(q.answer); });
+      });
       render();
 
-      document.getElementById("kopieren").addEventListener("click", function () {
-        var button = this;
-        function done() { button.textContent = "Kopiert"; setTimeout(function () { button.textContent = "Ergebnis kopieren"; }, 1800); }
-        if (navigator.clipboard && window.isSecureContext) {
-          navigator.clipboard.writeText(out.textContent).then(done, fallback);
-        } else {
-          fallback();
-        }
-        function fallback() {
-          var range = document.createRange();
-          range.selectNodeContents(out);
-          var selection = window.getSelection();
-          selection.removeAllRanges();
-          selection.addRange(range);
-          try { document.execCommand("copy"); done(); } catch (e) { button.textContent = "Text markiert, mit Strg+C kopieren"; }
-        }
+      document.querySelectorAll("[data-copy]").forEach(function (button) {
+        var label = button.textContent;
+        button.addEventListener("click", function () {
+          function done() { button.textContent = "Kopiert"; setTimeout(function () { button.textContent = label; }, 1800); }
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(out.textContent).then(done, fallback);
+          } else {
+            fallback();
+          }
+          function fallback() {
+            var range = document.createRange();
+            range.selectNodeContents(out);
+            var selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try { document.execCommand("copy"); done(); } catch (e) { button.textContent = "Text markiert, mit Strg+C kopieren"; }
+          }
+        });
       });
     })();
   </script>

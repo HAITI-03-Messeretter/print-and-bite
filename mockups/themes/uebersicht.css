@@ -500,83 +500,98 @@
 
 .ov-questions {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-6) var(--space-7);
+  gap: var(--space-6);
   margin-top: var(--space-6);
 }
 
-.ov-questions h3 {
-  font-size: 1.25rem;
-  margin-bottom: var(--space-3);
-}
-
-.ov-questions ul {
+.ov-qgroup {
   display: grid;
-  gap: var(--space-2);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.ov-questions label {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-  cursor: pointer;
-}
-
-.ov-questions input {
-  flex: none;
-  width: 1.1rem;
-  height: 1.1rem;
-  margin-top: 0.3em;
-  accent-color: var(--color-primary);
-}
-
-/* Design-System */
-
-.ov-ds {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: var(--space-7);
+  grid-template-columns: 13rem minmax(0, 1fr);
+  gap: var(--space-3) var(--space-6);
   align-items: start;
 }
 
-.ov-code {
-  margin: 0;
-  padding: var(--space-5);
-  overflow-x: auto;
-  border-radius: var(--radius-card);
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  font-family: var(--font-accent);
-  font-size: 0.82rem;
-  line-height: 1.65;
+.ov-qgroup h3 {
+  font-size: 1.25rem;
+  padding-top: var(--space-4);
 }
 
-.ov-code em {
-  color: #f2b8c0;
-  font-style: normal;
-}
-
-.ov-layers {
+.ov-qlist {
   display: grid;
-  gap: var(--space-4);
-  margin: var(--space-5) 0 0;
+  gap: var(--space-3);
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.ov-layers li {
+.ov-q {
   display: grid;
-  grid-template-columns: 2.25rem 1fr;
-  gap: var(--space-3);
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: var(--color-bg);
+  transition: border-color var(--dur) var(--ease);
 }
 
-.ov-layers .ds-icon {
-  width: 1.6rem;
-  height: 1.6rem;
-  color: var(--pal-rose-deep);
+.ov-q[data-done] {
+  border-color: var(--color-text);
+}
+
+.ov-q__text {
+  font-weight: 600;
+}
+
+.ov-q__answer {
+  width: 100%;
+  padding: 0.6em 0.85em;
+  border: 1px solid var(--color-text-muted);
+  border-radius: 10px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.ov-q__answer::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+.ov-q__answer:focus-visible {
+  border-color: var(--color-focus);
+  outline-offset: 1px;
+}
+
+.ov-q__done {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  justify-self: start;
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.ov-q__done input {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0;
+  accent-color: var(--color-primary);
+}
+
+.ov-q[data-done] .ov-q__done {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.ov-questions__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+  margin-top: var(--space-6);
 }
 
 .ov-section-head {
@@ -606,7 +621,6 @@
   .ov-hero,
   .ov-start,
   .ov-decide,
-  .ov-ds,
   .ov-variant--wide {
     grid-template-columns: 1fr;
   }
@@ -618,8 +632,12 @@
 
 @media (max-width: 760px) {
   .ov-variants,
-  .ov-questions {
+  .ov-qgroup {
     grid-template-columns: 1fr;
+  }
+
+  .ov-qgroup h3 {
+    padding-top: 0;
   }
 
   .ov-hero__strip {
@@ -645,7 +663,8 @@
 @media print {
   .ds-header,
   .ov-hero__strip,
-  .ov-result .ds-btn {
+  [data-copy],
+  .ov-questions__foot {
     display: none;
   }
 }
