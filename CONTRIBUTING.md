@@ -4,9 +4,7 @@ Dieses Repository wird gemeinsam im Rahmen des Berufsschulprojekts **Print & Bit
 
 ## Workflow
 
-Änderungen werden grundsätzlich über einen eigenen Branch und einen Pull Request eingebracht.
-
-Direkte Änderungen auf `main` sollen vermieden werden.
+Jede Änderung kommt über einen eigenen Branch und einen Pull Request in `main`.
 
 ## Branch-Namen
 
@@ -36,14 +34,9 @@ Branches sollen grundsätzlich vom aktuellen Stand von `main` erstellt werden.
 
 ## Pull Requests
 
-Vor dem Erstellen eines Pull Requests:
+Pull Requests werden mit der Vorlage `.github/PULL_REQUEST_TEMPLATE.md` erstellt. Ihre Checkliste ist vor dem Erstellen vollständig abgehakt.
 
-- Änderungen lokal prüfen
-- unnötige Debug-Ausgaben entfernen
-- relevante Änderungen dokumentieren
-- wenn möglich das zugehörige Issue verknüpfen
-
-Beispiel:
+Ein zugehöriges Issue wird im Pull Request verknüpft:
 
 ```text
 Closes #12
